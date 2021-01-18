@@ -1,3 +1,36 @@
 .footer {
-    // Styles
+    &-down{
+        background-color: aqua;
+        display: block;
+        position: relative;
+        text-align: right;
+
+        &__heading {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: $font_light;
+            color: $text-color-white;
+        }
+
+        &__AmnioNLink-text {  
+            &:link, 
+            &:visited {
+                position: relative;
+                display: inline-block;
+                text-align: center;
+                width: 12rem;
+                text-decoration: none;
+                color: $text-color-white;
+                font-weight: $font_light;
+            }
+
+            &:hover{
+                
+            }
+        }
+    }
 }

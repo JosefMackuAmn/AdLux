@@ -57,3 +57,26 @@ body {
   font-weight: 400; }
   .paragraph-small span {
     font-weight: 700; }
+
+.footer-down {
+  background-color: aqua;
+  display: block;
+  position: relative;
+  text-align: right; }
+  .footer-down__heading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #ffff; }
+  .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 12rem;
+    text-decoration: none;
+    color: #ffff;
+    font-weight: 300; }
