@@ -15,6 +15,10 @@ app.post('/email', (req, res) => {
 
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+app.get('*', (req, res) => {
+    res.redirect('/');
 })
 
 const PORT = process.env.PORT || 8080;

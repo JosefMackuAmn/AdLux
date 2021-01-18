@@ -4,24 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "node-sass ./src/scss/main.scss ./public/css/style.css -w",
+    "compile:css": "node-sass ./src/scss/main.scss ./public/css/style.css -w",
+    "compile:js": "webpack --watch",
     "start:build": "tsc -w",
     "start:run": "nodemon build/index.js",
     "start": "concurrently npm:start:*",
-    "dev": "concurrently npm:start npm:compile"
+    "dev": "concurrently npm:start npm:compile:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^5.0.0",
-    "ts-node": "^9.1.1"
+    "ts-node": "^9.1.1",
+    "concurrently": "^5.3.0",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@types/body-parser": "^1.19.0",
     "@types/express": "^4.17.11",
     "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1"
   }

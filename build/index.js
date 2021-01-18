@@ -16,6 +16,9 @@ app.post('/email', function (req, res) {
 app.get('/', function (req, res) {
     res.render('index');
 });
+app.get('*', function (req, res) {
+    res.redirect('/');
+});
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
     console.log('Listening on port 8080');
