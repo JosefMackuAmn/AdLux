@@ -8,8 +8,7 @@
     "compile:js": "webpack --watch",
     "start:build": "tsc -w",
     "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*",
-    "dev": "concurrently npm:start npm:compile:*"
+    "start": "concurrently npm:start:* npm:compile:*"
   },
   "keywords": [],
   "author": "",

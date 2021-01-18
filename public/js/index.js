@@ -2,7 +2,7 @@
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-console.log('Hi');
+console.log('Hi there');
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
