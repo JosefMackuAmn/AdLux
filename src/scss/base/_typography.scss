@@ -1,0 +1,58 @@
+.heading-1 {
+    font-family: $font_bebasNeue;
+
+    &--big {
+        color: $color-grey-dark;
+        font-size: 120rem;
+    }
+    &--small {
+        color: $color-grey;
+        font-size: 60rem;
+    }
+}
+.heading-2 {
+    color: $color-blue;
+    font-size: 25rem;
+    font-weight: $font_medium;
+}
+.heading-3 {
+    color: $color-grey-light;
+    font-size: 20rem;
+    font-size: $font_semiBold;
+}
+.heading-4 {
+    color: $color-grey-light;
+    font-size: 22rem;
+    font-weight: $font_semiBold;
+}
+
+.paragraph-big {
+    color: $color-grey-light;
+    font-size: 22rem;
+    font-weight: $font_regular;
+
+    & span {
+        font-weight: $font_black;
+    }
+    &--blue span {
+        color: $color-blue;
+    }
+}
+.paragraph-normal {
+    color: $color-white;
+    font-size: 20rem;
+    font-weight: $font_light;
+
+    & span {
+        font-weight: $font_black;
+    }
+}
+.paragraph-small {
+    color: $color-grey-light;
+    font-size: 18rem;
+    font-weight: $font_regular;
+
+    & span {
+        font-weight: $font_bold;
+    }
+}

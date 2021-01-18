@@ -4,8 +4,56 @@
   box-sizing: inherit; }
 
 html {
+  font-family: "Raleway", sans-serif;
   font-size: 62.5%; }
 
 body {
   box-sizing: border-box;
   font-size: 1.8rem; }
+
+.heading-1 {
+  font-family: "Bebas Neue", cursive; }
+  .heading-1--big {
+    color: #ACAFAF;
+    font-size: 120rem; }
+  .heading-1--small {
+    color: #E8E8E8;
+    font-size: 60rem; }
+
+.heading-2 {
+  color: #36AEB7;
+  font-size: 25rem;
+  font-weight: 500; }
+
+.heading-3 {
+  color: #F1F1F1;
+  font-size: 20rem;
+  font-size: 600; }
+
+.heading-4 {
+  color: #F1F1F1;
+  font-size: 22rem;
+  font-weight: 600; }
+
+.paragraph-big {
+  color: #F1F1F1;
+  font-size: 22rem;
+  font-weight: 400; }
+  .paragraph-big span {
+    font-weight: 900; }
+  .paragraph-big--blue span {
+    color: #36AEB7; }
+
+.paragraph-normal {
+  color: white;
+  font-size: 20rem;
+  font-weight: 300; }
+  .paragraph-normal span {
+    font-weight: 900; }
+
+.paragraph-small {
+  color: #F1F1F1;
+  font-size: 18rem;
+  font-weight: 400; }
+  .paragraph-small span {
+    font-weight: 700; }

@@ -1,0 +1,43 @@
+// Headings
+
+heading-1:
+    benefits:
+        Nadpis (&--big)
+    solution:
+        Nadpis (&--small)
+
+heading-2:
+    info__revolution:
+        Nadpis
+
+heading-3:
+    benefits:
+        Podnadpis
+
+heading-4:
+    products:
+        Nadpis produktu
+
+
+// Paragraphs
+
+paragraph-big:
+    header:
+        Vyšší návštěvnost, vyšší příjmy....
+    info__revolution:
+        Odstavec
+    Solution:
+        Úvodní odstavec
+
+paragraph-normal:
+    info__meaning:
+        Texty
+
+paragraph-small:
+    header:
+        Pro obchodní centra a pasáže
+    benefits:
+        Odstavce
+    products:
+        Popis produktu
+
