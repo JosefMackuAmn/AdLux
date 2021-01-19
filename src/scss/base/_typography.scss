@@ -6,26 +6,26 @@
 
     &--big {
         color: $color-grey-dark;
-        font-size: 120rem;
+        font-size: $font_120;
     }
     &--small {
         color: $color-grey;
-        font-size: 60rem;
+        font-size: $font_60;
     }
 }
 .heading-2 {
     color: $color-blue;
-    font-size: 25rem;
+    font-size: $font_25;
     font-weight: $font_medium;
 }
 .heading-3 {
     color: $color-grey-light;
-    font-size: 20rem;
+    font-size: $font_20;
     font-size: $font_semiBold;
 }
 .heading-4 {
     color: $color-grey-light;
-    font-size: 22rem;
+    font-size: $font_22;
     font-weight: $font_semiBold;
 }
 
@@ -35,7 +35,7 @@
 
 .paragraph-big {
     color: $color-grey-light;
-    font-size: 22rem;
+    font-size: $font_22;
     font-weight: $font_regular;
 
     & span {
@@ -47,7 +47,7 @@
 }
 .paragraph-normal {
     color: $color-white;
-    font-size: 20rem;
+    font-size: $font_20;
     font-weight: $font_light;
 
     & span {
@@ -56,7 +56,7 @@
 }
 .paragraph-small {
     color: $color-grey-light;
-    font-size: 18rem;
+    font-size: $font_18;
     font-weight: $font_regular;
 
     & span {

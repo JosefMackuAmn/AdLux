@@ -5,7 +5,8 @@
 
 html {
   font-family: "Raleway", sans-serif;
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  background-image: linear-gradient(to bottom, rgba(4, 14, 15, 0.98), #040E0F); }
 
 body {
   box-sizing: border-box;
@@ -15,29 +16,29 @@ body {
   font-family: "Bebas Neue", cursive; }
   .heading-1--big {
     color: #ACAFAF;
-    font-size: 120rem; }
+    font-size: 12rem; }
   .heading-1--small {
     color: #E8E8E8;
-    font-size: 60rem; }
+    font-size: 6rem; }
 
 .heading-2 {
   color: #36AEB7;
-  font-size: 25rem;
+  font-size: 2.5rem;
   font-weight: 500; }
 
 .heading-3 {
   color: #F1F1F1;
-  font-size: 20rem;
+  font-size: 2rem;
   font-size: 600; }
 
 .heading-4 {
   color: #F1F1F1;
-  font-size: 22rem;
+  font-size: 2.2rem;
   font-weight: 600; }
 
 .paragraph-big {
   color: #F1F1F1;
-  font-size: 22rem;
+  font-size: 2.2rem;
   font-weight: 400; }
   .paragraph-big span {
     font-weight: 900; }
@@ -46,14 +47,14 @@ body {
 
 .paragraph-normal {
   color: white;
-  font-size: 20rem;
+  font-size: 2rem;
   font-weight: 300; }
   .paragraph-normal span {
     font-weight: 900; }
 
 .paragraph-small {
   color: #F1F1F1;
-  font-size: 18rem;
+  font-size: 1.8rem;
   font-weight: 400; }
   .paragraph-small span {
     font-weight: 700; }
