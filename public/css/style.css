@@ -58,3 +58,63 @@ body {
   font-weight: 400; }
   .paragraph-small span {
     font-weight: 700; }
+
+.footer-up {
+  background-color: black;
+  color: #ffff;
+  position: relative; }
+  .footer-up__AdLux-logo {
+    position: relative;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem; }
+  .footer-up__contacts {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-40%, -50%);
+    text-decoration: none;
+    color: #ffff;
+    font-weight: 300;
+    transition: all .1s; }
+  .footer-up__AmnioN-link-logo:hover {
+    transform: translate(-40%, -50%) scale(1.1) translateY(-0.2rem); }
+  .footer-up__AmnioN-link-logo:active {
+    transform: translate(-40%, -50%) scale(1.1) translateY(-0.1rem); }
+
+.footer-down {
+  background-color: aqua;
+  display: block;
+  position: relative;
+  text-align: right; }
+  .footer-down__heading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 400;
+    color: #ffff; }
+  .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 7rem;
+    text-decoration: none;
+    padding: 1rem 0;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #ffff;
+    transition: all .1s; }
+  .footer-down__AmnioNLink-text:hover {
+    transform: scale(1.1) translateY(-0.2rem);
+    text-shadow: 0.3rem 0.3rem 0.5rem black; }
+  .footer-down__AmnioNLink-text:active {
+    transform: scale(1.1) translateY(-0.1rem); }
