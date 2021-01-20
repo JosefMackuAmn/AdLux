@@ -10,16 +10,18 @@ html {
 
 body {
   box-sizing: border-box;
-  font-size: 1.8rem; }
+  font-size: 1.6rem; }
 
-.heading-1 {
-  font-family: "Bebas Neue", cursive; }
-  .heading-1--big {
-    color: #ACAFAF;
-    font-size: 12rem; }
-  .heading-1--small {
-    color: #E8E8E8;
-    font-size: 6rem; }
+.heading-1--big {
+  font-family: "Bebas Neue", cursive;
+  color: #ACAFAF;
+  font-size: 9rem;
+  letter-spacing: 1.8rem; }
+
+.heading-1--small {
+  font-family: "Bebas Neue", cursive;
+  color: #E8E8E8;
+  font-size: 6rem; }
 
 .heading-2 {
   color: #36AEB7;
@@ -28,8 +30,9 @@ body {
 
 .heading-3 {
   color: #F1F1F1;
-  font-size: 2rem;
-  font-size: 600; }
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 3px; }
 
 .heading-4 {
   color: #F1F1F1;
@@ -47,17 +50,60 @@ body {
 
 .paragraph-normal {
   color: white;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 300; }
   .paragraph-normal span {
     font-weight: 900; }
 
 .paragraph-small {
   color: #F1F1F1;
-  font-size: 1.8rem;
-  font-weight: 400; }
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  line-height: 155%; }
   .paragraph-small span {
-    font-weight: 700; }
+    font-weight: 600; }
+
+.benefits {
+  height: 100vh;
+  width: 100%;
+  display: flex; }
+  .benefits__img {
+    height: 100%; }
+  .benefits__content {
+    width: 100%;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column; }
+    .benefits__content .heading-1, .benefits__content .heading-3 {
+      margin-left: 14rem; }
+    .benefits__content .heading-3 {
+      margin-top: -1rem; }
+    .benefits__content__animators {
+      width: 100%;
+      padding: 0 14rem;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .benefits__content__animators p {
+        width: 35rem;
+        text-align: center; }
+  .benefits__stripe {
+    width: 100%;
+    background-image: linear-gradient(to right bottom, #043033, #051C1E);
+    padding: 10rem 12rem 10rem 14rem;
+    margin: 5rem 0 3.5rem 0; }
+    .benefits__stripe__subheading {
+      margin-bottom: 4rem; }
+    .benefits__stripe__text {
+      display: flex;
+      justify-content: space-between; }
+      .benefits__stripe__text > *:first-child {
+        width: 46%; }
+      .benefits__stripe__text > *:nth-child(2) {
+        width: 42%; }
+    .benefits__stripe__list {
+      list-style: none; }
 
 .footer-up {
   background-color: black;

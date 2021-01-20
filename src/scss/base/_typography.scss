@@ -2,13 +2,14 @@
 // HEADINGS
 
 .heading-1 {
-    font-family: $font_bebasNeue;
-
     &--big {
+        font-family: $font_bebasNeue;
         color: $color-grey-dark;
         font-size: $font_120;
+        letter-spacing: 1.8rem;
     }
     &--small {
+        font-family: $font_bebasNeue;
         color: $color-grey;
         font-size: $font_60;
     }
@@ -21,7 +22,8 @@
 .heading-3 {
     color: $color-grey-light;
     font-size: $font_20;
-    font-size: $font_semiBold;
+    font-weight: $font_medium;
+    letter-spacing: 3px;
 }
 .heading-4 {
     color: $color-grey-light;
@@ -57,9 +59,11 @@
 .paragraph-small {
     color: $color-grey-light;
     font-size: $font_18;
-    font-weight: $font_regular;
+    font-weight: $font_light;
+    letter-spacing: 1.5px;
+    line-height: 155%;
 
     & span {
-        font-weight: $font_bold;
+        font-weight: $font_semiBold;
     }
 }
