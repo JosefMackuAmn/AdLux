@@ -28,8 +28,6 @@ body {
     background-color: $color-blue-stripe-2;
     box-shadow: 2px 1px 5px 1px $color-white-overlay-lightest inset;
 
-    transition: all .2s;
-
     &:hover {
         background-color: $color-blue-stripe-1;
     }
