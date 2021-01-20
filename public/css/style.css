@@ -7,6 +7,9 @@ html {
   background-image: linear-gradient(to bottom, rgba(4, 14, 15, 0.98), #040E0F);
   font-family: "Raleway", sans-serif;
   font-size: 62.5%; }
+  @media only screen and (max-width: 1400px) {
+    html {
+      font-size: 56.25%; } }
 
 body {
   box-sizing: border-box;
@@ -58,6 +61,9 @@ body {
   font-weight: 300;
   letter-spacing: 2px;
   line-height: 135%; }
+  @media only screen and (max-width: 1250px) {
+    .paragraph-big {
+      font-size: 1.7rem; } }
   .paragraph-big span {
     font-weight: 800; }
   .paragraph-big--blue span {
@@ -81,14 +87,27 @@ body {
   .paragraph-small span {
     font-weight: 600; }
 
-.info__revolution {
+.info .info__revolution, .info .info__meaning {
   height: 100vh;
-  padding: 26rem 25rem 26rem 26rem;
+  padding: 26rem;
+  padding-right: 25rem; }
+  @media only screen and (max-width: 1700px) {
+    .info .info__revolution, .info .info__meaning {
+      padding: 20rem;
+      padding-right: 19rem; } }
+  @media only screen and (max-width: 1550px) {
+    .info .info__revolution, .info .info__meaning {
+      padding: 15rem; } }
+  @media only screen and (max-width: 1100px) {
+    .info .info__revolution, .info .info__meaning {
+      padding: 10rem; } }
+
+.info__revolution {
   display: flex;
   align-items: center; }
   .info__revolution__content {
     display: flex;
-    padding: 3rem;
+    padding: 3rem 0 3rem 5rem;
     border-left: 2px solid #36AEB7;
     transform: translateY(12vh);
     position: relative;
@@ -106,19 +125,20 @@ body {
     .info__revolution__content::after {
       bottom: 0; }
     .info__revolution__content .heading-2 {
-      margin-right: 6rem;
+      margin-right: 8rem;
       display: flex;
       align-items: center; }
 
 .info__meaning {
-  height: 100vh;
-  padding: 26rem 25rem 26rem 26rem;
   display: flex;
   align-items: center;
   justify-content: space-between; }
   .info__meaning__text-wrap {
     width: 32rem;
     transform: translateY(-12vh); }
+    @media only screen and (max-width: 1250px) {
+      .info__meaning__text-wrap {
+        width: 26rem; } }
   .info__meaning__text {
     text-align: center; }
 

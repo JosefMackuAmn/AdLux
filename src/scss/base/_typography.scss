@@ -44,6 +44,10 @@
     letter-spacing: 2px;
     line-height: 135%;
 
+    @media only screen and (max-width: 1250px) {
+        font-size: $font_20;
+    }
+
     & span {
         font-weight: $font_extraBold;
     }
