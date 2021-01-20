@@ -5,13 +5,28 @@
 }
 
 html {
+    background-image: linear-gradient(to bottom, rgba($color-blue-black, .98), $color-blue-black );
+    
     font-family: $font_raleway;
     font-size: 62.5%;
-
-    background-image: linear-gradient(to bottom, rgba($color-blue-black, .98), $color-blue-black );
 }
 
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
+}
+
+::-webkit-scrollbar {
+    background-color: $color-blue-black;
+    border-left: 1px solid $color-white-overlay-lightest;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $color-blue-stripe-2;
+    box-shadow: 2px 1px 5px 1px $color-white-overlay-lightest inset;
+
+    transition: all .2s;
+
+    &:hover {
+        background-color: $color-blue-stripe-1;
+    }
 }

@@ -4,6 +4,7 @@ $text-color-white: #ffff;
 
 // Shades
 $color-white: white;
+$color-white-overlay-lightest: rgba($color-white, .02);
 $color-grey-light: #F1F1F1;
 $color-grey: #E8E8E8;
 $color-grey-dark: #ACAFAF;
@@ -25,10 +26,11 @@ $font_regular: 400;
 $font_medium: 500;
 $font_semiBold: 600;
 $font_bold: 700;
+$font_extraBold: 800;
 $font_black: 900;
 
 // Sizes
-$font_18: 1.4rem;
+$font_18: 1.5rem;
 $font_20: 1.7rem;
 $font_22: 2.2rem;
 $font_25: 2.5rem;

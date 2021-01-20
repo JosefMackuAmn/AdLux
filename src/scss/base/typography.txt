@@ -28,8 +28,6 @@ paragraph-big:
         Odstavec
     Solution:
         Úvodní odstavec
-
-paragraph-normal:
     info__meaning:
         Texty
 

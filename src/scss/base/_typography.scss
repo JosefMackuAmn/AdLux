@@ -18,6 +18,8 @@
     color: $color-blue;
     font-size: $font_25;
     font-weight: $font_medium;
+    letter-spacing: 2px;
+    line-height: 135%;
 }
 .heading-3 {
     color: $color-grey-light;
@@ -38,16 +40,18 @@
 .paragraph-big {
     color: $color-grey-light;
     font-size: $font_22;
-    font-weight: $font_regular;
+    font-weight: $font_light;
+    letter-spacing: 2px;
+    line-height: 135%;
 
     & span {
-        font-weight: $font_black;
+        font-weight: $font_extraBold;
     }
     &--blue span {
         color: $color-blue;
     }
 }
-.paragraph-normal {
+/* .paragraph-normal {
     color: $color-white;
     font-size: $font_20;
     font-weight: $font_light;
@@ -55,7 +59,7 @@
     & span {
         font-weight: $font_black;
     }
-}
+} */
 .paragraph-small {
     color: $color-grey-light;
     font-size: $font_18;

@@ -2,9 +2,12 @@ $benefits-margin: 14rem;
 
 .benefits {
     height: 100vh;
+    max-height: 90rem;
+    min-height: 70rem;
     width: 100%;
 
     display: flex;
+    align-items: center;
 
     &__img {
         height: 100%;
@@ -59,9 +62,6 @@ $benefits-margin: 14rem;
         }
         &__list {
             list-style: none;
-        }
-        &__item {
-            
         }
     }
 }

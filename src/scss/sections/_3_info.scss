@@ -1,8 +1,59 @@
 .info {
     &__revolution {
-        
+        height: 100vh;
+        padding: 26rem 25rem 26rem 26rem;
+
+        display: flex;
+        align-items: center;
+
+        &__content {
+            display: flex;
+            padding: 3rem;
+            border-left: 2px solid $color-blue;
+            transform: translateY(12vh);
+
+            position: relative;
+            z-index: 2;
+
+            &::before, &::after {
+                content: "";
+                width: 30rem;
+                height: 2px;
+                background-image: linear-gradient(to right, $color-blue, transparent);
+                
+                display: block;
+
+                position: absolute;
+                left: 0;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            & .heading-2 {
+                margin-right: 6rem;
+
+                display: flex;
+                align-items: center;
+            }
+        }
     }
     &__meaning {
+        height: 100vh;
+        padding: 26rem 25rem 26rem 26rem;
 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__text-wrap {
+            width: 32rem;
+            transform: translateY(-12vh);
+        }
+        &__text {
+            text-align: center;
+        }
     }
 }
