@@ -3,11 +3,11 @@
         background-color: $color-blue-black;
         color: $text-color-white;
         position: relative;
+        height: 5rem;
         &__AdLux-logo {
             position: relative;
             display: inline-block;
             width: 5rem;
-            height: 5rem;
         }
         &__contacts {
             display: inline-block;
@@ -19,9 +19,12 @@
         &__AmnioN-link-logo {
             &:link, 
             &:visited {
+                height: 7rem;
+                width: 7rem;
                 position: absolute;
-                top: 50%;
+                top: 1rem;
                 right: 0;
+                bottom: 3rem;
                 transform: translate(-90%, -50%);
                 text-decoration: none;
                 color: $text-color-white;
@@ -43,14 +46,15 @@
         display: block;
         position: relative;
         text-align: right;
+        height: 8rem;
 
         &__heading {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
-            font-weight: $font_regular;
+            font-size: 3.5rem;
+            font-weight: $font_medium;
             color: $text-color-white;            
         }
 
@@ -60,22 +64,22 @@
                 position: relative;
                 display: inline-block;
                 text-align: center;
-                width: 10rem;
+                width: 17rem;
                 text-decoration: none;
-                padding: 1.1rem 0;
-                padding-right: 0.5rem;
-                font-size: 1.5rem;
+                padding: 1.3rem 0;
+                padding-right: 3rem;
+                font-size: 2rem;
                 font-weight: $font_light;
                 color: $text-color-white;
                 transition: all .1s;
             }
 
             &:hover{
-                transform:  translateY(-0.2rem);
-                text-shadow: 0.3rem 0.3rem 0.5rem rgba(black, 1);
+                transform: translateY(-0.4rem);
+                text-shadow: 0.3rem 0.3rem 1rem rgba(black, 1);
             }
             &:active {                
-                transform: translateY(-0.1rem);
+                transform: translateY(-0.2rem);
             }
 
         }

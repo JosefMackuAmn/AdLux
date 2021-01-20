@@ -1,3 +1,37 @@
 .contact {
-    // Styles
+    height: 100vh;
+    position: relative;
+    &-content {
+        width: 104.6rem;
+        //background-color: red;
+        margin:0 auto;
+        &__Adlux-logo {
+            text-align: center;
+        }
+
+        &-table {
+            &-row{
+                margin-bottom: 2rem;
+            }
+            &__input{
+                //background-color: green;
+                height: 4.1rem;
+                width: 94.3rem;
+                font-size: 2rem;
+            }
+            &__label{
+                color: $text-color-white;
+                margin: 0 auto;
+                font-size: 2.2rem;
+                font-weight: $font_regular;
+                &-box{
+                    display: inline-block;
+                    width: 6.8rem;
+                    margin-right: 3rem;
+
+                }
+            }
+            
+        }
+    }
 }

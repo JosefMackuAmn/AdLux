@@ -191,15 +191,39 @@ body {
     .benefits__stripe__list {
       list-style: none; }
 
+.contact {
+  height: 100vh;
+  position: relative; }
+  .contact-content {
+    width: 104.6rem;
+    margin: 0 auto; }
+    .contact-content__Adlux-logo {
+      text-align: center; }
+    .contact-content-table-row {
+      margin-bottom: 2rem; }
+    .contact-content-table__input {
+      height: 4.1rem;
+      width: 94.3rem;
+      font-size: 2rem; }
+    .contact-content-table__label {
+      color: #ffff;
+      margin: 0 auto;
+      font-size: 2.2rem;
+      font-weight: 400; }
+      .contact-content-table__label-box {
+        display: inline-block;
+        width: 6.8rem;
+        margin-right: 3rem; }
+
 .footer-up {
   background-color: #040E0F;
   color: #ffff;
-  position: relative; }
+  position: relative;
+  height: 5rem; }
   .footer-up__AdLux-logo {
     position: relative;
     display: inline-block;
-    width: 5rem;
-    height: 5rem; }
+    width: 5rem; }
   .footer-up__contacts {
     display: inline-block;
     position: absolute;
@@ -207,9 +231,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); }
   .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
+    height: 7rem;
+    width: 7rem;
     position: absolute;
-    top: 50%;
+    top: 1rem;
     right: 0;
+    bottom: 3rem;
     transform: translate(-90%, -50%);
     text-decoration: none;
     color: #ffff;
@@ -224,29 +251,30 @@ body {
   background-color: aqua;
   display: block;
   position: relative;
-  text-align: right; }
+  text-align: right;
+  height: 8rem; }
   .footer-down__heading {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    font-weight: 500;
     color: #ffff; }
   .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
     position: relative;
     display: inline-block;
     text-align: center;
-    width: 10rem;
+    width: 17rem;
     text-decoration: none;
-    padding: 1.1rem 0;
-    padding-right: 0.5rem;
-    font-size: 1.5rem;
+    padding: 1.3rem 0;
+    padding-right: 3rem;
+    font-size: 2rem;
     font-weight: 300;
     color: #ffff;
     transition: all .1s; }
   .footer-down__AmnioNLink-text:hover {
-    transform: translateY(-0.2rem);
-    text-shadow: 0.3rem 0.3rem 0.5rem black; }
+    transform: translateY(-0.4rem);
+    text-shadow: 0.3rem 0.3rem 1rem black; }
   .footer-down__AmnioNLink-text:active {
-    transform: translateY(-0.1rem); }
+    transform: translateY(-0.2rem); }
