@@ -10,8 +10,12 @@
         }
 
         &-table {
+            transform: translate(-3.5rem, 0);
             &-row{
-                margin-bottom: 2rem;
+                margin-bottom: 2.5rem;
+                &-message{
+                    position: relative;
+                }
             }
             &__input{
                 //background-color: green;
@@ -30,8 +34,72 @@
                     margin-right: 3rem;
 
                 }
-            }
-            
+                &-message{
+                    position: absolute;
+                    top: 0.5rem;
+                }
+            }     
         }
+    }
+}
+
+.message {
+    width: 94.3rem;
+    height: 43.4rem;
+    font-family: $font_raleway;
+    font-weight: $font_regular;
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+.send-button {
+    &-box {
+        height: 7vh;
+        display: block;
+    }
+    background-color: $color-blue-black;
+    border: none;
+    font-size: 3.5rem;
+    color: $text-color-white;
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    transition: all .1s;
+    &:hover{
+        transform: translateY(-0.2rem) scale(1.05);
+    }
+
+    &:active {
+        transform: translateY(-0.1rem) scale(1.05);     
+    }
+}
+
+.loading-efect{
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    height: .4rem;
+    width: 30rem;
+    border-radius: .2rem;
+    background-color: $color-blue-stripe-1;
+    &__img {
+        width: 10rem;
+        height: 0.4rem;
+        border-radius: 0.2rem;
+        background-image: linear-gradient(to right, $color-blue-stripe-1, $color-blue-light);
+        animation: AnimationSendButton 3s ease-in;
+        animation-iteration-count: infinite;
+    }
+}
+
+
+@keyframes AnimationSendButton{
+    0%{
+        transform: translateX(-10rem);
+    }
+    100%{
+        transform: translateX(40rem);
     }
 }

@@ -15,16 +15,22 @@
                 <div class="contact-content-table__label-box">
                     <label for="email" class="contact-content-table__label" >E-mail</label>
                 </div>
-                <input type="text" placeholder="E-mail" class="contact-content-table__input">
+                <input type="text" placeholder="vas@email.cz" class="contact-content-table__input">
             </div>
 
             <div class="contact-content-table-row-message">
                 <div class="contact-content-table__label-box">
-                    <label for="message" class="contact-content-table__label" >Zpráva</label>
+                    <label for="message" class="contact-content-table__label contact-content-table__label-message" >Zpráva</label>
                 </div>
-                <input type="text" placeholder="Zpráva" class="contact-content-table__input">
+                <textarea name="message" class="message" placeholder="Napište nám." cols="30" rows="10"></textarea>
             </div>
 
+            <div class="send-button-box">
+                <button class="send-button">Odeslat</button>
+            </div>
+            <div class="loading-efect">
+                <div class="loading-efect__img"></div>
+            </div>
         </div>
     </div>
 </section>

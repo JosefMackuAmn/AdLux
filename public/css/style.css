@@ -199,21 +199,77 @@ body {
     margin: 0 auto; }
     .contact-content__Adlux-logo {
       text-align: center; }
-    .contact-content-table-row {
-      margin-bottom: 2rem; }
-    .contact-content-table__input {
-      height: 4.1rem;
-      width: 94.3rem;
-      font-size: 2rem; }
-    .contact-content-table__label {
-      color: #ffff;
-      margin: 0 auto;
-      font-size: 2.2rem;
-      font-weight: 400; }
-      .contact-content-table__label-box {
-        display: inline-block;
-        width: 6.8rem;
-        margin-right: 3rem; }
+    .contact-content-table {
+      transform: translate(-3.5rem, 0); }
+      .contact-content-table-row {
+        margin-bottom: 2.5rem; }
+        .contact-content-table-row-message {
+          position: relative; }
+      .contact-content-table__input {
+        height: 4.1rem;
+        width: 94.3rem;
+        font-size: 2rem; }
+      .contact-content-table__label {
+        color: #ffff;
+        margin: 0 auto;
+        font-size: 2.2rem;
+        font-weight: 400; }
+        .contact-content-table__label-box {
+          display: inline-block;
+          width: 6.8rem;
+          margin-right: 3rem; }
+        .contact-content-table__label-message {
+          position: absolute;
+          top: 0.5rem; }
+
+.message {
+  width: 94.3rem;
+  height: 43.4rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4rem; }
+
+.send-button {
+  background-color: #040E0F;
+  border: none;
+  font-size: 3.5rem;
+  color: #ffff;
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transition: all .1s; }
+  .send-button-box {
+    height: 7vh;
+    display: block; }
+  .send-button:hover {
+    transform: translateY(-0.2rem) scale(1.05); }
+  .send-button:active {
+    transform: translateY(-0.1rem) scale(1.05); }
+
+.loading-efect {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  transform: translate(-30%, -50%);
+  height: .4rem;
+  width: 30rem;
+  border-radius: .2rem;
+  background-color: #043033; }
+  .loading-efect__img {
+    width: 10rem;
+    height: 0.4rem;
+    border-radius: 0.2rem;
+    background-image: linear-gradient(to right, #043033, #00BFCB);
+    animation: AnimationSendButton 3s ease-in;
+    animation-iteration-count: infinite; }
+
+@keyframes AnimationSendButton {
+  0% {
+    transform: translateX(-10rem); }
+  100% {
+    transform: translateX(40rem); } }
 
 .footer-up {
   background-color: #040E0F;
@@ -275,6 +331,6 @@ body {
     transition: all .1s; }
   .footer-down__AmnioNLink-text:hover {
     transform: translateY(-0.4rem);
-    text-shadow: 0.3rem 0.3rem 1rem black; }
+    text-shadow: 0.2rem 0.2rem 0.8rem black; }
   .footer-down__AmnioNLink-text:active {
     transform: translateY(-0.2rem); }
