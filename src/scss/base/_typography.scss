@@ -12,6 +12,7 @@
         font-family: $font_bebasNeue;
         color: $color-grey;
         font-size: $font_60;
+        letter-spacing: .15em;
     }
 }
 .heading-2 {
@@ -31,8 +32,25 @@
     color: $color-grey-light;
     font-size: $font_22;
     font-weight: $font_semiBold;
+    letter-spacing: .12em;
+    text-transform: uppercase;
 }
-
+.heading-5 {
+    color: $color-grey-light;
+    font-weight: $font_regular;
+    font-size: $font_18;
+    font-family: $font_montserrat;
+    letter-spacing: .15em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.heading-6 {
+    color: $color-grey-CCC;
+    font-size: $font_18;
+    font-weight: $font_semiBold;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
 
 /////
 // PARAGRAPHS
@@ -73,5 +91,15 @@
 
     & span {
         font-weight: $font_semiBold;
+    }
+}
+.paragraph-solution {
+    color: $color-grey-CCC;
+    font-size: $font_15;
+    font-weight: $font_regular;
+    letter-spacing: .15em;
+
+    & span {
+        font-weight: $font_bold;
     }
 }
