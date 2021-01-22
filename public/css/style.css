@@ -438,14 +438,9 @@ body {
   cursor: pointer;
   outline: none;
   padding-left: 0.5rem; }
-<<<<<<< HEAD
   .message::placeholder {
     font-weight: 500;
-    font-family: "Raleway", sans-serif;
-=======
-  .message:placeholder {
->>>>>>> origin/master
-    color: #ACAFAF; }
+    font-family: "Raleway", sans-serif; }
 
 .send-button {
   display: inline-block;
