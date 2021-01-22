@@ -60,6 +60,8 @@
     outline: none;
     padding-left: 0.5rem;
     &::placeholder{
+        font-weight: $font_medium;
+        font-family: $font_raleway;
         color: $color-grey-dark;
     }
 }
@@ -90,9 +92,9 @@
     display: inline-block;
     overflow: hidden;
     position: relative;
-    margin-left: 45.5%;
+    margin-left: 47.2%;
     height: .4rem;
-    width: 20rem;
+    width: 19rem;
     border-radius: .2rem;
     background-color: $color-blue-stripe-1;
     &__img {

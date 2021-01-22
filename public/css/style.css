@@ -238,6 +238,8 @@ body {
   outline: none;
   padding-left: 0.5rem; }
   .message::placeholder {
+    font-weight: 500;
+    font-family: "Raleway", sans-serif;
     color: #ACAFAF; }
 
 .send-button {
@@ -261,9 +263,9 @@ body {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  margin-left: 45.5%;
+  margin-left: 47.2%;
   height: .4rem;
-  width: 20rem;
+  width: 19rem;
   border-radius: .2rem;
   background-color: #043033; }
   .loading-efect__img {
