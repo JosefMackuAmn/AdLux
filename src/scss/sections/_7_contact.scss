@@ -1,5 +1,5 @@
 .contact {
-    height: 100vh;
+    height: 90rem;
     position: relative;
     &-content {
         width: 104.6rem;
@@ -22,6 +22,12 @@
                 height: 4.1rem;
                 width: 94.3rem;
                 font-size: 2rem;
+                cursor: pointer;
+                outline: none;
+                padding-left: 0.5rem;
+                &::placeholder{
+                    color: $color-grey-dark;
+                }
             }
             &__label{
                 color: $text-color-white;
@@ -46,24 +52,30 @@
 .message {
     width: 94.3rem;
     height: 43.4rem;
-    font-family: $font_raleway;
-    font-weight: $font_regular;
     font-size: 2rem;
     line-height: 4rem;
+    font-family: $font_raleway;
+    font-weight: $font_regular;
+    cursor: pointer;
+    outline: none;
+    padding-left: 0.5rem;
+    &::placeholder{
+        color: $color-grey-dark;
+    }
 }
 
 .send-button {
     &-box {
         height: 7vh;
-        display: block;
     }
+    display: inline-block;
     background-color: $color-blue-black;
+    outline: none;
     border: none;
     font-size: 3.5rem;
     color: $text-color-white;
-    position: absolute;
-    left: 50%;
-    bottom: 1rem;
+    margin-top: 2rem;
+    margin-left: 49%;
     transition: all .1s;
     &:hover{
         transform: translateY(-0.2rem) scale(1.05);
@@ -75,13 +87,12 @@
 }
 
 .loading-efect{
-    display: block;
-    position: absolute;
+    display: inline-block;
     overflow: hidden;
-    left: 50%;
-    transform: translate(-30%, -50%);
+    position: relative;
+    margin-left: 45.5%;
     height: .4rem;
-    width: 30rem;
+    width: 20rem;
     border-radius: .2rem;
     background-color: $color-blue-stripe-1;
     &__img {
@@ -89,7 +100,7 @@
         height: 0.4rem;
         border-radius: 0.2rem;
         background-image: linear-gradient(to right, $color-blue-stripe-1, $color-blue-light);
-        animation: AnimationSendButton 3s ease-in;
+        animation: AnimationSendButton 2s ease-in;
         animation-iteration-count: infinite;
     }
 }

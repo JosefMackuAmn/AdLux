@@ -12,9 +12,42 @@
         &__contacts {
             display: inline-block;
             position: absolute;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            width: 88rem;
+            height: 5rem;
+            overflow: hidden;
+            transform: translate(-41%, -1rem);
+
+            &-picture-1{
+                position: relative;
+                display: inline-block;
+                height: 30rem;
+                transform: translateY(-6rem);
+            }
+            &-picture-2{
+                position: relative;
+                display: inline-block;
+                height: 30rem;
+                transform: translateY(-12.75rem);
+            }
+            &-phone-number{
+                position: absolute;
+                display: inline-block;
+                left: 15rem;
+                font-weight: $font_medium;
+                font-size: 2rem;
+                transform: translateY(1rem);
+            }
+
+            &-email{
+                position: absolute;
+                display: inline-block;
+                right: 20rem;
+                font-weight: $font_medium;
+                font-size: 2rem;
+                transform: translateY(1rem);
+            }
+           
         }
         &__AmnioN-link-logo {
             &:link, 
@@ -85,3 +118,4 @@
         }
     }
 }
+
