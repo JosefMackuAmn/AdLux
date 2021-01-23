@@ -59,7 +59,8 @@
     cursor: pointer;
     outline: none;
     padding-left: 0.5rem;
-    &:placeholder {
+
+    &::placeholder {
         color: $color-grey-dark;
     }
 }
