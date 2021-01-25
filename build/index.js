@@ -4,14 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-//import bodyParser from 'body-parser';
+var body_parser_1 = __importDefault(require("body-parser"));
 var app = express_1.default();
 app.set('view engine', 'ejs');
-//app.use(bodyParser.json());
+app.use(body_parser_1.default.json());
 app.use(express_1.default.static('public'));
 app.post('/email', function (req, res) {
     // Send email
-    res.send('Not implemented yet');
+    res.send(JSON.stringify({
+        success: true
+    }));
 });
 app.get('/', function (req, res) {
     res.render('index');

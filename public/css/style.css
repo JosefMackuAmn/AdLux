@@ -437,10 +437,7 @@ body {
   outline: none;
   padding-left: 0.5rem; }
   .message::placeholder {
-    font-weight: 500;
-    font-family: "Raleway", sans-serif;
-    color: #ACAFAF;
-    font-size: 2rem; }
+    color: #ACAFAF; }
 
 .send-button {
   display: inline-block;

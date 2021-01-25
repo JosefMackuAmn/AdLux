@@ -178,19 +178,74 @@ toContactBtn.addEventListener('click', () => {
 ////////////////
 
 function backToNormal(img){
+  img.className = 'loading-efect__img';  
+}
+function cleanInput() {
   for(let i = 1; i <= 3; i++){
     let input = document.getElementById(`contact-input-${i}`);
     console.log(input);
     input.value = '';
   }
-  img.className = 'loading-efect__img';
 }
 
 function sendAMessage(e){
   e.preventDefault();
   const sendImg = document.getElementById('send-img');
   sendImg.className = 'loading-efect__img-send';
-  setTimeout(backToNormal.bind(null, sendImg), 2500);
+
+  const form = e.target.form;
+
+  const data = {
+    name: form[0].value,
+    email: form[1].value,
+    message: form[2].value
+  }
+
+  let response, timeout = false;
+  setTimeout(() => {
+    if (response) {
+      // Restore animation
+      backToNormal(sendImg);
+    } else {
+      timeout = true;
+    }
+  }, 1300);
+
+  fetch('/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then((res) => {
+    if (!res.ok) {
+      throw new Error('Not ok response');
+    }
+
+    return res.json();
+
+  }).then((json) => {
+    if (!json.success) {
+      throw new Error('Unsuccessfull send email action');
+    }
+
+    // Handle success case
+    cleanInput();
+
+  }).catch(err => {
+    // Handle error
+    console.log(err);
+
+  }).finally(() => {
+    response = true;
+    if (timeout) {
+      // Restore animation
+      backToNormal(sendImg);
+    }
+  });
+
+  
+
 }
 
 const sendBtn = document.getElementById('send-btn');
