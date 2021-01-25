@@ -22,7 +22,6 @@
                 height: 4.1rem;
                 width: 94.3rem;
                 font-size: 2rem;
-                cursor: pointer;
                 outline: none;
                 padding-left: 0.5rem;
                 &::placeholder{
@@ -56,18 +55,20 @@
     line-height: 4rem;
     font-family: $font_raleway;
     font-weight: $font_regular;
-    cursor: pointer;
     outline: none;
     padding-left: 0.5rem;
-
-    &::placeholder {
+    
+    &::placeholder{
+        font-weight: $font_medium;
+        font-family: $font_raleway;
         color: $color-grey-dark;
+        font-size: 2rem;
     }
 }
 
 .send-button {
     &-box {
-        height: 7vh;
+        height: 5.5rem;
     }
     display: inline-block;
     background-color: $color-blue-black;
@@ -77,6 +78,7 @@
     color: $text-color-white;
     margin-top: 2rem;
     margin-left: 49%;
+    cursor: pointer;
     transition: all .1s;
     &:hover{
         transform: translateY(-0.2rem) scale(1.05);
@@ -91,9 +93,9 @@
     display: inline-block;
     overflow: hidden;
     position: relative;
-    margin-left: 45.5%;
+    margin-left: 47.2%;
     height: .4rem;
-    width: 20rem;
+    width: 19rem;
     border-radius: .2rem;
     background-color: $color-blue-stripe-1;
     &__img {
@@ -101,17 +103,33 @@
         height: 0.4rem;
         border-radius: 0.2rem;
         background-image: linear-gradient(to right, $color-blue-stripe-1, $color-blue-light);
-        animation: AnimationSendButton 2s ease-in;
+        animation: loadingEffectAnimation 2s ease-in;
         animation-iteration-count: infinite;
+        &-send{
+            width: 19rem;
+            height: 0.4rem;
+            border-radius: 0.2rem;
+            background-color: $color-blue-light;
+            animation: sendingEffectAnimation 1s ease-in;
+            transform: translateX(0rem);
+        }
+    }
+}
+@keyframes sendingEffectAnimation{
+    0%{
+        transform: translateX(-19rem);
+    }
+    100%{
+        transform: translateX(0rem);
     }
 }
 
 
-@keyframes AnimationSendButton{
+@keyframes loadingEffectAnimation{
     0%{
         transform: translateX(-10rem);
     }
     100%{
-        transform: translateX(40rem);
+        transform: translateX(20rem);
     }
 }

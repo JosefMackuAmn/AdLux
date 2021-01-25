@@ -410,7 +410,6 @@ body {
         height: 4.1rem;
         width: 94.3rem;
         font-size: 2rem;
-        cursor: pointer;
         outline: none;
         padding-left: 0.5rem; }
         .contact-content-table__input::placeholder {
@@ -435,7 +434,6 @@ body {
   line-height: 4rem;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  cursor: pointer;
   outline: none;
   padding-left: 0.5rem; }
   .message::placeholder {
@@ -450,9 +448,10 @@ body {
   color: #ffff;
   margin-top: 2rem;
   margin-left: 49%;
+  cursor: pointer;
   transition: all .1s; }
   .send-button-box {
-    height: 7vh; }
+    height: 5.5rem; }
   .send-button:hover {
     transform: translateY(-0.2rem) scale(1.05); }
   .send-button:active {
@@ -462,9 +461,9 @@ body {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  margin-left: 45.5%;
+  margin-left: 47.2%;
   height: .4rem;
-  width: 20rem;
+  width: 19rem;
   border-radius: .2rem;
   background-color: #043033; }
   .loading-efect__img {
@@ -472,14 +471,27 @@ body {
     height: 0.4rem;
     border-radius: 0.2rem;
     background-image: linear-gradient(to right, #043033, #00BFCB);
-    animation: AnimationSendButton 2s ease-in;
+    animation: loadingEffectAnimation 2s ease-in;
     animation-iteration-count: infinite; }
+    .loading-efect__img-send {
+      width: 19rem;
+      height: 0.4rem;
+      border-radius: 0.2rem;
+      background-color: #00BFCB;
+      animation: sendingEffectAnimation 1s ease-in;
+      transform: translateX(0rem); }
 
-@keyframes AnimationSendButton {
+@keyframes sendingEffectAnimation {
+  0% {
+    transform: translateX(-19rem); }
+  100% {
+    transform: translateX(0rem); } }
+
+@keyframes loadingEffectAnimation {
   0% {
     transform: translateX(-10rem); }
   100% {
-    transform: translateX(40rem); } }
+    transform: translateX(20rem); } }
 
 .footer-up {
   background-color: #040E0F;

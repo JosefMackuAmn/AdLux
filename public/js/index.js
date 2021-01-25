@@ -171,6 +171,33 @@ const toContactBtn = document.getElementById('to-contact-btn');
 toContactBtn.addEventListener('click', () => {
   contactSection.scrollIntoView({behavior: 'smooth'});
 });
+
+
+////////////////
+//////CONTACT
+////////////////
+
+function backToNormal(img){
+  for(let i = 1; i <= 3; i++){
+    let input = document.getElementById(`contact-input-${i}`);
+    console.log(input);
+    input.value = '';
+  }
+  img.className = 'loading-efect__img';
+}
+
+function sendAMessage(e){
+  e.preventDefault();
+  const sendImg = document.getElementById('send-img');
+  sendImg.className = 'loading-efect__img-send';
+  setTimeout(backToNormal.bind(null, sendImg), 2500);
+}
+
+const sendBtn = document.getElementById('send-btn');
+
+sendBtn.addEventListener('click', sendAMessage);
+
+
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
