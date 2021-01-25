@@ -1,16 +1,18 @@
 import express from 'express';
-//import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 
 const app = express();
 
 app.set('view engine', 'ejs');
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.post('/email', (req, res) => {
     // Send email
-    res.send('Not implemented yet');
+    res.send(JSON.stringify({
+        success: true
+    }));
 });
 
 app.get('/', (req, res) => {
