@@ -1,3 +1,5 @@
+
+
 .solution {
     position: relative;
 
@@ -15,6 +17,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @media screen and (max-width: 1200px) {
+            flex-direction: column;
+        }
     }
     &__card { 
         padding-left: 4.8rem;
