@@ -18,7 +18,8 @@ const productButtonB = document.getElementById('product-btn-b');
 const productImageA = document.getElementById('product-image-a');
 const productImageB = document.getElementById('product-image-b');
 
-const productText = document.getElementById('product-text');
+const productFeatures = document.getElementById('product-features');
+const productHeading = document.getElementById('product-heading');
 
 const inActiveProductConf = {
   filter: 'blur(15px)',
@@ -38,6 +39,7 @@ const activeProductConf = {
   opacity: 1
 }
 
+gsap.to(productImageA, activeProductConf);
 gsap.to(productImageB, inActiveProductConf);
 
 const switchProduct = (event) => {
@@ -50,10 +52,11 @@ const switchProduct = (event) => {
 
     productButtonA.classList.remove('toggled');
     productButtonB.classList.add('toggled');
+    productImageA.classList.remove('toggled');
+    productImageB.classList.add('toggled');
 
-    productText.innerHTML = `
-    <h4 class="heading-4">Stropní visací hologram</h4>
-    <ul class="products__features">
+    productHeading.textContent = 'Stropní visací hologram';
+    productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
         <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
@@ -61,17 +64,17 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    </ul>
     `;
 
   } else {
 
     productButtonB.classList.remove('toggled');
     productButtonA.classList.add('toggled');
+    productImageB.classList.remove('toggled');
+    productImageA.classList.add('toggled');
 
-    productText.innerHTML = `
-    <h4 class="heading-4"></h4>
-    <ul class="products__features">
+    productHeading.textContent = 'Moucha';
+    productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
         <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
@@ -79,7 +82,6 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    </ul>
     `;
 
   }
@@ -171,6 +173,88 @@ const toContactBtn = document.getElementById('to-contact-btn');
 toContactBtn.addEventListener('click', () => {
   contactSection.scrollIntoView({behavior: 'smooth'});
 });
+
+
+////////////////
+//////CONTACT
+////////////////
+
+function backToNormal(img){
+  img.className = 'loading-efect__img';  
+}
+function cleanInput() {
+  for(let i = 1; i <= 3; i++){
+    let input = document.getElementById(`contact-input-${i}`);
+    console.log(input);
+    input.value = '';
+  }
+}
+
+function sendAMessage(e){
+  e.preventDefault();
+  const sendImg = document.getElementById('send-img');
+  sendImg.className = 'loading-efect__img-send';
+
+  const form = e.target.form;
+
+  const data = {
+    name: form[0].value,
+    email: form[1].value,
+    message: form[2].value
+  }
+
+  let response, timeout = false;
+  setTimeout(() => {
+    if (response) {
+      // Restore animation
+      backToNormal(sendImg);
+    } else {
+      timeout = true;
+    }
+  }, 1300);
+
+  fetch('/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then((res) => {
+    if (!res.ok) {
+      throw new Error('Not ok response');
+    }
+
+    return res.json();
+
+  }).then((json) => {
+    if (!json.success) {
+      throw new Error('Unsuccessfull send email action');
+    }
+
+    // Handle success case
+    cleanInput();
+
+  }).catch(err => {
+    // Handle error
+    console.log(err);
+
+  }).finally(() => {
+    response = true;
+    if (timeout) {
+      // Restore animation
+      backToNormal(sendImg);
+    }
+  });
+
+  
+
+}
+
+const sendBtn = document.getElementById('send-btn');
+
+sendBtn.addEventListener('click', sendAMessage);
+
+
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

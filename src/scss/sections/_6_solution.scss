@@ -1,14 +1,54 @@
 
 
 .solution {
+    width: 100%;
+    margin-bottom: 20rem;
+    
     position: relative;
 
     & .heading-1 {
         margin-left: 10rem;
+
+        @media screen and (max-width: 1100px) {
+            margin-left: 6rem;
+        }
+        @media screen and (max-width: 800px) {
+            margin-left: 3rem;
+            margin-bottom: 1rem;
+            
+            font-size: 5rem;
+        }
+        @media screen and (max-width: 600px) {
+            margin-bottom: 1rem;
+            margin-right: 3rem;
+            width: 100%;
+
+            font-size: 4rem;
+        }
+        @media screen and (max-width: 400px) {
+           font-size: 3rem;
+        }
     }
     & .paragraph-small {
         margin-left: 10rem;
         width: 70rem;
+
+        @media screen and (max-width: 1100px) {
+            margin-left: 6rem;
+        }
+        @media screen and (max-width: 1000px) {
+            width: 60rem;
+        }
+        @media screen and (max-width: 900px) {
+            width: 50rem;
+        }
+        @media screen and (max-width: 800px) {
+            margin-left: 3rem;
+        }
+        @media screen and (max-width: 500px) {
+            padding-right: 3rem;
+            width: 100%;
+        }
     }
     &__cards {
         margin-top: 18rem;
@@ -18,8 +58,23 @@
         justify-content: center;
         align-items: center;
 
-        @media screen and (max-width: 1200px) {
+        position: relative;
+
+        @media screen and (max-width: 1300px) {
+            margin-bottom: 60rem;
+        }
+        @media screen and (max-width: 900px) {
+            margin-left: auto;
+            margin-right: auto;
+
             flex-direction: column;
+        }
+        @media screen and (max-width: 900px) {
+          margin-top: 12rem;
+        }
+        @media screen and (max-width: 400px) {
+           padding-left: 3rem;
+           padding-right: 3rem;
         }
     }
     &__card { 
@@ -29,21 +84,74 @@
         padding-bottom: 4.8rem;
         width: 40rem;
         border-bottom: 1px solid $color-blue;     
-        //background-color: rgba($color-grey-light, .02);
         
         position: relative;
+
+        @media screen and (max-width: 1300px) {
+            width: 48rem; 
+        }
+        @media screen and (max-width: 1000px) {
+            width: 40rem; 
+        }
+        @media screen and (max-width: 1100px) {
+            padding: 3rem;
+        }
+        @media screen and (max-width: 900px) {
+            width: 40rem;
+        }
+        @media screen and (max-width: 400px) {
+            width: 100%;
+        }
+      
         
         &:nth-child(2) {
             padding-top: 8.4rem;
             padding-bottom: 8.4rem;
             width: 45rem;
 
+            @media screen and (max-width: 1300px) {
+                width: 48rem;
+               padding-top: 4.8rem;
+               padding-bottom: 4.8rem;
+
+               position: absolute;
+               top: 49rem;
+               left: 50%;
+               transform: translateX(-50%);
+            }
+            @media screen and (max-width: 1000px) {
+                width: 40rem; 
+
+                top: 50.5rem;
+            }
+            @media screen and (max-width: 900px) {
+                width: 40rem;
+
+               position: relative;
+               top: 0;
+               left: 0;
+               transform: none;
+               
+            }
+            @media screen and (max-width: 400px) {
+                width: 100%;
+            }
+
             & .solution__card__head {
                 top: -6.4rem;
+
+                @media screen and (max-width: 1300px) {
+                    top: -3rem;
+                }
             }
         }
         &:not(:last-child) {
             margin-right: 4.8rem;
+
+            @media screen and (max-width: 900px) {
+                margin-right: 0;
+                margin-bottom: 12rem;
+            }
         }
 
         &::after,
@@ -137,7 +245,7 @@
 
         color: $color-blue-dark;
         text-transform: uppercase;
-        letter-spacing: .5em;
+        letter-spacing: .3em;
         font-weight: $font_regular;
         font-size: $font_22;
 
@@ -146,6 +254,13 @@
         position: absolute;
         top: 8.4rem;
         right: 0;
+
+        @media screen and (max-width: 1200px) {
+            width: 24rem;
+        }
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
     }
 }
 .line {

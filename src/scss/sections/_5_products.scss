@@ -1,16 +1,29 @@
 .products {
     position: relative;
     margin-bottom: 36rem;
+    padding-top: 10rem;
+
+    @media screen and (max-width: 1400px) {
+       margin-bottom: 24rem;
+    }
+    @media screen and (max-width: 1150px) {
+        margin-bottom: 18rem;
+     }
 
     &__switch {
         margin-bottom: 24rem;
 
         display: flex;
         justify-content: center;
+
+        @media screen and (max-width: 1150px) {
+            margin-bottom: 6rem;
+        }
     }
     &__button {
         border: none;
         cursor: pointer;
+        outline: none;
 
         color: white; 
         text-transform: uppercase;
@@ -25,6 +38,13 @@
 
         position: relative;
         overflow: hidden;
+
+        @media screen and (max-width: 1150px) {
+            height: 4.8rem;
+        }
+        @media screen and (max-width: 450px) {
+            width: 20rem;
+        }
         
         &:first-child {
             clip-path: polygon(0 0, 95% 0, 70% 100%, 0 100%);
@@ -50,6 +70,12 @@
         margin-left: auto;
         margin-right: auto;
         width: 40rem;
+
+        @media screen and (max-width: 1150px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
     &__features {
         list-style: none;
@@ -68,6 +94,13 @@
     }
     & .heading-4 {
         margin-bottom: 4.8rem;
+
+        @media screen and (max-width: 1150px) {
+            margin-bottom: 2.4rem;
+        }
+        @media screen and (max-width: 450px) {
+           font-size: 2rem;
+        }
     }
     &__image {
         height: 50rem;
@@ -75,21 +108,37 @@
         position: absolute;
         top: 12rem;
 
+        @media screen and (max-width: 1500px) {
+            height: 40rem;
+            top: 18rem;
+        }
+        @media screen and (max-width: 1150px) {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+
+            position: relative;
+            top: unset;
+        }
+
         &--a {
-            left: 18rem;
+            left: 14rem;
+
+            @media screen and (max-width: 1150px) {
+                left: unset;
+            }
         }
         &--b {
             right: 18rem;
-        }
-        /* &.toggled {
-            
+
+            @media screen and (max-width: 1150px) {
+               right: unset;
+            }
         }
         &:not(.toggled) {
-            filter: blur(20px);
-            cursor: pointer;
-
-            transform: scale(0.5) translateY(12rem);
-        } */
+            @media screen and (max-width: 1150px) {
+                display: none;
+            }
+        }
     }
 }
 
