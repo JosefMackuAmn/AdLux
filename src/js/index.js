@@ -14,7 +14,8 @@ const productButtonB = document.getElementById('product-btn-b');
 const productImageA = document.getElementById('product-image-a');
 const productImageB = document.getElementById('product-image-b');
 
-const productText = document.getElementById('product-text');
+const productFeatures = document.getElementById('product-features');
+const productHeading = document.getElementById('product-heading');
 
 const inActiveProductConf = {
   filter: 'blur(15px)',
@@ -34,6 +35,7 @@ const activeProductConf = {
   opacity: 1
 }
 
+gsap.to(productImageA, activeProductConf);
 gsap.to(productImageB, inActiveProductConf);
 
 const switchProduct = (event) => {
@@ -46,10 +48,11 @@ const switchProduct = (event) => {
 
     productButtonA.classList.remove('toggled');
     productButtonB.classList.add('toggled');
+    productImageA.classList.remove('toggled');
+    productImageB.classList.add('toggled');
 
-    productText.innerHTML = `
-    <h4 class="heading-4">Stropní visací hologram</h4>
-    <ul class="products__features">
+    productHeading.textContent = 'Stropní visací hologram';
+    productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
         <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
@@ -57,17 +60,17 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    </ul>
     `;
 
   } else {
 
     productButtonB.classList.remove('toggled');
     productButtonA.classList.add('toggled');
+    productImageB.classList.remove('toggled');
+    productImageA.classList.add('toggled');
 
-    productText.innerHTML = `
-    <h4 class="heading-4"></h4>
-    <ul class="products__features">
+    productHeading.textContent = 'Moucha';
+    productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
         <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
@@ -75,7 +78,6 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
         <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    </ul>
     `;
 
   }
