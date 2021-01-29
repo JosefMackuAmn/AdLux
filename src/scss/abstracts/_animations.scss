@@ -1,0 +1,26 @@
+@keyframes rotationOfBlueLogo {
+    from{
+         transform: rotate(0deg);
+    } to {
+         transform: rotate(360deg);
+    }
+ }
+
+ @keyframes sendingEffectAnimation{
+    0%{
+        transform: translateX(-19rem);
+    }
+    100%{
+        transform: translateX(0rem);
+    }
+}
+
+
+@keyframes loadingEffectAnimation{
+    0%{
+        transform: translateX(-10rem);
+    }
+    100%{
+        transform: translateX(20rem);
+    }
+}

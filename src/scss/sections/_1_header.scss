@@ -1,3 +1,40 @@
 .header {
-    // Styles
+    height: 100vh;
+    background-color: $color-blue-black;
+    &__upper-part{
+        height: 10rem;
+        position: relative;
+        &__logo{
+            &-full{
+                display: inline-block;
+                position: absolute;
+                top: 4rem;
+                left: 4.7rem;
+            }
+
+            &-blue{
+                position: absolute;
+                top: 1rem;
+                width: 6.8rem;
+                height: 6.8rem;
+                background-image: url(../img/adlux-logo-blue-part.svg);
+                background-size: cover;
+
+                display: inline-block;
+
+                animation: rotationOfBlueLogo 1s ease-out;
+            }
+
+            &-text{
+                height: 8.2rem;
+                width: 14.967rem;
+                background-image: url(../img/AdLux-logo-text.svg);
+                background-size: cover;
+
+                display: inline-block;
+                margin-left: 8.5rem;
+            }
+        }
+    }
 }
+

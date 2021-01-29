@@ -1,3 +1,21 @@
+@keyframes rotationOfBlueLogo {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes sendingEffectAnimation {
+  0% {
+    transform: translateX(-19rem); }
+  100% {
+    transform: translateX(0rem); } }
+
+@keyframes loadingEffectAnimation {
+  0% {
+    transform: translateX(-10rem); }
+  100% {
+    transform: translateX(20rem); } }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -112,6 +130,34 @@ body {
   letter-spacing: .15em; }
   .paragraph-solution span {
     font-weight: 700; }
+
+.header {
+  height: 100vh;
+  background-color: #040E0F; }
+  .header__upper-part {
+    height: 10rem;
+    position: relative; }
+    .header__upper-part__logo-full {
+      display: inline-block;
+      position: absolute;
+      top: 4rem;
+      left: 4.7rem; }
+    .header__upper-part__logo-blue {
+      position: absolute;
+      top: 1rem;
+      width: 6.8rem;
+      height: 6.8rem;
+      background-image: url(../img/adlux-logo-blue-part.svg);
+      background-size: cover;
+      display: inline-block;
+      animation: rotationOfBlueLogo 1s ease-out; }
+    .header__upper-part__logo-text {
+      height: 8.2rem;
+      width: 14.967rem;
+      background-image: url(../img/AdLux-logo-text.svg);
+      background-size: cover;
+      display: inline-block;
+      margin-left: 8.5rem; }
 
 .info .info__revolution, .info .info__meaning {
   height: 100vh;
@@ -493,18 +539,6 @@ body {
       animation: sendingEffectAnimation 1s ease-in;
       transform: translateX(0rem); }
 
-@keyframes sendingEffectAnimation {
-  0% {
-    transform: translateX(-19rem); }
-  100% {
-    transform: translateX(0rem); } }
-
-@keyframes loadingEffectAnimation {
-  0% {
-    transform: translateX(-10rem); }
-  100% {
-    transform: translateX(20rem); } }
-
 .footer-up {
   background-color: #040E0F;
   color: #ffff;
@@ -569,7 +603,7 @@ body {
     transform: translate(-90%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
-  background-image: url(../img/footer-picture.png);
+  background-image: url(../img/footer-picture.jpg);
   background-size: 100%;
   display: block;
   position: relative;
