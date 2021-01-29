@@ -1,21 +1,31 @@
 .contact {
-    height: 90rem;
+   
     position: relative;
     &-content {
         width: 104.6rem;
-        //background-color: red;
         margin:0 auto;
         &__Adlux-logo {
-            text-align: center;
+
+            margin: 7rem auto;
+            margin-top: 50vh;
+            width: 27.83rem;
+            height: 15.248rem;
+
+
+            background-image: url(../img/adlux-logo-text.svg);
+            background-size: cover;
         }
 
         &-table {
             transform: translate(-3.5rem, 0);
+            height: 90rem;
+
             &-row{
                 margin-bottom: 2.5rem;
                 &-message{
                     position: relative;
                 }
+
             }
             &__input{
                 //background-color: green;
@@ -26,6 +36,9 @@
                 padding-left: 0.5rem;
                 &::placeholder{
                     color: $color-grey-dark;
+                }
+                @media screen and (max-width: 1070px) {
+                    width: 80vw;
                 }
             }
             &__label{

@@ -534,15 +534,20 @@ body {
         display: none; } }
 
 .contact {
-  height: 90rem;
   position: relative; }
   .contact-content {
     width: 104.6rem;
     margin: 0 auto; }
     .contact-content__Adlux-logo {
-      text-align: center; }
+      margin: 7rem auto;
+      margin-top: 50vh;
+      width: 27.83rem;
+      height: 15.248rem;
+      background-image: url(../img/adlux-logo-text.svg);
+      background-size: cover; }
     .contact-content-table {
-      transform: translate(-3.5rem, 0); }
+      transform: translate(-3.5rem, 0);
+      height: 90rem; }
       .contact-content-table-row {
         margin-bottom: 2.5rem; }
         .contact-content-table-row-message {
@@ -555,6 +560,9 @@ body {
         padding-left: 0.5rem; }
         .contact-content-table__input::placeholder {
           color: #ACAFAF; }
+        @media screen and (max-width: 1070px) {
+          .contact-content-table__input {
+            width: 80vw; } }
       .contact-content-table__label {
         color: #ffff;
         margin: 0 auto;
@@ -644,9 +652,13 @@ body {
   position: relative;
   height: 5rem; }
   .footer-up__AdLux-logo {
-    position: relative;
+    position: absolute;
     display: inline-block;
-    width: 5rem; }
+    height: 6.8rem;
+    width: 12.411rem;
+    transform: translate(51%, -60%);
+    background-image: url(../img/AdLux-logo-text.svg);
+    background-size: cover; }
   .footer-up__contacts {
     display: inline-block;
     position: absolute;
@@ -669,6 +681,7 @@ body {
       position: absolute;
       display: inline-block;
       left: 15rem;
+      font-variant-numeric: lining-nums;
       font-weight: 500;
       font-size: 2rem;
       transform: translateY(1rem); }
@@ -683,7 +696,7 @@ body {
     height: 7rem;
     width: 7rem;
     position: absolute;
-    top: 1rem;
+    top: 0.5rem;
     right: 0;
     bottom: 3rem;
     transform: translate(-90%, -50%);
@@ -697,7 +710,8 @@ body {
     transform: translate(-90%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
-  background-color: aqua;
+  background-image: url(../img/footer-picture.png);
+  background-size: 100%;
   display: block;
   position: relative;
   text-align: right;
@@ -708,7 +722,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 3.5rem;
-    font-weight: 500;
+    font-weight: 300;
     color: #ffff; }
   .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
     position: relative;
