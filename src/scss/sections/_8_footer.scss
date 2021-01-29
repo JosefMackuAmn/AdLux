@@ -5,9 +5,13 @@
         position: relative;
         height: 5rem;
         &__AdLux-logo {
-            position: relative;
+            position: absolute;
             display: inline-block;
-            width: 5rem;
+            height: 6.8rem;
+            width: 12.411rem;
+            transform: translate(51%, -60%);
+            background-image: url(../img/AdLux-logo-text.svg);
+            background-size: cover;
         }
         &__contacts {
             display: inline-block;
@@ -34,6 +38,7 @@
                 position: absolute;
                 display: inline-block;
                 left: 15rem;
+                font-variant-numeric: lining-nums;
                 font-weight: $font_medium;
                 font-size: 2rem;
                 transform: translateY(1rem);
@@ -55,7 +60,7 @@
                 height: 7rem;
                 width: 7rem;
                 position: absolute;
-                top: 1rem;
+                top: 0.5rem;
                 right: 0;
                 bottom: 3rem;
                 transform: translate(-90%, -50%);
@@ -75,7 +80,8 @@
     }
 
     &-down{
-        background-color: aqua;
+        background-image: url(../img/footer-picture.png);
+        background-size: 100%;
         display: block;
         position: relative;
         text-align: right;
@@ -87,7 +93,7 @@
             top: 50%;
             transform: translate(-50%, -50%);
             font-size: 3.5rem;
-            font-weight: $font_medium;
+            font-weight: $font_light;
             color: $text-color-white;            
         }
 
