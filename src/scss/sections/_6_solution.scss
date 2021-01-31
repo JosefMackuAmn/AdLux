@@ -262,6 +262,12 @@
             display: none;
         }
     }
+    video {
+        opacity: 0.02;
+
+        position: absolute;
+        top: 50%;
+    }
 }
 .line {
     

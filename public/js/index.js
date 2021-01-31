@@ -6,10 +6,7 @@
 //////PRODUCTS
 ////////////////
 
-
-
-
-
+//Getting all needed elements
 const productsSection = document.getElementById('products');
 
 const productButtonA = document.getElementById('product-btn-a');
@@ -21,6 +18,7 @@ const productImageB = document.getElementById('product-image-b');
 const productFeatures = document.getElementById('product-features');
 const productHeading = document.getElementById('product-heading');
 
+//State of product when inactive
 const inActiveProductConf = {
   filter: 'blur(15px)',
   cursor: 'pointer',
@@ -30,6 +28,7 @@ const inActiveProductConf = {
   opacity: 0.5
 }
 
+//State of product when active
 const activeProductConf = {
   filter: 'none',
   cursor: 'clicker',
@@ -39,22 +38,29 @@ const activeProductConf = {
   opacity: 1
 }
 
-gsap.to(productImageA, activeProductConf);
-gsap.to(productImageB, inActiveProductConf);
+//Initiaizing product B to inactive config, product A to active config
+gsap.to(productImageB, activeProductConf);
+gsap.to(productImageA, inActiveProductConf);
 
+//Function switches active product
 const switchProduct = (event) => {
 
+  //If active element or active element button is clicked, nothing happens
   if ([...event.target.classList].includes('toggled')) {
     return;
   }
 
+  //If product A is active
   if ([...productButtonA.classList].includes('toggled')) {
 
+    //Adding toggled class to product B and product B button
+    //Removing toggled class from product A and product A button
     productButtonA.classList.remove('toggled');
     productButtonB.classList.add('toggled');
     productImageA.classList.remove('toggled');
     productImageB.classList.add('toggled');
 
+    //Adjusting text
     productHeading.textContent = 'Stropní visací hologram';
     productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
@@ -66,13 +72,21 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
     `;
 
+    //Animating smoothly product A to inActive config
+    //Animating smoothly product B to active config
+    gsap.to(productImageA,inActiveProductConf);
+    gsap.to(productImageB, activeProductConf);
+
   } else {
 
+     //Adding toggled class to product A and product A button
+    //Removing toggled class from product B and product B button
     productButtonB.classList.remove('toggled');
     productButtonA.classList.add('toggled');
     productImageB.classList.remove('toggled');
     productImageA.classList.add('toggled');
 
+    //Adjusting text
     productHeading.textContent = 'Moucha';
     productFeatures.innerHTML = `
         <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
@@ -84,31 +98,14 @@ const switchProduct = (event) => {
         <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
     `;
 
-  }
-
-  if ([...productImageA.classList].includes('toggled')) {
-
-    console.log('Activating prod B')
-
-    gsap.to(productImageA,inActiveProductConf);
-    gsap.to(productImageB, activeProductConf);
-    productImageA.classList.remove('toggled');
-    productImageB.classList.add('toggled');
-
-  } else {
-
-    console.log('Activating prod A')
-
+    //Animating smoothly product B to inActive config
+    //Animating smoothly product A to active config
     gsap.to(productImageB,inActiveProductConf);
     gsap.to(productImageA, activeProductConf);
-
-    productImageB.classList.remove('toggled');
-    productImageA.classList.add('toggled');
-
   }
-
 };
 
+//Adding event listener to both product buttons and both product images
 productButtonA.addEventListener('click', (event) => {
   switchProduct(event);
 });
@@ -141,22 +138,15 @@ const code = (p) => {
   }
 
   p.draw = function() {
-    /* let randomX = p.random(p.width);
-    let randomY = p.random(p.height); */
     let X = p.cos(p.frameCount)*p.frameCount/2;
     let Y = p.sin(p.frameCount)*p.frameCount/2;
 
     p.background(0, 0, 0, 0);
     p.fill(255, 10);
     p.stroke(255, 50);
-    //p.noStroke();
-    //p.circle(randomX, randomY, 5);
-
-    //p.line(900, 300, 900 + X, 300 + Y);
+   
     p.point(X + 900, Y + 300);
-   /*  lastPoint.x = randomX;
-    lastPoint.y = randomY; */
-    //p.line(p.frameCount*10 - 20, p.height, p.frameCount*10, 0);
+  
   }
 
 }
@@ -170,10 +160,41 @@ const myp5 = new p5(code, productsSection);
 const contactSection = document.getElementById('contact');
 const toContactBtn = document.getElementById('to-contact-btn');
 
+//Scrolling to contact when "CONTACT" button is pressed
 toContactBtn.addEventListener('click', () => {
   contactSection.scrollIntoView({behavior: 'smooth'});
 });
 
+//VIDEO
+
+const video = document.getElementById('wave');
+
+//Whenever the window gets resized
+window.addEventListener('resize', () => {
+  updateWave();
+});
+
+const updateWave = () => {
+
+  //Getting viewport width
+  const width = document.documentElement.getBoundingClientRect().width;
+
+  //If viewport width is over 900px, displaying wave animation, else displaying nothing
+  if (width >= 900) {
+
+    video.innerHTML = ` <source src="img/wave.webm">`;
+    video.style.display = 'block';
+
+  } else {
+
+    video.innerHTML = ``;
+    video.style.display = 'none';
+  }
+
+}
+
+//Initializing wave animation
+updateWave();
 
 ////////////////
 //////CONTACT

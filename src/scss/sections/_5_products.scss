@@ -45,6 +45,10 @@
         @media screen and (max-width: 450px) {
             width: 20rem;
         }
+        @media screen and (max-width: 400px) {
+            width: 17rem;
+            font-size: 1.6rem;
+        }
         
         &:first-child {
             clip-path: polygon(0 0, 95% 0, 70% 100%, 0 100%);
@@ -52,12 +56,21 @@
             padding-left: 3rem;
 
             text-align: left;
+
+            @media screen and (max-width: 400px) {
+                margin-right: -3.6rem;
+                padding-left: 1.5rem;
+            }
         }
         &:last-child {
             clip-path: polygon(5% 100%, 100% 100%, 100% 0, 30% 0);
             padding-right: 3rem;
 
             text-align: right;
+
+            @media screen and (max-width: 400px) {
+                padding-right: 1.5rem;
+            }
         }
         &.toggled {
             background-color: $color-blue-light;
@@ -76,9 +89,17 @@
             flex-direction: column;
             align-items: center;
         }
+        @media screen and (max-width: 450px) {
+          width: 35rem;
+        }
     }
     &__features {
         list-style: none;
+
+        @media screen and (max-width: 400px) {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
     }
     & .paragraph-small {
         &::before {
@@ -100,6 +121,14 @@
         }
         @media screen and (max-width: 450px) {
            font-size: 2rem;
+        }
+        @media screen and (max-width: 450px) {
+           width: 30rem;
+           margin-left: auto;
+           margin-right: auto;
+
+           text-align: center;
+           line-height: 1.5;
         }
     }
     &__image {
