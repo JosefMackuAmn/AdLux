@@ -1,3 +1,21 @@
+@keyframes rotationOfBlueLogo {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes sendingEffectAnimation {
+  0% {
+    transform: translateX(-19rem); }
+  100% {
+    transform: translateX(0rem); } }
+
+@keyframes loadingEffectAnimation {
+  0% {
+    transform: translateX(-10rem); }
+  100% {
+    transform: translateX(20rem); } }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -113,6 +131,130 @@ body {
   letter-spacing: .15em; }
   .paragraph-solution span {
     font-weight: 700; }
+
+.header {
+  height: 100vh;
+  background-color: #040E0F; }
+  .header__upper-part {
+    height: 10rem;
+    position: relative; }
+    .header__upper-part__logo-full {
+      display: inline-block;
+      position: absolute;
+      top: 4rem;
+      left: 4.7rem; }
+    .header__upper-part__logo-blue {
+      position: absolute;
+      top: 1rem;
+      width: 6.8rem;
+      height: 6.8rem;
+      background-image: url(../img/adlux-logo-blue-part.svg);
+      background-size: cover;
+      display: inline-block;
+      animation: rotationOfBlueLogo 1s ease-out; }
+    .header__upper-part__logo-text {
+      height: 8.2rem;
+      width: 14.967rem;
+      background-image: url(../img/AdLux-logo-text.svg);
+      background-size: cover;
+      display: inline-block;
+      margin-left: 8.5rem; }
+    .header__upper-part__menu-button {
+      height: 4rem;
+      width: 6rem;
+      position: absolute;
+      top: 5rem;
+      right: 4rem; }
+      .header__upper-part__menu-button__line {
+        height: 0.75rem;
+        width: 6.043rem;
+        background-color: #F1F1F1;
+        border-radius: .5rem;
+        position: relative; }
+        .header__upper-part__menu-button__line__circle {
+          height: 1.6rem;
+          width: 2.2rem;
+          border-radius: 50%;
+          background-color: inherit;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translate(-50%, -25%); }
+      .header__upper-part__menu-button__line:not(:last-child) {
+        margin-bottom: 0.85rem; }
+  .header__video {
+    height: 75%;
+    color: white;
+    text-align: center; }
+  .header__text {
+    color: #ffff;
+    text-align: center;
+    line-height: 3.5rem;
+    letter-spacing: .2rem; }
+    .header__text__upper {
+      font-size: 2.2rem; }
+    .header__text__down {
+      font-size: 1.8rem;
+      font-weight: 300; }
+    .header__text-bold {
+      font-weight: 700; }
+  .header__menu {
+    height: 25.7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .header__menu-link:link, .header__menu-link:visited {
+      text-decoration: none;
+      color: #ACAFAF;
+      font-weight: 500;
+      letter-spacing: .2rem;
+      font-size: 2.7rem;
+      text-transform: uppercase;
+      transition: all 0.2s; }
+      .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
+        margin-right: 10rem; }
+    .header__menu-link:hover {
+      color: #ffff;
+      font-weight: 700; }
+    .header__menu-content-text {
+      width: 152rem;
+      position: absolute;
+      left: 54%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      display: inline-block; }
+    .header__menu-background {
+      height: 25.7rem;
+      width: 117rem;
+      border-top: 3px solid #00BFCB;
+      border-bottom: 3px solid #00BFCB; }
+      .header__menu-background::before {
+        content: "";
+        height: 25.7rem;
+        width: 117rem;
+        background-color: #0D1213;
+        clip-path: polygon(1% 0, 99% 0, 99% 100%, 1% 100%);
+        display: inline-block;
+        position: absolute;
+        z-index: -1; }
+      .header__menu-background-logo {
+        height: 8.5rem;
+        width: 8.5rem;
+        object-fit: cover;
+        position: absolute;
+        left: 47%;
+        top: -4.25rem;
+        animation: rotationOfBlueLogo 15s linear;
+        animation-iteration-count: infinite; }
+
+.rotate-left {
+  transform: rotate(45deg); }
+
+.rotate-right {
+  transform: rotate(-45deg) translate(-18%, 1.1rem); }
+  .rotate-right-circle {
+    transform: rotate(-45deg) translate(-21.5%, -1.1rem); }
 
 .info .info__revolution, .info .info__meaning {
   height: 100vh;
@@ -663,18 +805,6 @@ body {
       animation: sendingEffectAnimation 1s ease-in;
       transform: translateX(0rem); }
 
-@keyframes sendingEffectAnimation {
-  0% {
-    transform: translateX(-19rem); }
-  100% {
-    transform: translateX(0rem); } }
-
-@keyframes loadingEffectAnimation {
-  0% {
-    transform: translateX(-10rem); }
-  100% {
-    transform: translateX(20rem); } }
-
 .footer-up {
   background-color: #040E0F;
   color: #ffff;
@@ -739,7 +869,7 @@ body {
     transform: translate(-90%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
-  background-image: url(../img/footer-picture.png);
+  background-image: url(../img/footer-picture.jpg);
   background-size: 100%;
   display: block;
   position: relative;
