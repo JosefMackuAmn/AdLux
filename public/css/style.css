@@ -257,15 +257,26 @@ body {
     @media screen and (max-width: 450px) {
       .products__button {
         width: 20rem; } }
+    @media screen and (max-width: 400px) {
+      .products__button {
+        width: 17rem;
+        font-size: 1.6rem; } }
     .products__button:first-child {
       clip-path: polygon(0 0, 95% 0, 70% 100%, 0 100%);
       margin-right: -4.8rem;
       padding-left: 3rem;
       text-align: left; }
+      @media screen and (max-width: 400px) {
+        .products__button:first-child {
+          margin-right: -3.6rem;
+          padding-left: 1.5rem; } }
     .products__button:last-child {
       clip-path: polygon(5% 100%, 100% 100%, 100% 0, 30% 0);
       padding-right: 3rem;
       text-align: right; }
+      @media screen and (max-width: 400px) {
+        .products__button:last-child {
+          padding-right: 1.5rem; } }
     .products__button.toggled {
       background-color: #00BFCB; }
     .products__button:not(.toggled) {
@@ -279,8 +290,15 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center; } }
+    @media screen and (max-width: 450px) {
+      .products__text {
+        width: 35rem; } }
   .products__features {
     list-style: none; }
+    @media screen and (max-width: 400px) {
+      .products__features {
+        margin-left: 2rem;
+        margin-right: 2rem; } }
   .products .paragraph-small::before {
     content: "-";
     margin-right: 1.2rem;
@@ -297,6 +315,13 @@ body {
     @media screen and (max-width: 450px) {
       .products .heading-4 {
         font-size: 2rem; } }
+    @media screen and (max-width: 450px) {
+      .products .heading-4 {
+        width: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        line-height: 1.5; } }
   .products__image {
     height: 50rem;
     position: absolute;
@@ -532,6 +557,10 @@ body {
     @media screen and (max-width: 900px) {
       .solution__contact-button {
         display: none; } }
+  .solution video {
+    opacity: 0.02;
+    position: absolute;
+    top: 50%; }
 
 .contact {
   position: relative; }
