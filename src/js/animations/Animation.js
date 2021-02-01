@@ -13,14 +13,13 @@ class Animation {
     // which will be executed when the element will appear on the screen
     static onScrollToTarget(element, cb) {
         if (!isInit) {
-            this.init();
-            isInit = true;
+            Animation.init();
         }
 
         // If element is already visible, run callback immediately
         // Otherwise, register it to run later
         if (Animation.isVisible(element)) {
-            cb();
+            cb(null);
         } else {
             animationRegistry.push({ el: element, cb });
         }
@@ -28,45 +27,48 @@ class Animation {
 
     // Init looking for visible elements
     static init() {
-        const initListener = e => {
-            // Return, if there is nothing to animate
-            if (animationRegistry.length <= 0) {
-                return;
-            }
+        // Start listening for animEvents
+        animEvents.forEach(event => {
+            window.addEventListener(event, Animation.initListener);
+        });
+        isInit = true;
+    }
 
-            // Loop through elements and try to find visible element
-            for (let i = 0; i < animationRegistry.length; i++) {
-                const el = animationRegistry[i].el;
+    // Callback function to addEventListener
+    // listening for animEvents on window object
+    static initListener(e) {
+        // Return, if there is nothing to animate
+        if (animationRegistry.length <= 0) {
+            return;
+        }
 
-                if (Animation.isVisible(el)) {
-                    // Call callback
-                    animationRegistry[i].cb();
+        // Loop through elements and try to find visible element
+        for (let i = 0; i < animationRegistry.length; i++) {
+            const el = animationRegistry[i].el;
 
-                    // Remove element from array
-                    animationRegistry.splice(i, 1);
+            if (Animation.isVisible(el)) {
+                // Call callback
+                animationRegistry[i].cb(e);
 
-                    // Stop listening for animEvents
-                    // if there are no more animations left
-                    if (animationRegistry.length <= 0) {
-                        animEvents.forEach(event => {
-                            window.removeEventListener(event, initListener);
-                        })
-                    }
+                // Remove element from array
+                animationRegistry.splice(i, 1);
+
+                // Stop listening for animEvents
+                // if there are no more animations left
+                if (animationRegistry.length <= 0) {
+                    animEvents.forEach(event => {
+                        window.removeEventListener(event, Animation.initListener);
+                    });
+                    isInit = false;
                 }
             }
         }
-
-        // Start listening for animEvents
-        animEvents.forEach(event => {
-            window.addEventListener(event, initListener);
-        });
     }
 
     // Return whether an element is visible
     static isVisible(el) {
         return el.getBoundingClientRect().top - window.innerHeight < 0;
     }
-
 }
 
 export default Animation;
