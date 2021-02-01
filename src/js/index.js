@@ -1,3 +1,7 @@
+// Init animations
+import './animations/initAnimations';
+
+
 ////////////////
 //////PRODUCTS
 ////////////////

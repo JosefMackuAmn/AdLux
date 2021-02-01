@@ -1,7 +1,127 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/animations/Animation.js":
+/*!****************************************!*\
+  !*** ./src/js/animations/Animation.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+///////////////
+///// Animation class with helper methods for animating
+
+
+// Can't declare these inside the class because of webpack
+const animationCbs = [];
+let isInit = false;
+
+class Animation {
+
+    // Fcn to register an element and the associated callback,
+    // which will be executed when the element will appear on the screen
+    static onScrollToTarget(element, cb) {
+        if (!isInit) {
+            this.init();
+            isInit = true;
+        }
+
+        // If element is already visible, run callback immediately
+        // Otherwise, register it to run later
+        if (Animation.isVisible(element)) {
+            cb();
+        } else {
+            animationCbs.push({ el: element, cb });
+        }
+    }
+
+    // Init looking for visible elements
+    static init() {
+        const initListener = e => {
+            // Return, if there is nothing to animate
+            if (animationCbs.length <= 0) {
+                return;
+            }
+
+            // Loop through elements and try to find visible element
+            for (let i = 0; i < animationCbs.length; i++) {
+                const el = animationCbs[i].el;
+
+                if (Animation.isVisible(el)) {
+                    // Call callback
+                    animationCbs[i].cb();
+
+                    // Remove element from array
+                    animationCbs.splice(i, 1);
+                }
+            }
+        }
+
+        ['scroll', 'resize'].forEach(action => {
+            window.addEventListener(action, initListener);
+        });
+    }
+
+    static isVisible(el) {
+        return el.getBoundingClientRect().top - window.innerHeight < 0;
+    }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Animation);
+
+/***/ }),
+
+/***/ "./src/js/animations/initAnimations.js":
+/*!*********************************************!*\
+  !*** ./src/js/animations/initAnimations.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Animation */ "./src/js/animations/Animation.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../state */ "./src/js/state.js");
+
+
+
+const { elsToAnim } = _state__WEBPACK_IMPORTED_MODULE_1__.default;
+elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
+
+// Animate benefits section
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
+    if (!elsToAnim.benefitsStripe) return;
+
+    elsToAnim.benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+
+    const subheading = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__subheading');
+    const text = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__text');
+
+    [subheading, text].forEach(el => {
+        if (!el) return;
+
+        el.style.animation = 'turnUpOpacity 1s .5s forwards ease-out';
+    });
+
+});
+
+/***/ }),
+
+/***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _animations_initAnimations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./animations/initAnimations */ "./src/js/animations/initAnimations.js");
+// Init animations
+
+
+
 ////////////////
 //////PRODUCTS
 ////////////////
@@ -276,6 +396,87 @@ const sendBtn = document.getElementById('send-btn');
 sendBtn.addEventListener('click', sendAMessage);
 
 
+
+/***/ }),
+
+/***/ "./src/js/state.js":
+/*!*************************!*\
+  !*** ./src/js/state.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+const state = {
+    // Elements to be animated
+    elsToAnim: {}
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (state);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./src/js/index.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

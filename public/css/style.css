@@ -16,6 +16,18 @@
   100% {
     transform: translateX(20rem); } }
 
+@keyframes showBenefitsStripe {
+  from {
+    background-position: -100vw; }
+  to {
+    background-position: 0rem; } }
+
+@keyframes turnUpOpacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -411,6 +423,8 @@ body {
   .benefits__stripe {
     width: 100%;
     background-image: linear-gradient(to right bottom, #043033, #051C1E);
+    background-repeat: no-repeat;
+    background-size: 100%;
     padding: 10rem 12rem 10rem 14rem;
     margin: 5rem 0 3.5rem 0; }
     @media only screen and (max-width: 1100px) {
@@ -429,10 +443,12 @@ body {
       .benefits__stripe {
         padding: 4rem 3rem; } }
     .benefits__stripe__subheading {
-      margin-bottom: 4rem; }
+      margin-bottom: 4rem;
+      opacity: 0; }
     .benefits__stripe__text {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      opacity: 0; }
       @media only screen and (max-width: 850px) {
         .benefits__stripe__text {
           flex-direction: column; } }
