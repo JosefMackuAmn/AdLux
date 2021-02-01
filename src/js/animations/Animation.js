@@ -3,8 +3,9 @@
 
 
 // Can't declare these inside the class because of webpack
-const animationCbs = [];
+const animationRegistry = [];
 let isInit = false;
+const animEvents = ['scroll', 'resize'];
 
 class Animation {
 
@@ -21,7 +22,7 @@ class Animation {
         if (Animation.isVisible(element)) {
             cb();
         } else {
-            animationCbs.push({ el: element, cb });
+            animationRegistry.push({ el: element, cb });
         }
     }
 
@@ -29,29 +30,39 @@ class Animation {
     static init() {
         const initListener = e => {
             // Return, if there is nothing to animate
-            if (animationCbs.length <= 0) {
+            if (animationRegistry.length <= 0) {
                 return;
             }
 
             // Loop through elements and try to find visible element
-            for (let i = 0; i < animationCbs.length; i++) {
-                const el = animationCbs[i].el;
+            for (let i = 0; i < animationRegistry.length; i++) {
+                const el = animationRegistry[i].el;
 
                 if (Animation.isVisible(el)) {
                     // Call callback
-                    animationCbs[i].cb();
+                    animationRegistry[i].cb();
 
                     // Remove element from array
-                    animationCbs.splice(i, 1);
+                    animationRegistry.splice(i, 1);
+
+                    // Stop listening for animEvents
+                    // if there are no more animations left
+                    if (animationRegistry.length <= 0) {
+                        animEvents.forEach(event => {
+                            window.removeEventListener(event, initListener);
+                        })
+                    }
                 }
             }
         }
 
-        ['scroll', 'resize'].forEach(action => {
-            window.addEventListener(action, initListener);
+        // Start listening for animEvents
+        animEvents.forEach(event => {
+            window.addEventListener(event, initListener);
         });
     }
 
+    // Return whether an element is visible
     static isVisible(el) {
         return el.getBoundingClientRect().top - window.innerHeight < 0;
     }

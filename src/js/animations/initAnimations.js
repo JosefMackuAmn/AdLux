@@ -6,7 +6,7 @@ elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 
 // Simple documentation:
 // Animation.onScrollToTarget(el: HTMLElement, cb: fn)
-// Callback funciton (cb) will be invoked, once the element (el) will be visible
+// Callback funciton (cb) will be invoked, once the element (el) is visible
 
 // Animate benefits section
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
