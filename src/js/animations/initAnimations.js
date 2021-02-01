@@ -4,6 +4,10 @@ import state from '../state';
 const { elsToAnim } = state;
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 
+// Simple documentation:
+// Animation.onScrollToTarget(el: HTMLElement, cb: fn)
+// Callback funciton (cb) will be invoked, once the element (el) will be visible
+
 // Animate benefits section
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
