@@ -8,9 +8,23 @@ $benefits-margin: 14rem;
 
     display: flex;
     align-items: center;
+    
+    @media only screen and (max-width: 1100px) {
+        height: auto;
+    }
 
     &__img {
         height: 100%;
+
+        @media only screen and (max-width: 1300px) {
+            width: 20%;
+
+            object-fit: cover;
+            object-position: right;
+        }
+        @media only screen and (max-width: 1100px) {
+            display: none;
+        }
     }
     &__content {
         width: 100%;
@@ -19,11 +33,29 @@ $benefits-margin: 14rem;
         display: flex;
         flex-direction: column;
 
+        @media only screen and (max-width: 1100px) {
+            padding: 3rem 0;
+        }
+
         & .heading-1, .heading-3 {
             margin-left: $benefits-margin;
+
+            @media only screen and (max-width: 1100px) {
+                margin-left: 8rem;
+            }
+            @media only screen and (max-width: 600px) {
+                margin: 0 5rem;
+            }
+            @media only screen and (max-width: 420px) {
+                margin: 0 3rem;
+            }
         }
         & .heading-3 {
             margin-top: -1rem;
+
+            @media only screen and (max-width: 500px) {
+                margin-top: -.5rem;
+            }
         }
         &__animators {
             width: 100%;
@@ -32,6 +64,16 @@ $benefits-margin: 14rem;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @media only screen and (max-width: 1100px) {
+                padding: 0 8rem;
+            }
+            @media only screen and (max-width: 600px) {
+                padding: 0 5rem;
+            }
+            @media only screen and (max-width: 420px) {
+                padding: 0 3rem;
+            }
 
             & p {
                 width: 35rem;
@@ -45,6 +87,22 @@ $benefits-margin: 14rem;
         background-image: linear-gradient(to right bottom, $color-blue-stripe-1, $color-blue-stripe-2);
         padding: 10rem 12rem 10rem $benefits-margin;
         margin: 5rem 0 3.5rem 0;
+        
+        @media only screen and (max-width: 1100px) {
+            padding: 10rem 8rem;
+        }
+        @media only screen and (max-width: 850px) {
+            padding: 6rem 8rem;
+        }
+        @media only screen and (max-width: 600px) {
+            padding: 6rem 5rem;
+        }
+        @media only screen and (max-width: 500px) {
+            padding: 4rem 5rem;
+        }
+        @media only screen and (max-width: 420px) {
+            padding: 4rem 3rem;
+        }
 
         &__subheading {
             margin-bottom: 4rem;
@@ -53,11 +111,27 @@ $benefits-margin: 14rem;
             display: flex;
             justify-content: space-between;
 
+            @media only screen and (max-width: 850px) {
+                flex-direction: column;
+            }
+
             & > *:first-child {
                 width: 46%;
+
+                @media only screen and (max-width: 850px) {
+                    width: 100%;
+                    margin-bottom: 3rem;
+                }
             }
             & > *:nth-child(2) {
                 width: 42%;
+
+                @media only screen and (max-width: 1380px) {
+                    width: 47%;
+                }
+                @media only screen and (max-width: 850px) {
+                    width: 100%;
+                }
             }
         }
         &__list {

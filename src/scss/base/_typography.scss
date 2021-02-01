@@ -7,6 +7,11 @@
         color: $color-grey-dark;
         font-size: $font_120;
         letter-spacing: 1.8rem;
+
+        @media only screen and (max-width: 500px) {
+            font-size: $font_60;
+            letter-spacing: 1rem;
+        }
     }
     &--small {
         font-family: $font_bebasNeue;
