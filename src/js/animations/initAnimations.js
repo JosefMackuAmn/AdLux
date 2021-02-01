@@ -14,7 +14,7 @@ elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 // passed value will equal to null
 
 // Animate benefits section
-Animation.onScrollToTarget(elsToAnim.benefitsStripe, (e) => {
+Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
 
     elsToAnim.benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
