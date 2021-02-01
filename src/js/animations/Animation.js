@@ -12,9 +12,7 @@ class Animation {
     // Fcn to register an element and the associated callback,
     // which will be executed when the element will appear on the screen
     static onScrollToTarget(element, cb) {
-        if (!isInit) {
-            Animation.init();
-        }
+        if (!isInit) Animation.init();
 
         // If element is already visible, run callback immediately
         // Otherwise, register it to run later
@@ -38,9 +36,7 @@ class Animation {
     // listening for animEvents on window object
     static initListener(e) {
         // Return, if there is nothing to animate
-        if (animationRegistry.length <= 0) {
-            return;
-        }
+        if (animationRegistry.length <= 0) return;
 
         // Loop through elements and try to find visible element
         for (let i = 0; i < animationRegistry.length; i++) {
@@ -55,6 +51,7 @@ class Animation {
 
                 // Stop listening for animEvents
                 // if there are no more animations left
+                // and reset isInit variable
                 if (animationRegistry.length <= 0) {
                     animEvents.forEach(event => {
                         window.removeEventListener(event, Animation.initListener);
