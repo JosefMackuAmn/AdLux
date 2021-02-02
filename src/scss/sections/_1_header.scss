@@ -1,9 +1,12 @@
 .header {
     height: 100vh;
     background-color: $color-blue-black;
+
+    overflow: hidden;
     &__upper-part{
         height: 10rem;
         position: relative;
+        overflow: hidden;
         &__logo{
             &-full{
                 display: inline-block;
@@ -98,6 +101,8 @@
     &__menu{
         height: 25.7rem;
         position: absolute;
+        overflow: hidden;
+        width: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -124,6 +129,7 @@
         &-content-text{
             width: 152rem;
             position: absolute;
+            overflow: hidden;
             left: 54%;
             top: 52%;
             transform: translate(-50%, -50%);

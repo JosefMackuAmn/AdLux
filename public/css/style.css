@@ -37,7 +37,8 @@ html {
   background-image: linear-gradient(to bottom, rgba(4, 14, 15, 0.98), #040E0F);
   font-family: "Raleway", sans-serif;
   font-size: 62.5%;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  overflow-x: hidden; }
   @media only screen and (max-width: 1400px) {
     html {
       font-size: 56.25%; } }
@@ -151,10 +152,12 @@ body {
 
 .header {
   height: 100vh;
-  background-color: #040E0F; }
+  background-color: #040E0F;
+  overflow: hidden; }
   .header__upper-part {
     height: 10rem;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
     .header__upper-part__logo-full {
       display: inline-block;
       position: absolute;
@@ -220,6 +223,8 @@ body {
   .header__menu {
     height: 25.7rem;
     position: absolute;
+    overflow: hidden;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -240,6 +245,7 @@ body {
     .header__menu-content-text {
       width: 152rem;
       position: absolute;
+      overflow: hidden;
       left: 54%;
       top: 52%;
       transform: translate(-50%, -50%);
@@ -483,7 +489,7 @@ body {
 .products {
   position: relative;
   margin-bottom: 36rem;
-  padding-top: 10rem; }
+  margin-top: 36rem; }
   @media screen and (max-width: 1400px) {
     .products {
       margin-bottom: 24rem; } }
@@ -623,6 +629,9 @@ body {
   width: 100%;
   margin-bottom: 20rem;
   position: relative; }
+  @media screen and (max-width: 900px) {
+    .solution {
+      margin-bottom: 0rem; } }
   .solution .heading-1 {
     margin-left: 10rem; }
     @media screen and (max-width: 1100px) {
@@ -678,7 +687,8 @@ body {
         flex-direction: column; } }
     @media screen and (max-width: 900px) {
       .solution__cards {
-        margin-top: 12rem; } }
+        margin-top: 12rem;
+        margin-bottom: 20rem; } }
     @media screen and (max-width: 400px) {
       .solution__cards {
         padding-left: 3rem;
@@ -820,54 +830,88 @@ body {
         display: none; } }
   .solution video {
     opacity: 0.02;
+    width: 100%;
     position: absolute;
-    top: 50%; }
+    top: 50%;
+    overflow: hidden; }
 
 .contact {
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  padding-top: 18rem; }
+  @media screen and (max-width: 1000px) {
+    .contact {
+      margin-bottom: 12rem; } }
+  @media screen and (max-width: 900px) {
+    .contact {
+      padding-top: 0; } }
   .contact-content {
-    width: 104.6rem;
     margin: 0 auto; }
     .contact-content__Adlux-logo {
       margin: 7rem auto;
-      margin-top: 50vh;
       width: 27.83rem;
       height: 15.248rem;
       background-image: url(../img/adlux-logo-text.svg);
       background-size: cover; }
+      @media screen and (max-width: 700px) {
+        .contact-content__Adlux-logo {
+          width: 20rem;
+          height: 10rem; } }
     .contact-content-table {
-      transform: translate(-3.5rem, 0);
-      height: 90rem; }
+      height: 90rem;
+      width: 80rem;
+      margin-left: auto;
+      margin-right: auto; }
+      @media screen and (max-width: 1400px) {
+        .contact-content-table {
+          width: 65%; } }
+      @media screen and (max-width: 1000px) {
+        .contact-content-table {
+          width: 75%; } }
+      @media screen and (max-width: 700px) {
+        .contact-content-table {
+          width: 80%; } }
+      @media screen and (max-width: 600px) {
+        .contact-content-table {
+          width: 90%; } }
       .contact-content-table-row {
-        margin-bottom: 2.5rem; }
+        margin-bottom: 2.5rem;
+        position: relative; }
         .contact-content-table-row-message {
           position: relative; }
       .contact-content-table__input {
         height: 4.1rem;
-        width: 94.3rem;
+        width: 100%;
         font-size: 2rem;
         outline: none;
         padding-left: 0.5rem; }
         .contact-content-table__input::placeholder {
           color: #ACAFAF; }
-        @media screen and (max-width: 1070px) {
-          .contact-content-table__input {
-            width: 80vw; } }
       .contact-content-table__label {
         color: #ffff;
         margin: 0 auto;
         font-size: 2.2rem;
         font-weight: 400; }
+        @media screen and (max-width: 600px) {
+          .contact-content-table__label {
+            font-size: 1.7rem; } }
         .contact-content-table__label-box {
           display: inline-block;
           width: 6.8rem;
-          margin-right: 3rem; }
+          height: 100%;
+          left: -10rem;
+          margin-right: 3rem;
+          position: absolute; }
+          @media screen and (max-width: 1000px) {
+            .contact-content-table__label-box {
+              margin-bottom: 1rem;
+              position: relative;
+              left: 0; } }
         .contact-content-table__label-message {
-          position: absolute;
           top: 0.5rem; }
 
 .message {
-  width: 94.3rem;
+  width: 100%;
   height: 43.4rem;
   font-size: 2rem;
   line-height: 4rem;
@@ -875,6 +919,12 @@ body {
   font-weight: 400;
   outline: none;
   padding-left: 0.5rem; }
+  @media screen and (max-width: 900px) {
+    .message {
+      height: 30rem; } }
+  @media screen and (max-width: 500px) {
+    .message {
+      height: 25rem; } }
   .message::placeholder {
     font-weight: 500;
     font-family: "Raleway", sans-serif;
@@ -882,7 +932,8 @@ body {
     font-size: 2rem; }
 
 .send-button {
-  display: inline-block;
+  display: block;
+  margin-bottom: 1rem;
   background-color: #040E0F;
   outline: none;
   border: none;
@@ -890,25 +941,29 @@ body {
   font-weight: 400;
   color: #ffff;
   margin-top: 2rem;
-  margin-left: 49%;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   transition: all .1s; }
-  .send-button-box {
-    height: 5.5rem; }
   .send-button:hover {
     transform: translateY(-0.2rem) scale(1.05); }
-  .send-button:active {
-    transform: translateY(-0.1rem) scale(1.05); }
+  @media screen and (max-width: 600px) {
+    .send-button {
+      font-size: 3rem; } }
 
 .loading-efect {
-  display: inline-block;
+  display: block;
   overflow: hidden;
   position: relative;
-  margin-left: 47.2%;
+  margin-left: auto;
+  margin-right: auto;
   height: .4rem;
   width: 19rem;
   border-radius: .2rem;
   background-color: #043033; }
+  @media screen and (max-width: 600px) {
+    .loading-efect {
+      width: 14rem; } }
   .loading-efect__img {
     width: 10rem;
     height: 0.4rem;
@@ -916,6 +971,9 @@ body {
     background-image: linear-gradient(to right, #043033, #00BFCB);
     animation: loadingEffectAnimation 2s ease-in;
     animation-iteration-count: infinite; }
+    @media screen and (max-width: 600px) {
+      .loading-efect__img {
+        width: 5rem; } }
     .loading-efect__img-send {
       width: 19rem;
       height: 0.4rem;
@@ -923,6 +981,9 @@ body {
       background-color: #00BFCB;
       animation: sendingEffectAnimation 1s ease-in;
       transform: translateX(0rem); }
+      @media screen and (max-width: 600px) {
+        .loading-efect__img-send {
+          width: 9rem; } }
 
 .footer-up {
   background-color: #040E0F;

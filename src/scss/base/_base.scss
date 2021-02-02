@@ -11,6 +11,7 @@ html {
     font-size:  62.5%;
 
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
     @media only screen and (max-width: 1400px) {
         font-size: 56.25%;
