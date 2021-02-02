@@ -6,7 +6,7 @@
     }
  }
 
- @keyframes sendingEffectAnimation{
+ @keyframes sendingEffectAnimation {
     0%{
         transform: translateX(-19rem);
     }
@@ -16,11 +16,29 @@
 }
 
 
-@keyframes loadingEffectAnimation{
+@keyframes loadingEffectAnimation {
     0%{
         transform: translateX(-10rem);
     }
     100%{
         transform: translateX(20rem);
+    }
+}
+
+@keyframes showBenefitsStripe {
+    from {
+        background-position: -100vw;
+    }
+    to {
+        background-position: 0rem;
+    }
+}
+
+@keyframes turnUpOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

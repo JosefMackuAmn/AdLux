@@ -15,7 +15,14 @@
             padding: 10rem;
         }
         @media only screen and (max-width: $bp-mobile) {
-            padding: 8rem;
+            height: auto;
+            padding: 10rem 8rem;
+        }
+        @media only screen and (max-width: 600px) {
+            padding: 10rem 4rem;
+        }
+        @media only screen and (max-width: 420px) {
+            padding: 10rem 2rem;
         }
     }
 
@@ -26,13 +33,23 @@
         align-items: center;
 
         &__content {
-            display: flex;
-            padding: 3rem 0 3rem 5rem;
+            padding: 5rem 0 5rem 5rem;
             border-left: 2px solid $color-blue;
             transform: translateY(12vh);
+            
+            display: flex;
 
             position: relative;
             z-index: 2;
+
+            @media only screen and (max-width: 950px) {
+                padding: 5rem 0 5rem 5rem;
+
+                flex-direction: column;
+            }
+            @media only screen and (max-width: 420px) {
+                padding: 3rem 0 3rem 2rem;
+            }
 
             &::before, &::after {
                 content: "";
@@ -56,6 +73,15 @@
 
                 display: flex;
                 align-items: center;
+
+                @media only screen and (max-width: 950px) {
+                    margin-right: 0;
+                    margin-bottom: 1.5rem;
+
+                    & br {
+                        display: none
+                    }
+                }
             }
         }
     }
@@ -67,7 +93,12 @@
         justify-content: space-between;
 
         @media only screen and (max-width: $bp-mobile) {
+            min-height: 100vh;
+
             flex-direction: column;
+            justify-content: space-evenly;
+        }
+        @media only screen and (max-width: $bp-mobile) {
         }
 
         &__text-wrap {
@@ -76,6 +107,9 @@
 
             @media only screen and (max-width: 1250px) {
                 width: 26rem;
+            }
+            @media only screen and (max-width: $bp-mobile) {
+                transform: translateY(0);
             }
         }
         &__text {

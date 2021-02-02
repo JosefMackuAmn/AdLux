@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
+import { emailRouter } from './emailRouter';
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -8,12 +10,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.post('/email', (req, res) => {
-    // Send email
-    res.send(JSON.stringify({
-        success: true
-    }));
-});
+app.use(emailRouter);
 
 app.get('/', (req, res) => {
     res.render('index');
