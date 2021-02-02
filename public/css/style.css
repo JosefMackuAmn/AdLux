@@ -256,6 +256,9 @@ body {
   .rotate-right-circle {
     transform: rotate(-45deg) translate(-21.5%, -1.1rem); }
 
+.blur {
+  filter: blur(5px) brightness(45%); }
+
 .info .info__revolution, .info .info__meaning {
   height: 100vh;
   padding: 26rem;

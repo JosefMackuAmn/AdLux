@@ -258,3 +258,32 @@ sendBtn.addEventListener('click', sendAMessage);
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
+
+
+/////////////
+//////MENU
+////////////
+
+// const openButton = document.getElementById('openButton');
+// const cancelButton = document.getElementById('cancelButton');
+// const menu = document.getElementById('menu');
+// const body = document.body;
+
+// function cancelMenu(){
+//   console.log('proslo');
+//   openButton.classList.add('visible');
+//   menu.classList.remove('visible');
+//   cancelButton.classList.remove('visible');
+// }
+
+// function openMenu(){
+//   body.classList.add('blur');
+//   console.log('proslo');
+//   openButton.classList.remove('visible');
+//   menu.classList.add('visible');
+//   cancelButton.classList.add('visible');
+// }
+
+// cancelButton.addEventListener('click', cancelMenu);
+// openButton.addEventListener('click', openMenu);
+// // body.addEventListener('click', cancelMenu);
