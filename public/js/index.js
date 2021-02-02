@@ -575,37 +575,33 @@ const state = {
 ;
 //# sourceMappingURL=index.js.map
 
-
-/////////////
+///////////////
 //////MENU
-////////////
+///////////
 
+const menu = document.getElementById('menu');
 const openButton = document.getElementById('openButton');
 const cancelButton = document.getElementById('cancelButton');
-const menu = document.getElementById('menu');
+const link = document.querySelectorAll('#menu a');
 const body = document.body;
-const links = document.querySelectorAll('#menu a');
 
-function closeMenu(){
+function cancelMenu(){
   body.classList.remove('blur');
-  openButton.classList.add('visible');
   menu.classList.remove('visible');
   cancelButton.classList.remove('visible');
+  openButton.classList.add('visible');
 }
-
-
 
 
 function openMenu(){
   body.classList.add('blur');
-     openButton.classList.remove('visible');
   menu.classList.add('visible');
   cancelButton.classList.add('visible');
+  openButton.classList.remove('visible');
 }
 
-
 openButton.addEventListener('click', openMenu);
-cancelButton.addEventListener('click', closeMenu);
-for(const a of links){
-  a.addEventListener('click', closeMenu);
+cancelButton.addEventListener('click', cancelMenu);
+for(const a of link){
+  a.addEventListener('click', cancelMenu);
 }
