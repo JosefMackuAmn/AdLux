@@ -37,16 +37,14 @@ html {
   background-image: linear-gradient(to bottom, rgba(4, 14, 15, 0.98), #040E0F);
   font-family: "Raleway", sans-serif;
   font-size: 62.5%;
-  scroll-behavior: smooth;
-  overflow-x: hidden; }
+  scroll-behavior: smooth; }
   @media only screen and (max-width: 1400px) {
     html {
       font-size: 56.25%; } }
 
 body {
   box-sizing: border-box;
-  font-size: 1.6rem;
-  overflow-x: hidden; }
+  font-size: 1.6rem; }
 
 ::-webkit-scrollbar {
   background-color: #040E0F;
@@ -152,12 +150,10 @@ body {
 
 .header {
   height: 100vh;
-  background-color: #040E0F;
-  overflow: hidden; }
+  background-color: #040E0F; }
   .header__upper-part {
     height: 10rem;
-    position: relative;
-    overflow: hidden; }
+    position: relative; }
     .header__upper-part__logo-full {
       display: inline-block;
       position: absolute;
@@ -223,7 +219,6 @@ body {
   .header__menu {
     height: 25.7rem;
     position: absolute;
-    overflow: hidden;
     width: 100%;
     top: 50%;
     left: 50%;
@@ -245,7 +240,6 @@ body {
     .header__menu-content-text {
       width: 152rem;
       position: absolute;
-      overflow: hidden;
       left: 54%;
       top: 52%;
       transform: translate(-50%, -50%);
@@ -516,8 +510,7 @@ body {
     height: 6rem;
     width: 24rem;
     border-radius: 1.5rem;
-    position: relative;
-    overflow: hidden; }
+    position: relative; }
     @media screen and (max-width: 1150px) {
       .products__button {
         height: 4.8rem; } }
@@ -804,8 +797,7 @@ body {
       padding-bottom: .6rem;
       width: 10rem;
       border-bottom: 1px solid #3A3F3F;
-      position: relative;
-      overflow: hidden; }
+      position: relative; }
   .solution__contact-button {
     background-color: transparent;
     border: none;
@@ -832,12 +824,10 @@ body {
     opacity: 0.02;
     width: 100%;
     position: absolute;
-    top: 50%;
-    overflow: hidden; }
+    top: 50%; }
 
 .contact {
   position: relative;
-  overflow: hidden;
   padding-top: 18rem; }
   @media screen and (max-width: 1000px) {
     .contact {
@@ -953,7 +943,6 @@ body {
 
 .loading-efect {
   display: block;
-  overflow: hidden;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -1004,7 +993,6 @@ body {
     left: 50%;
     width: 88rem;
     height: 5rem;
-    overflow: hidden;
     transform: translate(-41%, -1rem); }
     .footer-up__contacts-picture-1 {
       position: relative;
