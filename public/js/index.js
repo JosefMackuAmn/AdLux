@@ -477,6 +477,36 @@ const updateWave = () => {
 //Initializing wave animation
 updateWave();
 
+///////////////
+//////MENU
+///////////
+
+const menu = document.getElementById('menu');
+const openButton = document.getElementById('openButton');
+const cancelButton = document.getElementById('cancelButton');
+const link = document.querySelectorAll('#menu a');
+const body = document.body;
+
+function cancelMenu(){
+  body.classList.remove('blur');
+  menu.classList.remove('visible');
+  cancelButton.classList.remove('visible');
+  openButton.classList.add('visible');
+}
+
+
+function openMenu(){
+  body.classList.add('blur');
+  menu.classList.add('visible');
+  cancelButton.classList.add('visible');
+  openButton.classList.remove('visible');
+}
+
+openButton.addEventListener('click', openMenu);
+cancelButton.addEventListener('click', cancelMenu);
+for(const a of link){
+  a.addEventListener('click', cancelMenu);
+}
 
 /***/ }),
 
@@ -574,34 +604,3 @@ const state = {
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map
-
-///////////////
-//////MENU
-///////////
-
-const menu = document.getElementById('menu');
-const openButton = document.getElementById('openButton');
-const cancelButton = document.getElementById('cancelButton');
-const link = document.querySelectorAll('#menu a');
-const body = document.body;
-
-function cancelMenu(){
-  body.classList.remove('blur');
-  menu.classList.remove('visible');
-  cancelButton.classList.remove('visible');
-  openButton.classList.add('visible');
-}
-
-
-function openMenu(){
-  body.classList.add('blur');
-  menu.classList.add('visible');
-  cancelButton.classList.add('visible');
-  openButton.classList.remove('visible');
-}
-
-openButton.addEventListener('click', openMenu);
-cancelButton.addEventListener('click', cancelMenu);
-for(const a of link){
-  a.addEventListener('click', cancelMenu);
-}
