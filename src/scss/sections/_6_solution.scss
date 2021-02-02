@@ -6,6 +6,10 @@
     
     position: relative;
 
+    @media screen and (max-width: 900px) {
+        margin-bottom: 0rem;
+    }
+
     & .heading-1 {
         margin-left: 10rem;
 
@@ -71,6 +75,7 @@
         }
         @media screen and (max-width: 900px) {
           margin-top: 12rem;
+          margin-bottom: 20rem;
         }
         @media screen and (max-width: 400px) {
            padding-left: 3rem;
@@ -264,9 +269,11 @@
     }
     video {
         opacity: 0.02;
+        width: 100%;
 
         position: absolute;
         top: 50%;
+        overflow: hidden;
     }
 }
 .line {
