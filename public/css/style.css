@@ -36,7 +36,8 @@
 html {
   background-image: linear-gradient(to bottom, rgba(4, 14, 15, 0.98), #040E0F);
   font-family: "Raleway", sans-serif;
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
   @media only screen and (max-width: 1400px) {
     html {
       font-size: 56.25%; } }
@@ -181,6 +182,7 @@ body {
       position: absolute;
       top: 5rem;
       right: 4rem;
+      cursor: pointer;
       display: none; }
       .header__upper-part__menu-button__line {
         height: 0.75rem;
