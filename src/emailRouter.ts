@@ -65,7 +65,7 @@ router.post('/email', [
 
     } catch (err) {
         console.log('---------------------------------------');
-        console.log('Sending mail failed');
+        console.log('Sending mail failed:');
         console.log(err);
         console.log('---------------------------------------');
 

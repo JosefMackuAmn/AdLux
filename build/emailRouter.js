@@ -104,7 +104,7 @@ router.post('/email', [
             case 3:
                 err_1 = _b.sent();
                 console.log('---------------------------------------');
-                console.log('Sending mail failed');
+                console.log('Sending mail failed:');
                 console.log(err_1);
                 console.log('---------------------------------------');
                 return [2 /*return*/, res

@@ -19,7 +19,7 @@ app.get('*', function (req, res) {
 });
 app.use(function (err, req, res, next) {
     console.log('---------------------------------------');
-    console.log('Express error handler: ');
+    console.log('Express error handler:');
     console.log(err);
     console.log('---------------------------------------');
     res.sendStatus(500);

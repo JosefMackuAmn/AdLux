@@ -27,10 +27,10 @@ app.use((
     next: NextFunction
 ) => {
     console.log('---------------------------------------');
-    console.log('Express error handler: ');
+    console.log('Express error handler:');
     console.log(err);
     console.log('---------------------------------------');
-    
+
     res.sendStatus(500);
 });
 

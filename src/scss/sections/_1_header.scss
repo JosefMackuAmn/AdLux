@@ -94,6 +94,7 @@
         background-image: radial-gradient($color-blue-header-grad, transparent 50%);
         background-size: 1% 100%;
         background-position: center center;
+        background-repeat: repeat-x;
 
         z-index: -1;
         position: absolute;
@@ -119,9 +120,10 @@
 
     &__menu{
         height: 25.7rem;
-        position: absolute;
-
+        
         // width: 100%;
+        position: absolute;
+        z-index: 1000;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

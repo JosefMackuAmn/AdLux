@@ -2,7 +2,6 @@ import Animation from './Animation';
 import state from '../state';
 
 const { elsToAnim } = state;
-elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 
 // Simple documentation:
 // Animation.onScrollToTarget(el: HTMLElement, cb(e: Event): fn)
@@ -13,7 +12,9 @@ elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
+
 // Animate benefits section
+elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
 
@@ -27,5 +28,27 @@ Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
 
         el.style.animation = 'turnUpOpacity 1s .5s forwards ease-out';
     });
+
+});
+
+elsToAnim.benefitsImg = document.getElementById('benefits-img');
+Animation.infiniteAnimation(() => {
+    if (!Animation.isVisible(elsToAnim.benefitsImg)) return;
+
+    const imgHeight = elsToAnim.benefitsImg.offsetHeight;
+
+    const scrolled = imgHeight - elsToAnim.benefitsImg.getBoundingClientRect().top;
+    const scrollable = window.innerHeight + imgHeight;
+    const percentageOnPage = scrolled / scrollable;
+
+    let imgPositionX = percentageOnPage * 100;
+    let imgPositionY = percentageOnPage * 100;
+
+    if (imgPositionX < 0) imgPositionX = 0;
+    if (imgPositionY < 0) imgPositionY = 0;
+    if (imgPositionX > 100) imgPositionX = 100;
+    if (imgPositionY > 100) imgPositionY = 100;
+
+    elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
 });

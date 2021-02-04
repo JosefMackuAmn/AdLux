@@ -6,9 +6,10 @@
   "scripts": {
     "compile:css": "node-sass ./src/scss/main.scss ./public/css/style.css -w",
     "compile:js": "webpack --watch",
-    "start:build": "tsc -w",
-    "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:* npm:compile:*"
+    "dev:build": "tsc -w",
+    "dev:run": "nodemon build/index.js",
+    "dev": "concurrently npm:dev:* npm:compile:*",
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "",

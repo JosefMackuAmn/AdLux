@@ -47,13 +47,18 @@
     0% {
         background-size: 1% 100%;
         background-position-x: 0%;
+        animation-timing-function: linear;
     }
     50% {
-        background-size: 1.1% 70%;
+        background-size: 1.1% 20%;
         background-position-x: 50%;
+    }
+    80% {        
+        animation-timing-function: ease-out;
     }
     100% {
         background-size: 1% 100%;
         background-position-x: 100%;
+        animation-timing-function: linear;
     }
 }
