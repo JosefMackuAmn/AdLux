@@ -262,7 +262,7 @@ body {
       text-transform: uppercase;
       transition: all 0.2s; }
       .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-        margin-right: 10rem; }
+        margin-right: 5.25vw; }
     .header__menu-link:hover {
       color: #ffff;
       font-weight: 700; }
@@ -877,7 +877,7 @@ body {
       margin: 7rem auto;
       width: 27.83rem;
       height: 15.248rem;
-      background-image: url(../img/adlux-logo-text.svg);
+      background-image: url("/img/adlux-logo-text.svg");
       background-size: cover; }
       @media screen and (max-width: 700px) {
         .contact-content__Adlux-logo {
@@ -1031,7 +1031,7 @@ body {
     height: 6.8rem;
     width: 12.411rem;
     transform: translate(50%, -60%);
-    background-image: url(../img/AdLux-logo-text.svg);
+    background-image: url("/img/AdLux-logo-text.svg");
     background-size: cover; }
     @media screen and (max-width: 1200px) {
       .footer-up__AdLux-logo {
@@ -1043,11 +1043,14 @@ body {
   @media screen and (max-width: 1200px) and (max-width: 900px) {
     .footer-up__AdLux-logo {
       top: -19rem; } }
+  @media screen and (max-width: 1200px) and (max-width: 320px) {
+    .footer-up__AdLux-logo {
+      top: -14rem; } }
   .footer-up__contacts {
     display: inline-block;
     position: absolute;
     left: 50%;
-    width: 58rem;
+    width: 52rem;
     height: 5rem;
     transform: translate(-50%, -1rem); }
     @media screen and (max-width: 900px) {
@@ -1055,10 +1058,14 @@ body {
         height: 15rem;
         width: 19rem;
         bottom: 2rem; } }
+    @media screen and (max-width: 320px) {
+      .footer-up__contacts {
+        width: 15rem;
+        height: 10rem; } }
     .footer-up__contacts-picture {
       position: relative;
       height: 5rem;
-      margin: 0 4rem; }
+      margin: 0 1.5rem 0 3rem; }
       .footer-up__contacts-picture:first-child {
         margin-left: 0; }
       @media screen and (max-width: 900px) {
@@ -1066,7 +1073,14 @@ body {
           margin: 0;
           margin-bottom: 2rem; }
           .footer-up__contacts-picture:last-of-type {
-            transform: translateX(-7rem); } }
+            transform: translateX(-7rem) translateY(-1rem); } }
+      @media screen and (max-width: 320px) {
+        .footer-up__contacts-picture {
+          height: 4rem;
+          font-size: 1.5rem;
+          margin: 0; }
+          .footer-up__contacts-picture:last-of-type {
+            transform: translateX(-5rem) translateY(-1rem); } }
     .footer-up__contacts-text {
       position: relative;
       display: inline-block;
@@ -1078,12 +1092,20 @@ body {
         font-variant-numeric: lining-nums; }
       @media screen and (max-width: 900px) {
         .footer-up__contacts-text {
-          margin-left: 4rem;
+          margin-left: 3rem;
           margin-bottom: 2rem;
           transform: translate(0, -3.5rem); }
           .footer-up__contacts-text:last-of-type {
             position: absolute;
-            transform: translate(-7rem, 56%); } }
+            transform: translate(-7rem, calc(56% - 1rem)); } }
+      @media screen and (max-width: 320px) {
+        .footer-up__contacts-text {
+          margin-left: 2rem;
+          font-size: 1.5rem;
+          transform: translate(0, -1.5rem); }
+          .footer-up__contacts-text:last-of-type {
+            position: absolute;
+            transform: translate(-5rem, calc(56% - 1rem)); } }
   .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
     height: 7rem;
     width: 7rem;
@@ -1112,7 +1134,7 @@ body {
     transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
-  background-image: url(../img/footer-picture.jpg);
+  background-image: url("/img/footer-picture.jpg");
   background-size: 100%;
   display: block;
   position: relative;

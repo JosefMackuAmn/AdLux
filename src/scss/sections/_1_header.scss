@@ -121,7 +121,6 @@
     &__menu{
         height: 25.7rem;
         
-        // width: 100%;
         position: absolute;
         z-index: 1000;
         top: 50%;
@@ -139,7 +138,7 @@
                 text-transform: uppercase;
                 transition: all 0.2s;
                 &:not(:last-child){
-                    margin-right: 10rem;
+                    margin-right: 5.25vw;
                 }
             }
             &:hover{
