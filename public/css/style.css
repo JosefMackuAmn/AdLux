@@ -219,7 +219,6 @@ body {
   .header__menu {
     height: 25.7rem;
     position: absolute;
-    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -510,7 +509,8 @@ body {
     height: 6rem;
     width: 24rem;
     border-radius: 1.5rem;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
     @media screen and (max-width: 1150px) {
       .products__button {
         height: 4.8rem; } }
@@ -797,7 +797,8 @@ body {
       padding-bottom: .6rem;
       width: 10rem;
       border-bottom: 1px solid #3A3F3F;
-      position: relative; }
+      position: relative;
+      overflow: hidden; }
   .solution__contact-button {
     background-color: transparent;
     border: none;
@@ -824,10 +825,12 @@ body {
     opacity: 0.02;
     width: 100%;
     position: absolute;
-    top: 50%; }
+    top: 50%;
+    overflow: hidden; }
 
 .contact {
   position: relative;
+  overflow: hidden;
   padding-top: 18rem; }
   @media screen and (max-width: 1000px) {
     .contact {
@@ -943,6 +946,7 @@ body {
 
 .loading-efect {
   display: block;
+  overflow: hidden;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -974,51 +978,80 @@ body {
         .loading-efect__img-send {
           width: 9rem; } }
 
+@media screen and (max-width: 1200px) {
+  .footer {
+    margin-top: 10rem; } }
+
 .footer-up {
   background-color: #040E0F;
   color: #ffff;
   position: relative;
   height: 5rem; }
+  @media screen and (max-width: 900px) {
+    .footer-up {
+      height: 8rem;
+      bottom: 0; } }
   .footer-up__AdLux-logo {
     position: absolute;
+    left: 0;
     display: inline-block;
     height: 6.8rem;
     width: 12.411rem;
-    transform: translate(51%, -60%);
+    transform: translate(50%, -60%);
     background-image: url(../img/AdLux-logo-text.svg);
     background-size: cover; }
+    @media screen and (max-width: 1200px) {
+      .footer-up__AdLux-logo {
+        left: 50%;
+        top: -15rem;
+        height: 7.48rem;
+        width: 13.65rem;
+        transform: translate(-50%, -50%); } }
+  @media screen and (max-width: 1200px) and (max-width: 900px) {
+    .footer-up__AdLux-logo {
+      top: -19rem; } }
   .footer-up__contacts {
     display: inline-block;
     position: absolute;
     left: 50%;
-    width: 88rem;
+    width: 58rem;
     height: 5rem;
-    transform: translate(-41%, -1rem); }
-    .footer-up__contacts-picture-1 {
+    bottom: 0;
+    transform: translate(-50%, -1rem); }
+    @media screen and (max-width: 900px) {
+      .footer-up__contacts {
+        height: 15rem;
+        width: 19rem;
+        bottom: 2rem; } }
+    .footer-up__contacts-picture {
+      position: relative;
+      height: 5rem;
+      margin: 0 4rem; }
+      .footer-up__contacts-picture:first-child {
+        margin-left: 0; }
+      @media screen and (max-width: 900px) {
+        .footer-up__contacts-picture {
+          margin: 0;
+          margin-bottom: 2rem; }
+          .footer-up__contacts-picture:last-of-type {
+            transform: translateX(-7rem); } }
+    .footer-up__contacts-text {
       position: relative;
       display: inline-block;
-      height: 30rem;
-      transform: translateY(-6rem); }
-    .footer-up__contacts-picture-2 {
-      position: relative;
-      display: inline-block;
-      height: 30rem;
-      transform: translateY(-12.75rem); }
-    .footer-up__contacts-phone-number {
-      position: absolute;
-      display: inline-block;
-      left: 15rem;
+      transform: translateY(-1.5rem);
       font-variant-numeric: lining-nums;
       font-weight: 500;
-      font-size: 2rem;
-      transform: translateY(1rem); }
-    .footer-up__contacts-email {
-      position: absolute;
-      display: inline-block;
-      right: 20rem;
-      font-weight: 500;
-      font-size: 2rem;
-      transform: translateY(1rem); }
+      font-size: 2rem; }
+      .footer-up__contacts-text__number {
+        font-variant-numeric: lining-nums; }
+      @media screen and (max-width: 900px) {
+        .footer-up__contacts-text {
+          margin-left: 4rem;
+          margin-bottom: 2rem;
+          transform: translate(0, -3.5rem); }
+          .footer-up__contacts-text:last-of-type {
+            position: absolute;
+            transform: translate(-7rem, 56%); } }
   .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
     height: 7rem;
     width: 7rem;
@@ -1026,15 +1059,25 @@ body {
     top: 0.5rem;
     right: 0;
     bottom: 3rem;
-    transform: translate(-90%, -50%);
+    transform: translate(-50%, -50%);
     text-decoration: none;
     color: #ffff;
     font-weight: 300;
     transition: all .1s; }
+    @media screen and (max-width: 1200px) {
+      .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
+        top: 25rem;
+        left: 50%;
+        height: 7.7rem;
+        width: 7.7rem;
+        transform: translate(-50%, -50%); } }
+  @media screen and (max-width: 1200px) and (max-width: 900px) {
+    .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
+      top: 28rem; } }
   .footer-up__AmnioN-link-logo:hover {
-    transform: translate(-90%, -50%) scale(1.1) translateY(-0.2rem); }
+    transform: translate(-50%, -50%) scale(1.1) translateY(-0.2rem); }
   .footer-up__AmnioN-link-logo:active {
-    transform: translate(-90%, -50%) scale(1.1) translateY(-0.1rem); }
+    transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
   background-image: url(../img/footer-picture.jpg);
@@ -1055,7 +1098,7 @@ body {
     position: relative;
     display: inline-block;
     text-align: center;
-    width: 17rem;
+    width: 16rem;
     text-decoration: none;
     padding: 1.3rem 0;
     padding-right: 3rem;
@@ -1063,8 +1106,22 @@ body {
     font-weight: 300;
     color: #ffff;
     transition: all .1s; }
+    @media screen and (max-width: 1200px) {
+      .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
+        position: absolute;
+        top: 26rem;
+        left: 50%;
+        transform: translate(-43%, -50%); } }
   .footer-down__AmnioNLink-text:hover {
     transform: translateY(-0.4rem);
     text-shadow: 0.2rem 0.2rem 0.8rem black; }
+    @media screen and (max-width: 1200px) {
+      .footer-down__AmnioNLink-text:hover {
+        margin-bottom: 0.5rem;
+        transform: translate(-43%, calc(-50% - 0.4rem)); } }
   .footer-down__AmnioNLink-text:active {
     transform: translateY(-0.2rem); }
+    @media screen and (max-width: 1200px) {
+      .footer-down__AmnioNLink-text:active {
+        margin-bottom: 0.5rem;
+        transform: translate(-43%, calc(-50% - 0.2rem)); } }
