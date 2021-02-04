@@ -127,21 +127,24 @@
 }
 
 .send-button {
-    display: block;
-    margin-bottom: 1rem;
+    margin: 2rem auto 1rem auto;
     background-color: $color-blue-black;
     outline: none;
     border: none;
+    cursor: pointer;
+
+    font-family: $font_raleway;
+    letter-spacing: 2px;
     font-size: 3.5rem;
     font-weight: $font_regular;
     color: $text-color-white;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    transition: all .1s;
-    &:hover{
-        transform: translateY(-0.2rem) scale(1.05);
+
+    display: block;
+
+    transition: all .2s;
+
+    &:hover {
+        transform: translateX(0.2rem);
     }
 
     @media screen and (max-width: 600px) {
@@ -152,18 +155,23 @@
 }
 
 .loading-efect{
-    display: block;
-    overflow: hidden;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
     height: .4rem;
     width: 19rem;
-    border-radius: .2rem;
+    margin-left: auto;
+    margin-right: auto;
     background-color: $color-blue-stripe-1;
+    border-radius: .2rem;
+    overflow: hidden;
+    transform: translateX(1rem);
+
+    display: block;
+
+    position: relative;
+
     @media screen and (max-width: 600px) {
         width: 14rem;
     }
+
     &__img {
         width: 10rem;
         height: 0.4rem;

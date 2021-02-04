@@ -42,3 +42,18 @@
         opacity: 1;
     }
 }
+
+@keyframes headerBackgroundGradient {
+    0% {
+        background-size: 1% 100%;
+        background-position-x: 0%;
+    }
+    50% {
+        background-size: 1.1% 70%;
+        background-position-x: 50%;
+    }
+    100% {
+        background-size: 1% 100%;
+        background-position-x: 100%;
+    }
+}

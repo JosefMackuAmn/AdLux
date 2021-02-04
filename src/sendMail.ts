@@ -1,10 +1,15 @@
 import nodemailer, { SentMessageInfo, SendMailOptions } from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-    service: process.env.MAIL_SERV,
+    host: process.env.MAIL_SERV,
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 

@@ -44,18 +44,20 @@ router.post('/email', [
     const { name, email, message } = req.body;
 
     const mailDetails = {
-        from: email,
-        to: 'team@amnionweb.cz',
+        from: process.env.MAIL_USER,
+        to: 'adlux@email.cz',
         subject: 'Zpráva z webu AdLux',
+        replyTo: email,
         text: (
             message + '\n' +
             '\n' +
-            name
+            name + '\n' +
+            email
         )
     }
 
     try {
-        await sendMail(mailDetails);
+        //await sendMail(mailDetails);
 
         return res
             .status(200)

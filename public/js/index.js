@@ -182,6 +182,41 @@ function createPayloadObject(form) {
     }
 }
 
+function showSentFeedback(success) {
+    let message, color;
+    if (success) {
+        message = "Odesláno";
+        color = "lightgreen";
+    } else {
+        message = "Odesílání se nezdařilo";
+        color = "red";
+    }
+
+    // Store initial values
+    sendBtnPrevText = "Odeslat";
+    sendBtnPrevColor = sendBtn.style.color;
+    sendBtnPrevTransition = sendBtn.style.transition;
+
+    // Update success message
+    sendBtn.innerText = message;
+    sendBtn.style.color = color;
+    sendBtn.style.transition = "none";
+    sendBtn.style.opacity = "0";
+
+    // Show message
+    setTimeout(() => {
+        sendBtn.style.opacity = "1";
+        sendBtn.style.transition = sendBtnPrevTransition;
+    }, 20);
+
+    setTimeout(() => {
+        // Restore initial values
+        sendBtn.innerText = sendBtnPrevText;
+        sendBtn.style.color = sendBtnPrevColor;
+    }, 2000);
+
+}
+
 function sendAMessage(e) {
     e.preventDefault();
     const sendImg = document.getElementById('send-img');
@@ -212,7 +247,8 @@ function sendAMessage(e) {
             form[2].style.border = '3px solid red';
         }
 
-        // Return early
+        // Back to normal & return early
+        backToNormal(sendImg);
         return;
     }
 
@@ -220,10 +256,10 @@ function sendAMessage(e) {
     let response, timeout = false;
     setTimeout(() => {
         if (response) {
-        // Restore animation
-        backToNormal(sendImg);
+            // Restore animation
+            backToNormal(sendImg);
         } else {
-        timeout = true;
+            timeout = true;
         }
     }, 1300);
 
@@ -248,9 +284,15 @@ function sendAMessage(e) {
         // Handle success case
         cleanInput();
 
+        // Show successful action feedback
+        showSentFeedback("Odesláno");
+
     }).catch(err => {
         // Handle error
         console.log(err);
+
+        // Show unsuccessful action feedback
+        showSentFeedback(false);
 
     }).finally(() => {
         response = true;

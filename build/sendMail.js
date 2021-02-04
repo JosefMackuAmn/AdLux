@@ -6,10 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMail = void 0;
 var nodemailer_1 = __importDefault(require("nodemailer"));
 var transporter = nodemailer_1.default.createTransport({
-    service: process.env.MAIL_SERV,
+    host: process.env.MAIL_SERV,
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 // Create promise-wrapper
