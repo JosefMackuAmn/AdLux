@@ -31,13 +31,17 @@
 @keyframes headerBackgroundGradient {
   0% {
     background-size: 1% 100%;
-    background-position-x: 0%; }
+    background-position-x: 0%;
+    animation-timing-function: linear; }
   50% {
-    background-size: 1.1% 70%;
+    background-size: 1.1% 20%;
     background-position-x: 50%; }
+  80% {
+    animation-timing-function: ease-out; }
   100% {
     background-size: 1% 100%;
-    background-position-x: 100%; } }
+    background-position-x: 100%;
+    animation-timing-function: linear; } }
 
 *, *::after, *::before {
   margin: 0;
@@ -226,6 +230,7 @@ body {
     background-image: radial-gradient(#021D1E, transparent 50%);
     background-size: 1% 100%;
     background-position: center center;
+    background-repeat: repeat-x;
     z-index: -1;
     position: absolute;
     bottom: -15%;
@@ -243,6 +248,7 @@ body {
   .header__menu {
     height: 25.7rem;
     position: absolute;
+    z-index: 1000;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -340,7 +346,8 @@ body {
     transform: translateY(12vh);
     display: flex;
     position: relative;
-    z-index: 2; }
+    z-index: 2;
+    transition: border-left 0.1s 1s; }
     @media only screen and (max-width: 950px) {
       .info__revolution__content {
         padding: 5rem 0 5rem 5rem;
@@ -403,7 +410,9 @@ body {
     .benefits {
       height: auto; } }
   .benefits__img {
-    height: 100%; }
+    height: 100%;
+    object-fit: none;
+    transition: all .05s; }
     @media only screen and (max-width: 1300px) {
       .benefits__img {
         width: 20%;

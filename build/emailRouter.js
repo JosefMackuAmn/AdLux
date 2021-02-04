@@ -42,6 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.emailRouter = void 0;
 var express_1 = __importDefault(require("express"));
 var express_validator_1 = require("express-validator");
+var sendMail_1 = require("./sendMail");
 var router = express_1.default.Router();
 exports.emailRouter = router;
 router.post('/email', [
@@ -69,38 +70,47 @@ router.post('/email', [
         .isLength({ min: 20 })
         .withMessage('Message must be a string with a minimum of 20 characters')
 ], function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var errors, _a, name, email, message, mailDetails;
+    var errors, _a, name, email, message, mailDetails, err_1;
     return __generator(this, function (_b) {
-        errors = express_validator_1.validationResult(req);
-        if (!errors.isEmpty()) {
-            return [2 /*return*/, res.status(400).send(JSON.stringify({
-                    success: false,
-                    errors: errors.array()
-                }))];
+        switch (_b.label) {
+            case 0:
+                errors = express_validator_1.validationResult(req);
+                if (!errors.isEmpty()) {
+                    return [2 /*return*/, res.status(400).send(JSON.stringify({
+                            success: false,
+                            errors: errors.array()
+                        }))];
+                }
+                _a = req.body, name = _a.name, email = _a.email, message = _a.message;
+                mailDetails = {
+                    from: process.env.MAIL_USER,
+                    to: 'adlux@email.cz',
+                    subject: 'Zpráva z webu AdLux',
+                    replyTo: email,
+                    text: (message + '\n' +
+                        '\n' +
+                        name + '\n' +
+                        email)
+                };
+                _b.label = 1;
+            case 1:
+                _b.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, sendMail_1.sendMail(mailDetails)];
+            case 2:
+                _b.sent();
+                return [2 /*return*/, res
+                        .status(200)
+                        .send(JSON.stringify({ success: true }))];
+            case 3:
+                err_1 = _b.sent();
+                console.log('---------------------------------------');
+                console.log('Sending mail failed:');
+                console.log(err_1);
+                console.log('---------------------------------------');
+                return [2 /*return*/, res
+                        .status(503)
+                        .send(JSON.stringify({ success: false }))];
+            case 4: return [2 /*return*/];
         }
-        _a = req.body, name = _a.name, email = _a.email, message = _a.message;
-        mailDetails = {
-            from: process.env.MAIL_USER,
-            to: 'adlux@email.cz',
-            subject: 'Zpráva z webu AdLux',
-            replyTo: email,
-            text: (message + '\n' +
-                '\n' +
-                name + '\n' +
-                email)
-        };
-        try {
-            //await sendMail(mailDetails);
-            return [2 /*return*/, res
-                    .status(200)
-                    .send(JSON.stringify({ success: true }))];
-        }
-        catch (err) {
-            console.log(err);
-            return [2 /*return*/, res
-                    .status(503)
-                    .send(JSON.stringify({ success: false }))];
-        }
-        return [2 /*return*/];
     });
 }); });

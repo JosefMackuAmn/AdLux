@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Can't declare these inside the class because of webpack
+const infiniteAnimationRegistry = [];
 const animationRegistry = [];
 let isInit = false;
 const animEvents = ['scroll', 'resize'];
@@ -37,6 +38,13 @@ class Animation {
         }
     }
 
+    // Register animation invoked on every event
+    static infiniteAnimation(cb) {
+        if (!isInit) Animation.init();
+
+        infiniteAnimationRegistry.push(cb);
+    }
+
     // Init looking for visible elements
     static init() {
         // Start listening for animEvents
@@ -50,7 +58,7 @@ class Animation {
     // listening for animEvents on window object
     static initListener(e) {
         // Return, if there is nothing to animate
-        if (animationRegistry.length <= 0) return;
+        if (animationRegistry.length <= 0 && infiniteAnimationRegistry.length <= 0) return;
 
         // Loop through elements and try to find visible element
         for (let i = 0; i < animationRegistry.length; i++) {
@@ -62,18 +70,25 @@ class Animation {
 
                 // Remove element from array
                 animationRegistry.splice(i, 1);
-
-                // Stop listening for animEvents
-                // if there are no more animations left
-                // and reset isInit variable
-                if (animationRegistry.length <= 0) {
-                    animEvents.forEach(event => {
-                        window.removeEventListener(event, Animation.initListener);
-                    });
-                    isInit = false;
-                }
             }
         }
+
+        // Execute all infinitely invoked animations
+        infiniteAnimationRegistry.forEach(cb => cb(e));
+
+        // Stop listening for animEvents
+        // if there are no more animations left
+        // and reset isInit variable
+        if (
+            animationRegistry.length <= 0
+            && infiniteAnimationRegistry.length <= 0
+        ) {
+            animEvents.forEach(event => {
+                window.removeEventListener(event, Animation.initListener);
+            });
+            isInit = false;
+        }
+
     }
 
     // Return whether an element is visible
@@ -100,7 +115,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const { elsToAnim } = _state__WEBPACK_IMPORTED_MODULE_1__.default;
-elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 
 // Simple documentation:
 // Animation.onScrollToTarget(el: HTMLElement, cb(e: Event): fn)
@@ -111,7 +125,9 @@ elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
+
 // Animate benefits section
+elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
 
@@ -125,6 +141,28 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benef
 
         el.style.animation = 'turnUpOpacity 1s .5s forwards ease-out';
     });
+
+});
+
+elsToAnim.benefitsImg = document.getElementById('benefits-img');
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
+    if (!_Animation__WEBPACK_IMPORTED_MODULE_0__.default.isVisible(elsToAnim.benefitsImg)) return;
+
+    const imgHeight = elsToAnim.benefitsImg.offsetHeight;
+
+    const scrolled = imgHeight - elsToAnim.benefitsImg.getBoundingClientRect().top;
+    const scrollable = window.innerHeight + imgHeight;
+    const percentageOnPage = scrolled / scrollable;
+
+    let imgPositionX = percentageOnPage * 100;
+    let imgPositionY = percentageOnPage * 100;
+
+    if (imgPositionX < 0) imgPositionX = 0;
+    if (imgPositionY < 0) imgPositionY = 0;
+    if (imgPositionX > 100) imgPositionX = 100;
+    if (imgPositionY > 100) imgPositionY = 100;
+
+    elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
 });
 

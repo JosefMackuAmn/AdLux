@@ -16,6 +16,10 @@ $benefits-margin: 14rem;
     &__img {
         height: 100%;
 
+        object-fit: none;
+
+        transition: all .05s;
+
         @media only screen and (max-width: 1300px) {
             width: 20%;
 
