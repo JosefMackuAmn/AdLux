@@ -17,6 +17,13 @@ app.get('/', function (req, res) {
 app.get('*', function (req, res) {
     res.redirect('/');
 });
+app.use(function (err, req, res, next) {
+    console.log('---------------------------------------');
+    console.log('Express error handler: ');
+    console.log(err);
+    console.log('---------------------------------------');
+    res.sendStatus(500);
+});
 var PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
     console.log('Listening on port 8080');

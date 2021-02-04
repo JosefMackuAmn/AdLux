@@ -57,14 +57,17 @@ router.post('/email', [
     }
 
     try {
-        //await sendMail(mailDetails);
+        await sendMail(mailDetails);
 
         return res
             .status(200)
             .send(JSON.stringify({ success: true }));
 
     } catch (err) {
+        console.log('---------------------------------------');
+        console.log('Sending mail failed');
         console.log(err);
+        console.log('---------------------------------------');
 
         return res
             .status(503)
