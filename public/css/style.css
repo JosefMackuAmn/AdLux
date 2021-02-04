@@ -28,6 +28,17 @@
   to {
     opacity: 1; } }
 
+@keyframes headerBackgroundGradient {
+  0% {
+    background-size: 1% 100%;
+    background-position-x: 0%; }
+  50% {
+    background-size: 1.1% 70%;
+    background-position-x: 50%; }
+  100% {
+    background-size: 1% 100%;
+    background-position-x: 100%; } }
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -150,7 +161,8 @@ body {
 
 .header {
   height: 100vh;
-  background-color: #040E0F; }
+  position: relative;
+  z-index: 20; }
   .header__upper-part {
     height: 10rem;
     position: relative; }
@@ -202,20 +214,32 @@ body {
         margin-bottom: 0.85rem; }
   .header__video {
     height: 75%;
+    transform: translate(-50%, -50%);
     color: white;
-    text-align: center; }
-  .header__text {
-    color: #ffff;
     text-align: center;
-    line-height: 3.5rem;
-    letter-spacing: .2rem; }
-    .header__text__upper {
-      font-size: 2.2rem; }
-    .header__text__down {
-      font-size: 1.8rem;
-      font-weight: 300; }
-    .header__text-bold {
-      font-weight: 700; }
+    position: absolute;
+    left: 50%;
+    top: 50%; }
+  .header__background-gradient {
+    width: 100%;
+    height: 60rem;
+    background-image: radial-gradient(#021D1E, transparent 50%);
+    background-size: 1% 100%;
+    background-position: center center;
+    z-index: -1;
+    position: absolute;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: headerBackgroundGradient 5s infinite ease-out; }
+  .header__text {
+    text-align: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    bottom: 5rem;
+    left: 50%; }
+    .header__text .paragraph-big {
+      margin-bottom: .8rem; }
   .header__menu {
     height: 25.7rem;
     position: absolute;
@@ -925,35 +949,35 @@ body {
     font-size: 2rem; }
 
 .send-button {
-  display: block;
-  margin-bottom: 1rem;
+  margin: 2rem auto 1rem auto;
   background-color: #040E0F;
   outline: none;
   border: none;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 2px;
   font-size: 3.5rem;
   font-weight: 400;
   color: #ffff;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-  transition: all .1s; }
+  display: block;
+  transition: all .2s; }
   .send-button:hover {
-    transform: translateY(-0.2rem) scale(1.05); }
+    transform: translateX(0.2rem); }
   @media screen and (max-width: 600px) {
     .send-button {
       font-size: 3rem; } }
 
 .loading-efect {
-  display: block;
-  overflow: hidden;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
   height: .4rem;
   width: 19rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #043033;
   border-radius: .2rem;
-  background-color: #043033; }
+  overflow: hidden;
+  transform: translateX(1rem);
+  display: block;
+  position: relative; }
   @media screen and (max-width: 600px) {
     .loading-efect {
       width: 14rem; } }
@@ -1057,7 +1081,7 @@ body {
     width: 7rem;
     position: absolute;
     top: 0.5rem;
-    right: 0;
+    right: 2.5rem;
     bottom: 3rem;
     transform: translate(-50%, -50%);
     text-decoration: none;
