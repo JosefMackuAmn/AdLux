@@ -39,7 +39,6 @@
             left: 50%;
             width: 58rem;
             height: 5rem;
-            bottom: 0;
             transform: translate(-50%, -1rem);
             @media screen and (max-width: 900px){
                 height: 15rem;
@@ -150,8 +149,9 @@
                 color: $text-color-white;
                 transition: all .1s;
                 @media screen and (max-width: 1200px){
+                    padding-bottom: 3rem;
                     position: absolute;
-                    top: 26rem;
+                    top: 28rem;
                     left: 50%;
                     transform: translate(-43%, -50%); 
                 }
