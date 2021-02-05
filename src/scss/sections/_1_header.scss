@@ -139,7 +139,33 @@
                 transition: all 0.2s;
                 &:not(:last-child){
                     margin-right: 5.25vw;
+                    @media screen and (max-width: 1300px){
+                        margin-right: 3vw;
+                    }
+                    @media screen and (max-width: 940px){
+                        margin-right: 2vw;
+                    }
+                    @media screen and (max-width: 850px){
+                        margin-right: 0;
+                        margin-bottom: 3.5rem;
+                    }
+                    @media screen and (max-width: 520px){
+                        margin-bottom: 2.35rem;
+                    }
                 }
+                @media screen and (max-width: 1150px){
+                    font-size: 2rem;
+                }
+                @media screen and (max-width: 850px){
+                    font-size: 2.7rem;
+                    text-align: center;
+                    display: block;
+                }
+                @media screen and (max-width: 520px){
+                    font-size: 1.8rem;
+                    width: 32rem;
+                }
+                
             }
             &:hover{
                 color: $text-color-white;
@@ -147,14 +173,33 @@
             }
         }
         &-content-text{
-            width: 152rem;
+            width: calc(91.5rem + 6*5.25vw);
+
             position: absolute;
-
-
-            left: 54%;
-            top: 52%;
-            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            transform: translate(-47.5%, -50%);
             display: inline-block;
+            @media screen and (max-width: 1300px){
+                width: calc(91.5rem + 6*3vw);
+                transform: translate(-46%, -50%);
+            }
+            @media screen and (max-width: 1150px){
+                width: calc(70rem + 6*3vw);
+                transform: translate(-45%, -50%);
+            }
+            @media screen and (max-width: 940px){
+                width: calc(70rem + 6*2vw);
+                transform: translate(-45%, -50%);
+            }
+            @media screen and (max-width: 850px){
+                width: 48rem;
+                transform: translate(-48%, -48%);
+            }
+            @media screen and (max-width: 520px){
+                width: 32rem;
+                transform: translate(-50%, -48%);
+            }
         }
         &-background{
             height: 25.7rem;
@@ -170,6 +215,22 @@
                 display: inline-block;
                 position: absolute;
                 z-index: -1;
+                @media screen and (max-width: 1300px){
+                    width: 80rem;
+                }
+                @media screen and (max-width: 1150px){
+                    width: 64rem;
+                    height: 20rem;
+                }
+                @media screen and (max-width: 850px){
+                    height: 60rem;
+                    width: 44rem;
+                    left: 2rem;
+                }
+                @media screen and (max-width: 520px){
+                    height: 40rem;
+                    width: 28rem;
+                }
             }
 
             &-logo{
@@ -181,7 +242,43 @@
                 left: 47%;
                 top: -4.25rem;
                 animation: rotationOfBlueLogo .7s ease;
+                @media screen and (max-width: 850px){
+                    left: 44%;
+                    top: -4.25rem;
+                }
+                @media screen and (max-width: 520px){
+                    height: 6rem;
+                    width: 6rem;
+                    left: 41%;
+                    top: -2.8rem;
+                }
             }
+            @media screen and (max-width: 1300px){
+                width: 80rem;
+            }
+            @media screen and (max-width: 1150px){
+                width: 64rem;
+                height: 20rem;
+            }
+            @media screen and (max-width: 850px){
+                height: 60rem;
+                width: 48rem;
+            }
+            @media screen and (max-width: 520px){
+                height: 40rem;
+                width: 32rem;
+            }
+        }
+        @media screen and (max-width: 1150px){
+            height: 20rem;
+        }
+        @media screen and (max-width: 850px){
+            height: 60rem;
+            width: 48rem;
+        }
+        @media screen and (max-width: 520px){
+            height: 40rem;
+            width: 32rem;
         }
     }
 }
