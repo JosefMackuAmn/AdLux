@@ -12,7 +12,6 @@ const { elsToAnim } = state;
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
-
 // Animate benefits section
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
@@ -51,4 +50,14 @@ Animation.infiniteAnimation(() => {
 
     elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
+});
+
+//Products
+elsToAnim.productsText = document.getElementById('products-text');
+Animation.onScrollToTarget(elsToAnim.productsText, () => {
+    gsap.from(".products__text p span", {
+        fontWeight: 300,
+        duration: .1,
+        stagger: .1
+    });
 });

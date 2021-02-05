@@ -125,37 +125,6 @@ productImageB.addEventListener('click', (event) => {
   switchProduct(event);
 });
 
-
-const code = (p) => {
-
-
-  p.setup = function() {
-    const cv = p.createCanvas(1920, 500);
-    cv.canvas.style.width = "";
-    cv.canvas.style.height= "";
-  }
-
-  let lastPoint = {
-    x: 0,
-    y: 0
-  }
-
-  p.draw = function() {
-    let X = p.cos(p.frameCount)*p.frameCount/2;
-    let Y = p.sin(p.frameCount)*p.frameCount/2;
-
-    p.background(0, 0, 0, 0);
-    p.fill(255, 10);
-    p.stroke(255, 50);
-   
-    p.point(X + 900, Y + 300);
-  
-  }
-
-}
-
-const myp5 = new p5(code, productsSection);
-
 ////////////////
 //////SOLUTION
 ////////////////

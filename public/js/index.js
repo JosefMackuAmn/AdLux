@@ -125,7 +125,6 @@ const { elsToAnim } = _state__WEBPACK_IMPORTED_MODULE_1__.default;
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
-
 // Animate benefits section
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
@@ -164,6 +163,16 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
 
     elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
+});
+
+//Products
+elsToAnim.productsText = document.getElementById('products-text');
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.productsText, () => {
+    gsap.from(".products__text p span", {
+        fontWeight: 300,
+        duration: .1,
+        stagger: .1
+    });
 });
 
 /***/ }),
@@ -482,37 +491,6 @@ productImageA.addEventListener('click', (event) => {
 productImageB.addEventListener('click', (event) => {
   switchProduct(event);
 });
-
-
-const code = (p) => {
-
-
-  p.setup = function() {
-    const cv = p.createCanvas(1920, 500);
-    cv.canvas.style.width = "";
-    cv.canvas.style.height= "";
-  }
-
-  let lastPoint = {
-    x: 0,
-    y: 0
-  }
-
-  p.draw = function() {
-    let X = p.cos(p.frameCount)*p.frameCount/2;
-    let Y = p.sin(p.frameCount)*p.frameCount/2;
-
-    p.background(0, 0, 0, 0);
-    p.fill(255, 10);
-    p.stroke(255, 50);
-   
-    p.point(X + 900, Y + 300);
-  
-  }
-
-}
-
-const myp5 = new p5(code, productsSection);
 
 ////////////////
 //////SOLUTION
