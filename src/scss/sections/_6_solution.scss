@@ -5,6 +5,7 @@
     margin-bottom: 20rem;
     
     position: relative;
+    overflow: hidden;
 
     @media screen and (max-width: 900px) {
         margin-bottom: 0rem;
@@ -25,7 +26,7 @@
         @media screen and (max-width: 600px) {
             margin-bottom: 1rem;
             margin-right: 3rem;
-            width: 100%;
+            width: auto;
 
             font-size: 4rem;
         }
@@ -50,8 +51,8 @@
             margin-left: 3rem;
         }
         @media screen and (max-width: 500px) {
-            padding-right: 3rem;
-            width: 100%;
+            margin-right: 3rem;
+            width: auto;
         }
     }
     &__cards {
@@ -75,7 +76,10 @@
         }
         @media screen and (max-width: 900px) {
           margin-top: 12rem;
-          margin-bottom: 20rem;
+          margin-bottom: 14rem;
+        }
+        @media screen and (max-width: 600px) {
+            margin-bottom: 15rem;
         }
         @media screen and (max-width: 400px) {
            padding-left: 3rem;
@@ -247,6 +251,7 @@
         padding-bottom: 1.2rem;
         width: 36rem;
         cursor: pointer;
+        transition: all .5s;
 
         color: $color-blue-dark;
         text-transform: uppercase;
@@ -266,6 +271,34 @@
         @media screen and (max-width: 900px) {
             display: none;
         }
+
+        &:hover {
+            color: $color-blue-light;
+            text-shadow: 1px 2px 10px rgba(white, .25);
+
+            transform: translateY(-0.25rem);
+
+            &::after {
+                transform: translateX(0);
+            }
+        }
+        &:focus {
+            outline: none;
+        }
+
+        &::after {
+            content: "";
+            background-color: $color-blue-light;
+            width: 100%;
+            height: .5rem;
+            transition: all .3s;
+
+            display: block;
+
+            position: absolute;
+            bottom: -0.5rem;
+            transform: translateX(100%);
+        }
     }
     video {
         opacity: 0.02;
@@ -274,6 +307,7 @@
         position: absolute;
         top: 50%;
         overflow: hidden;
+        z-index: -1;
     }
 }
 .line {
