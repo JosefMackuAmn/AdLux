@@ -139,7 +139,6 @@
                 letter-spacing: .2rem;
                 font-size: 2.7rem;
                 text-transform: uppercase;
-                transition: all 0.2s;
                 &:not(:last-child){
                     margin-right: 5.25vw;
                     @media screen and (max-width: 1300px){
@@ -171,6 +170,7 @@
                 
             }
             &:hover{
+                transition: all 0.2s;
                 color: $text-color-white;
                 font-weight: $font_bold;
             }
@@ -319,6 +319,12 @@
     display: block;
 }
 
+.unvisible{
+    animation-direction: reverse;
+    animation: turnUpOpacity 1s ease;
+    display: block;
+}
+
 .blur-body > :not(.header){
     transition: all 1s;
     filter: blur(5px) brightness(45%);
@@ -326,4 +332,12 @@
 .blur{
     transition: all 1s;
     filter: blur(5px) brightness(45%);
+}
+.unblur-body > :not(.header){
+    transition: all 1s;
+    filter: blur(0) brightness(100%);
+}
+.unblur{
+    transition: all 1s;
+    filter: blur(0) brightness(100%);
 }

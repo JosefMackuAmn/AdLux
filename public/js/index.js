@@ -580,46 +580,41 @@ class Element{
       if(this.methodVar === ADD){
         this.element.classList.add(this.classStyle);
       } else {
-        this.element.classList.remove(this.classStyle);
+        setTimeout(this.element.classList.remove(this.classStyle), 1000);
+        this.element.classList.add(`un${this.classStyle}`);
+        this.element.classList.remove(`un${this.classStyle}`);
       }
     }
 }
 
-function blurWeb(method){
+function menuHandler(method){
+  const oppositeMethod = method === ADD ? REMOVE : ADD;
   const bodyObject = new Element(body, method, 'blur-body');
   const header = document.getElementById('header').children;
   for(const div of header){
     if(div.id === 'upper-part'){
       for(const child of div.children){
-        if(child.id !== 'cancelButton'){
+        if(child.id !== 'cancelButton' && child.id !== 'openButton'){
           const childObject = new Element(child, method, 'blur');
+        }else if(child.id === 'openButton'){
+          const openButtonObject = new Element(child, oppositeMethod, 'visible');
+        } else {
+          const cancelButtonObject = new Element(child, method, 'visible');
         }
       }
     } else if(div.id !== 'menu'){
       const divObject = new Element(div, method, 'blur');
+    } else {
+      const menuObject = new Element(div, method, 'visible');
     }
   }
 }
 
-function cancelMenu(){
-  blurWeb(REMOVE);
-  menu.classList.remove('visible');
-  cancelButton.classList.remove('visible');
-  openButton.classList.add('visible');
-}
 
-
-function openMenu(){
-  blurWeb(ADD);
-  menu.classList.add('visible');
-  cancelButton.classList.add('visible');
-  openButton.classList.remove('visible');
-}
-
-openButton.addEventListener('click', openMenu);
-cancelButton.addEventListener('click', cancelMenu);
+openButton.addEventListener('click', menuHandler.bind(null, ADD));
+cancelButton.addEventListener('click', menuHandler.bind(null, REMOVE));
 for(const a of link){
-  a.addEventListener('click', cancelMenu);
+  a.addEventListener('click', menuHandler.bind(null, REMOVE));
 }
 
 /***/ }),

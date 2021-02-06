@@ -67,7 +67,7 @@
                 }
                 @media screen and (max-width: 320px){
                     height: 4rem;
-                    font-size: 1.5rem;
+                    font-size:$font_15;
                     margin: 0;
                     &:last-of-type{
                         transform: translateX(-5rem) translateY(-1rem);
@@ -95,8 +95,8 @@
                 }
                 @media screen and (max-width: 320px){
                     margin-left: 2rem;
-                    font-size: 1.5rem;
-                    transform: translate(0, -1.5rem);
+                    font-size:$font_15;
+                    transform: translate(0, $font_15);
                     &:last-of-type{
                         position: absolute;
                         transform: translate(-5rem, calc(56% - 1rem));
@@ -117,7 +117,6 @@
                 text-decoration: none;
                 color: $text-color-white;
                 font-weight: $font_light;
-                transition: all .1s;
                 @media screen and (max-width: 1200px){
                     top: 25rem;
                     left: 50%;
@@ -130,10 +129,12 @@
                 }
             }
             &:hover{
+                transition: all .1s;
                 transform: translate(-50%, -50%) scale(1.1) translateY(-0.2rem); 
                 
             }
-            &:active {                
+            &:active {    
+                transition: all .1s;            
                 transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem);
             }
         }
@@ -170,7 +171,6 @@
                 font-size: 2rem;
                 font-weight: $font_light;
                 color: $text-color-white;
-                transition: all .1s;
                 @media screen and (max-width: 1200px){
                     padding-bottom: 3rem;
                     position: absolute;
@@ -181,6 +181,7 @@
             }
 
             &:hover{
+                transition: all .1s;
                 transform: translateY(-0.4rem);
                 text-shadow: 0.2rem 0.2rem 0.8rem rgba(black, 1);
                 @media screen and (max-width: 1200px){
@@ -188,7 +189,8 @@
                     transform: translate(-43%, calc(-50% - 0.4rem));
                 }
             }
-            &:active {                
+            &:active {    
+                transition: all .1s;            
                 transform: translateY(-0.2rem);
                 @media screen and (max-width: 1200px){
                     margin-bottom: 0.5rem;
