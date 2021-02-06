@@ -1138,6 +1138,7 @@ body {
   background-color: #043033;
   border-radius: .2rem;
   overflow: hidden;
+  transform: translateX(1rem);
   display: block;
   position: relative; }
   @media screen and (max-width: 600px) {
@@ -1184,7 +1185,7 @@ body {
     height: 6.8rem;
     width: 12.411rem;
     transform: translate(50%, -60%);
-    background-image: url("/img/AdLux-logo-text.svg");
+    background-image: url("/img/adlux-logo-text.svg");
     background-size: cover; }
     @media screen and (max-width: 1200px) {
       .footer-up__AdLux-logo {
