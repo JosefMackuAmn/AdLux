@@ -371,6 +371,85 @@ __webpack_require__.r(__webpack_exports__);
 // Contact form handling
 
 
+////////////////
+////////INFO
+////////////////
+
+const infoTextWrap = document.querySelector('.info__meaning__text-wrap');
+
+const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
+
+
+const createCode = (textWrap) => {
+  return p => {
+
+    const defaultDistance = 150;
+
+    const RandomCircle = function () {
+      this.history = [];
+  
+      this.render = () => {
+        p.beginShape();
+        for (let j = 0; j < this.history.length; j += 1) {
+          const coords = this.calculateCoordsForI(this.history[j].i, this.history[j].distance);
+          p.vertex(coords.x, coords.y);
+          this.history[j].distance += p.random(-2, 2)*p.sin(10*this.history[j].i);
+        }
+        p.endShape();
+      }
+      this.calculateCoordsForI = (i, distance) => {
+        return p.createVector(p.width/2 + distance*p.cos(i),p.height/2 + distance*p.sin(i))
+      } 
+      this.setup = () => {
+        this.history = [];
+        for(let i = 0; i <= 2*Math.PI; i+= 1/100) {
+          this.history.push({distance: defaultDistance,i: i});
+        }
+      }
+    }
+    const randomCirc = new RandomCircle();
+    randomCirc.setup();
+    
+  
+    p.setup = () => {
+      const canvas = p.createCanvas(400, 400);
+      canvas.canvas.className="p5";
+      //p.background(0)
+    }
+  
+    let opacity = 100;
+  
+    p.draw = () => {
+      //p.background(0);
+      p.clear();
+      p.noFill();
+      p.stroke(255, opacity);
+      p.beginShape();
+  
+  
+      
+      p.endShape();
+      randomCirc.render();
+      
+      opacity = opacity * 0.96;
+    }
+  
+   textWrap.addEventListener('mouseenter', () => {
+      randomCirc.setup();
+      opacity = 100;
+    }) 
+  
+  
+  }
+  
+}
+ 
+//const infoP5 = new p5(code, infoTextWrap);
+//infoP5.draw();
+
+for (const textWrap of [...infoTextWraps]) {
+  const infoP5 = new p5(createCode(textWrap), textWrap);
+}
 
 ////////////////
 //////PRODUCTS
