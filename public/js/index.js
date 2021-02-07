@@ -558,32 +558,35 @@ class Element{
       if(this.methodVar === ADD){
         this.element.classList.add(this.classStyle);
       } else {
-        setTimeout(this.element.classList.remove(this.classStyle), 1000);
         this.element.classList.add(`un${this.classStyle}`);
-        this.element.classList.remove(`un${this.classStyle}`);
+        setTimeout(()=>{
+          this.element.classList.remove(`un${this.classStyle}`);
+          this.element.classList.remove(this.classStyle);
+        }, 
+        400);
       }
     }
 }
 
 function menuHandler(method){
   const oppositeMethod = method === ADD ? REMOVE : ADD;
-  const bodyObject = new Element(body, method, 'blur-body');
+  new Element(body, method, 'blur-body'); //body
   const header = document.getElementById('header').children;
   for(const div of header){
     if(div.id === 'upper-part'){
       for(const child of div.children){
         if(child.id !== 'cancelButton' && child.id !== 'openButton'){
-          const childObject = new Element(child, method, 'blur');
+          new Element(child, method, 'blur'); //some element in the upper part of header
         }else if(child.id === 'openButton'){
-          const openButtonObject = new Element(child, oppositeMethod, 'visible');
+          new Element(child, oppositeMethod, 'visible'); //open button
         } else {
-          const cancelButtonObject = new Element(child, method, 'visible');
+          new Element(child, method, 'visible'); //cancel button
         }
       }
     } else if(div.id !== 'menu'){
-      const divObject = new Element(div, method, 'blur');
+      new Element(div, method, 'blur');//some div element in the header
     } else {
-      const menuObject = new Element(div, method, 'visible');
+      new Element(div, method, 'visible');//menu
     }
   }
 }

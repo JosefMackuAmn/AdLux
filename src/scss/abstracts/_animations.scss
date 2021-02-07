@@ -43,6 +43,15 @@
     }
 }
 
+@keyframes turnOffOpacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 @keyframes headerBackgroundGradient {
     0% {
         background-size: 1% 100%;

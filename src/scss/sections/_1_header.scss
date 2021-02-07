@@ -320,9 +320,7 @@
 }
 
 .unvisible{
-    animation-direction: reverse;
-    animation: turnUpOpacity 1s ease;
-    display: block;
+    animation: turnOffOpacity 0.5s ease;
 }
 
 .blur-body > :not(.header){
@@ -334,10 +332,14 @@
     filter: blur(5px) brightness(45%);
 }
 .unblur-body > :not(.header){
-    transition: all 1s;
+    transition: all 0.5s;
+    animation-fill-mode: backwards;
+    animation-direction: reverse;
     filter: blur(0) brightness(100%);
 }
 .unblur{
-    transition: all 1s;
+    transition: all 0.5s;
+    animation-direction: reverse;
+    animation-fill-mode: backwards;
     filter: blur(0) brightness(100%);
 }
