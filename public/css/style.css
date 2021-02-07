@@ -203,6 +203,7 @@ body {
     .header__upper-part__menu-button {
       height: 4rem;
       width: 6rem;
+      z-index: 1000;
       position: absolute;
       top: 5rem;
       right: 4rem;
@@ -257,7 +258,7 @@ body {
   .header__menu {
     height: 25.7rem;
     position: absolute;
-    z-index: 1000;
+    z-index: 900;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -273,29 +274,16 @@ body {
         margin-right: 5.25vw; }
         @media screen and (max-width: 1300px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-            margin-right: 3vw; } }
-        @media screen and (max-width: 940px) {
-          .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
+            font-size: 2.2rem;
             margin-right: 2vw; } }
-        @media screen and (max-width: 850px) {
+        @media screen and (max-width: 950px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-            margin-right: 0;
-            margin-bottom: 3.5rem; } }
-        @media screen and (max-width: 520px) {
-          .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-            margin-bottom: 3rem; } }
-      @media screen and (max-width: 1150px) {
+            margin: 0;
+            margin-bottom: 3rem;
+            display: block; } }
+      @media screen and (max-width: 1300px) {
         .header__menu-link:link, .header__menu-link:visited {
-          font-size: 2rem; } }
-      @media screen and (max-width: 850px) {
-        .header__menu-link:link, .header__menu-link:visited {
-          font-size: 2.7rem;
-          text-align: center;
-          display: block; } }
-      @media screen and (max-width: 520px) {
-        .header__menu-link:link, .header__menu-link:visited {
-          font-size: 2rem;
-          width: 32rem; } }
+          font-size: 2.2rem; } }
     .header__menu-link:hover {
       transition: all 0.2s;
       color: #ffff;
@@ -309,29 +297,20 @@ body {
       display: inline-block; }
       @media screen and (max-width: 1300px) {
         .header__menu-content-text {
-          width: calc(91.5rem + 6*3vw);
+          width: calc(76rem + 6*2vw);
           transform: translate(-46%, -50%); } }
-      @media screen and (max-width: 1150px) {
+      @media screen and (max-width: 950px) {
         .header__menu-content-text {
-          width: calc(70rem + 6*3vw);
-          transform: translate(-45%, -50%); } }
-      @media screen and (max-width: 940px) {
-        .header__menu-content-text {
-          width: calc(70rem + 6*2vw);
-          transform: translate(-45%, -50%); } }
-      @media screen and (max-width: 850px) {
-        .header__menu-content-text {
-          width: 48rem;
-          transform: translate(-48%, -48%); } }
-      @media screen and (max-width: 520px) {
-        .header__menu-content-text {
-          width: 32rem;
-          transform: translate(-50%, -48%); } }
+          text-align: center;
+          width: 33rem;
+          left: 50%;
+          transform: translate(-50%, -50%); } }
     .header__menu-background {
       height: 25.7rem;
       width: 117rem;
       border-top: 3px solid #00BFCB;
-      border-bottom: 3px solid #00BFCB; }
+      border-bottom: 3px solid #00BFCB;
+      position: relative; }
       .header__menu-background::before {
         content: "";
         height: 25.7rem;
@@ -343,21 +322,13 @@ body {
         z-index: -1; }
         @media screen and (max-width: 1300px) {
           .header__menu-background::before {
-            width: 80rem; } }
-        @media screen and (max-width: 1150px) {
+            width: 71rem; } }
+        @media screen and (max-width: 950px) {
           .header__menu-background::before {
-            width: 64rem;
-            height: 20rem; } }
-        @media screen and (max-width: 850px) {
-          .header__menu-background::before {
-            height: 60rem;
-            width: 44rem;
-            left: 2rem; } }
-        @media screen and (max-width: 520px) {
-          .header__menu-background::before {
-            height: 50rem;
-            width: 55vw;
-            left: 3vw; } }
+            height: 52.5rem;
+            width: 28.1rem;
+            left: 50%;
+            transform: translate(-50%, 0); } }
       .header__menu-background-logo {
         height: 8.5rem;
         width: 8.5rem;
@@ -366,55 +337,20 @@ body {
         left: 47%;
         top: -4.25rem;
         animation: rotationOfBlueLogo .7s ease; }
-        @media screen and (max-width: 850px) {
+        @media screen and (max-width: 950px) {
           .header__menu-background-logo {
-            left: 44%;
-            top: -4.25rem; } }
-        @media screen and (max-width: 520px) {
-          .header__menu-background-logo {
-            height: 6rem;
-            width: 6rem;
-            left: 42.5%;
-            top: -2.8rem; } }
-        @media screen and (max-width: 380px) {
-          .header__menu-background-logo {
-            left: 31.5vw;
-            transform: translate(-50%, 0); } }
+            display: none; } }
       @media screen and (max-width: 1300px) {
         .header__menu-background {
-          width: 80rem; } }
-      @media screen and (max-width: 1150px) {
+          width: 71.32rem; } }
+      @media screen and (max-width: 950px) {
         .header__menu-background {
-          width: 64rem;
-          height: 20rem; } }
-      @media screen and (max-width: 850px) {
-        .header__menu-background {
-          height: 60rem;
-          width: 48rem; } }
-      @media screen and (max-width: 520px) {
-        .header__menu-background {
-          height: 50rem;
-          width: 60vw; } }
-    @media screen and (max-width: 1150px) {
+          height: 52.9rem;
+          width: 33.4rem; } }
+    @media screen and (max-width: 950px) {
       .header__menu {
-        height: 20rem; } }
-    @media screen and (max-width: 850px) {
-      .header__menu {
-        height: 60rem;
-        width: 48rem; } }
-    @media screen and (max-width: 520px) {
-      .header__menu {
-        height: 40rem;
-        width: 32rem; } }
-    @media screen and (max-width: 520px) {
-      .header__menu {
-        height: 50rem;
-        width: 60vw;
-        top: 5rem;
-        transform: translate(-35vw, 9%); } }
-    @media screen and (max-width: 380px) {
-      .header__menu {
-        transform: translate(-15rem, 9%); } }
+        height: 52.9rem;
+        width: 33.4rem; } }
 
 .rotate-left {
   transform: rotate(45deg); }
