@@ -558,6 +558,10 @@ class Element{
       if(this.methodVar === ADD){
         this.element.classList.add(this.classStyle);
       } else {
+        if(this.element === cancelButton || this.element === openButton){
+          this.element.classList.remove(this.classStyle);
+          return;
+        }
         this.element.classList.add(`un${this.classStyle}`);
         setTimeout(()=>{
           this.element.classList.remove(`un${this.classStyle}`);
@@ -566,10 +570,19 @@ class Element{
         400);
       }
     }
+    includesClass(style){
+      for(const classStyle of this.element.classList){
+        if(classStyle == style){
+          return true;
+        }
+      }
+      return false;
+    }
 }
 
 function menuHandler(method){
   const oppositeMethod = method === ADD ? REMOVE : ADD;
+  let menuObject, cancelButtonObject;
   new Element(body, method, 'blur-body'); //body
   const header = document.getElementById('header').children;
   for(const div of header){
@@ -580,15 +593,24 @@ function menuHandler(method){
         }else if(child.id === 'openButton'){
           new Element(child, oppositeMethod, 'visible'); //open button
         } else {
-          new Element(child, method, 'visible'); //cancel button
+          cancelButtonObject = new Element(child, method, 'visible'); //cancel button
         }
       }
     } else if(div.id !== 'menu'){
       new Element(div, method, 'blur');//some div element in the header
     } else {
-      new Element(div, method, 'visible');//menu
+      menuObject = new Element(div, method, 'visible');//menu
     }
   }
+  setTimeout(()=>{
+    console.log(menuObject.includesClass('visible'));
+    if(!menuObject.includesClass('visible') && cancelButtonObject.includesClass('visible')){
+      new Element(cancelButton, REMOVE, 'visible');
+      new Element(openButton, ADD, 'visible');
+      menuHandler(ADD);
+    }
+  }, 
+  400);
 }
 
 
