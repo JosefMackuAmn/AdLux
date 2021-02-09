@@ -530,6 +530,28 @@ body {
   .info__meaning__text {
     text-align: center; }
 
+.info .p5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1.3);
+  z-index: -1; }
+  @media screen and (max-width: 1500px) {
+    .info .p5 {
+      transform: translateX(-50%) translateY(-50%) scale(1.2); } }
+  @media screen and (max-width: 1300px) {
+    .info .p5 {
+      transform: translateX(-50%) translateY(-50%) scale(1.1); } }
+  @media screen and (max-width: 1200px) {
+    .info .p5 {
+      transform: translateX(-50%) translateY(-50%) scale(0.9); } }
+  @media screen and (max-width: 1000px) {
+    .info .p5 {
+      transform: translateX(-50%) translateY(-50%) scale(0.85); } }
+  @media screen and (max-width: 950px) {
+    .info .p5 {
+      display: none; } }
+
 .benefits {
   height: 100vh;
   max-height: 90rem;
