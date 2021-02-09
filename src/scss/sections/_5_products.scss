@@ -43,6 +43,8 @@
         position: relative;
         overflow: hidden;
 
+        transition: all .2s;
+
         @media screen and (max-width: 1150px) {
             height: 4.8rem;
         }
@@ -67,11 +69,9 @@
             }
 
             &:not(.toggled) {
-
                 &::after {
                     transform: translateX(100%);
                 }
-
             }
         }
         &:last-child {
@@ -85,23 +85,22 @@
             }
 
             &:not(.toggled) {
-
                 &::after {
                     transform: translateX(-100%);
                 }
-
             }
         }
         &.toggled {
-
             &::after {
                 transform: translateX(0);   
                 transition: all .75s;     
             }
-
         }
         &:focus {
             outline: none;
+        }
+        &:hover {
+            transform: translateY(3px);
         }
     
         &::after {

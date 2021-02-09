@@ -19,7 +19,7 @@
             height: 6.8rem;
             width: 12.411rem;
             transform: translate(50%, -60%);
-            background-image: url(../img/AdLux-logo-text.svg);
+            background-image: url('/img/adlux-logo-text.svg');
             background-size: cover;
             @media screen and (max-width: 1200px){
                 left: 50%;
@@ -30,26 +30,31 @@
                 @media screen and (max-width: 900px){
                     top: -19rem;
                 }
-
+                @media screen and (max-width: 320px){
+                   top: -14rem;
+                }
             }
         }
         &__contacts {
             display: inline-block;
             position: absolute;
             left: 50%;
-            width: 58rem;
+            width: 52rem;
             height: 5rem;
-            bottom: 0;
             transform: translate(-50%, -1rem);
             @media screen and (max-width: 900px){
                 height: 15rem;
                 width: 19rem;
                 bottom: 2rem;
             }
+            @media screen and (max-width: 320px){
+                width: 15rem;
+                height: 10rem;
+            }
             &-picture{
                 position: relative;
                 height: 5rem;
-                margin: 0 4rem;
+                margin: 0 1.5rem 0 3rem;
                 &:first-child{
                     margin-left: 0;
                 }
@@ -57,7 +62,15 @@
                     margin: 0;
                     margin-bottom: 2rem;
                     &:last-of-type{
-                        transform: translateX(-7rem);
+                        transform: translateX(-7rem) translateY(-1rem);
+                    }
+                }
+                @media screen and (max-width: 320px){
+                    height: 4rem;
+                    font-size: 1.5rem;
+                    margin: 0;
+                    &:last-of-type{
+                        transform: translateX(-5rem) translateY(-1rem);
                     }
                 }
             }
@@ -72,12 +85,21 @@
                     font-variant-numeric: lining-nums;
                 }
                 @media screen and (max-width: 900px){
-                    margin-left: 4rem;
+                    margin-left: 3rem;
                     margin-bottom: 2rem;
                     transform: translate(0, -3.5rem);
                     &:last-of-type{
                         position: absolute;
-                        transform: translate(-7rem, 56%);
+                        transform: translate(-7rem, calc(56% - 1rem));
+                    }
+                }
+                @media screen and (max-width: 320px){
+                    margin-left: 2rem;
+                    font-size: 1.5rem;
+                    transform: translate(0, -1.5rem);
+                    &:last-of-type{
+                        position: absolute;
+                        transform: translate(-5rem, calc(56% - 1rem));
                     }
                 }
             }
@@ -118,7 +140,7 @@
     }
 
     &-down{
-        background-image: url(../img/footer-picture.jpg);
+        background-image: url("/img/footer-picture.jpg");
         background-size: 100%;
         display: block;
         position: relative;
@@ -150,8 +172,9 @@
                 color: $text-color-white;
                 transition: all .1s;
                 @media screen and (max-width: 1200px){
+                    padding-bottom: 3rem;
                     position: absolute;
-                    top: 26rem;
+                    top: 28rem;
                     left: 50%;
                     transform: translate(-43%, -50%); 
                 }

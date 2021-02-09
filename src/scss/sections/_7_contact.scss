@@ -20,7 +20,7 @@
             width: 27.83rem;
             height: 15.248rem;
 
-            background-image: url(../img/adlux-logo-text.svg);
+            background-image: url("/img/adlux-logo-text.svg");
             background-size: cover;
 
             @media screen and (max-width: 700px) {
@@ -163,6 +163,8 @@
     background-color: $color-blue-stripe-1;
     border-radius: .2rem;
     overflow: hidden;
+    
+    transform: translateX(1rem);
 
     display: block;
 

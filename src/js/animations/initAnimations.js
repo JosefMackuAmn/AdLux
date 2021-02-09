@@ -61,3 +61,35 @@ Animation.onScrollToTarget(elsToAnim.productsText, () => {
         stagger: .1
     });
 });
+
+//Revolution
+elsToAnim.revolutionContent = document.getElementById('revolution-content');
+
+Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-left'), {
+        transform: 'scaleY(1)',
+        duration: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-top'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-bottom'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.heading-2'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.paragraph-big'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
+});
