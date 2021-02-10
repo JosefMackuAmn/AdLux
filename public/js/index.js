@@ -603,7 +603,6 @@ function menuHandler(method){
     }
   }
   setTimeout(()=>{
-    console.log(menuObject.includesClass('visible'));
     if(!menuObject.includesClass('visible') && cancelButtonObject.includesClass('visible')){
       new Element(cancelButton, REMOVE, 'visible');
       new Element(openButton, ADD, 'visible');
