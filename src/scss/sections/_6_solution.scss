@@ -92,7 +92,8 @@
         padding-top: 4.8rem;
         padding-bottom: 4.8rem;
         width: 40rem;
-        border-bottom: 1px solid $color-blue;     
+        border-bottom: 1px solid $color-blue;
+        opacity: 0; // Will be removed by animation
         
         position: relative;
 

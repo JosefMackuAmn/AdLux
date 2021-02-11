@@ -53,22 +53,20 @@
                 padding: 3rem 0 3rem 2rem;
             }
 
-            &::before, &::after {
-                content: "";
+            &__border {
                 width: 30rem;
                 height: 2px;
                 background-image: linear-gradient(to right, $color-blue, transparent);
-                
-                display: block;
 
                 position: absolute;
                 left: 0;
-            }
-            &::before {
-                top: 0;
-            }
-            &::after {
-                bottom: 0;
+
+                &--top {
+                    top: 0;
+                }
+                &--bot {
+                    bottom: 0;
+                }
             }
 
             & .heading-2 {
