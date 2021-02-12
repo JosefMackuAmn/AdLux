@@ -41,7 +41,7 @@
             left: 50%;
             width: 52rem;
             height: 5rem;
-            transform: translate(-50%, -1rem);
+            transform: translate(-50%, -2.5rem);
             @media screen and (max-width: 900px){
                 height: 15rem;
                 width: 19rem;
@@ -110,9 +110,8 @@
                 height: 7rem;
                 width: 7rem;
                 position: absolute;
-                top: 0.5rem;
+                top: 1rem;
                 right: 2.5rem;
-                bottom: 3rem;
                 transform: translate(-50%, -50%);
                 text-decoration: none;
                 color: $text-color-white;
@@ -127,15 +126,6 @@
                         top: 28rem;
                     }
                 }
-            }
-            &:hover{
-                transition: all .1s;
-                transform: translate(-50%, -50%) scale(1.1) translateY(-0.2rem); 
-                
-            }
-            &:active {    
-                transition: all .1s;            
-                transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem);
             }
         }
     }
