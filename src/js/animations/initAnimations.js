@@ -14,7 +14,7 @@ const { elsToAnim } = state;
 
 
 // Info revolution
-elsToAnim.infoContent = document.getElementById('info-revolution-content');
+/* elsToAnim.infoContent = document.getElementById('info-revolution-content');
 elsToAnim.infoBorders = document.querySelectorAll('.info__revolution__content__border');
 elsToAnim.infoHeading = document.getElementById('info-revolution-heading');
 elsToAnim.infoText = document.getElementById('info-revolution-text');
@@ -74,7 +74,7 @@ Animation.onScrollToTarget(elsToAnim.infoContent, () => {
 
     // Animate cards
     
-});
+}); */
 
 // Animate benefits section
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
@@ -162,5 +162,37 @@ Animation.onScrollToTarget(elsToAnim.solCards[1], () => {
         card2.style.transform = "scale(1)";
         card3.style.transform = `translateX(0) scale(1)`;
     }, 150);
-    
+});
+
+
+//Revolution
+elsToAnim.revolutionContent = document.getElementById('revolution-content');
+
+Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-left'), {
+        transform: 'scaleY(1)',
+        duration: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-top'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-bottom'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.heading-2'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.paragraph-big'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
 });

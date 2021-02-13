@@ -127,11 +127,11 @@ const { elsToAnim } = _state__WEBPACK_IMPORTED_MODULE_1__.default;
 
 
 // Info revolution
-elsToAnim.infoContent = document.getElementById('info-revolution-content');
+/* elsToAnim.infoContent = document.getElementById('info-revolution-content');
 elsToAnim.infoBorders = document.querySelectorAll('.info__revolution__content__border');
 elsToAnim.infoHeading = document.getElementById('info-revolution-heading');
 elsToAnim.infoText = document.getElementById('info-revolution-text');
-_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.infoContent, () => {
+Animation.onScrollToTarget(elsToAnim.infoContent, () => {
     const { infoBorders, infoHeading, infoText, infoContent } = elsToAnim;
 
     // Store previous values
@@ -187,7 +187,7 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.infoC
 
     // Animate cards
     
-});
+}); */
 
 // Animate benefits section
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
@@ -275,7 +275,39 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.solCa
         card2.style.transform = "scale(1)";
         card3.style.transform = `translateX(0) scale(1)`;
     }, 150);
-    
+});
+
+
+//Revolution
+elsToAnim.revolutionContent = document.getElementById('revolution-content');
+
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.revolutionContent, () => {
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-left'), {
+        transform: 'scaleY(1)',
+        duration: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-top'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.border-bottom'), {
+        transform: 'translateX(0)',
+        duration: 1,
+        delay: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.heading-2'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
+    gsap.to(elsToAnim.revolutionContent.querySelector('.paragraph-big'), {
+        transform: 'translateX(0)',
+        duration: 1.5,
+        delay: 1,
+        opacity: 1
+    });
 });
 
 /***/ }),
@@ -478,10 +510,7 @@ __webpack_require__.r(__webpack_exports__);
 ////////INFO
 ////////////////
 
-const infoTextWrap = document.querySelector('.info__meaning__text-wrap');
-
 const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
-
 
 const createCode = (textWrap) => {
   return p => {
@@ -496,7 +525,7 @@ const createCode = (textWrap) => {
         for (let j = 0; j < this.history.length; j += 1) {
           const coords = this.calculateCoordsForI(this.history[j].i, this.history[j].distance);
           p.vertex(coords.x, coords.y);
-          this.history[j].distance += p.random(-2, 2)*p.sin(10*this.history[j].i);
+          this.history[j].distance += p.random(-1, 1)*p.sin(10*this.history[j].i);
         }
         p.endShape();
       }
@@ -517,13 +546,11 @@ const createCode = (textWrap) => {
     p.setup = () => {
       const canvas = p.createCanvas(400, 400);
       canvas.canvas.className="p5";
-      //p.background(0)
     }
   
     let opacity = 100;
   
     p.draw = () => {
-      //p.background(0);
       p.clear();
       p.noFill();
       p.stroke(255, opacity);
@@ -534,7 +561,7 @@ const createCode = (textWrap) => {
       p.endShape();
       randomCirc.render();
       
-      opacity = opacity * 0.96;
+      opacity = opacity * 0.98;
     }
   
    textWrap.addEventListener('mouseenter', () => {
@@ -546,9 +573,6 @@ const createCode = (textWrap) => {
   }
   
 }
- 
-//const infoP5 = new p5(code, infoTextWrap);
-//infoP5.draw();
 
 for (const textWrap of [...infoTextWraps]) {
   const infoP5 = new p5(createCode(textWrap), textWrap);
@@ -686,9 +710,10 @@ toContactBtn.addEventListener('click', () => {
   contactSection.scrollIntoView({behavior: 'smooth'});
 });
 
-//VIDEO
+//WAVE
 
 const video = document.getElementById('wave');
+video.playbackRate = 0.5;
 
 //Whenever the window gets resized
 window.addEventListener('resize', () => {
@@ -765,21 +790,26 @@ class Element{
 function menuHandler(method){
   const oppositeMethod = method === ADD ? REMOVE : ADD;
   let menuObject, cancelButtonObject;
-  new Element(body, method, 'blur-body'); //body
+  //body
+  new Element(body, method, 'blur-body');
   const header = document.getElementById('header').children;
   for(const div of header){
     if(div.id === 'upper-part'){
       for(const child of div.children){
         if(child.id !== 'cancelButton' && child.id !== 'openButton'){
-          new Element(child, method, 'blur'); //some element in the upper part of header
+          //some element in the upper part of header
+          new Element(child, method, 'blur');
         }else if(child.id === 'openButton'){
-          new Element(child, oppositeMethod, 'visible'); //open button
+          //open button
+          new Element(child, oppositeMethod, 'visible');
         } else {
-          cancelButtonObject = new Element(child, method, 'visible'); //cancel button
+          //cancel button
+          cancelButtonObject = new Element(child, method, 'visible');
         }
       }
     } else if(div.id !== 'menu'){
-      new Element(div, method, 'blur');//some div element in the header
+      //some div element in the header
+      new Element(div, method, 'blur');
     } else {
       menuObject = new Element(div, method, 'visible');//menu
     }

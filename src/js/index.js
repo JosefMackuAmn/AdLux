@@ -8,10 +8,7 @@ import './contact';
 ////////INFO
 ////////////////
 
-const infoTextWrap = document.querySelector('.info__meaning__text-wrap');
-
 const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
-
 
 const createCode = (textWrap) => {
   return p => {
@@ -26,7 +23,7 @@ const createCode = (textWrap) => {
         for (let j = 0; j < this.history.length; j += 1) {
           const coords = this.calculateCoordsForI(this.history[j].i, this.history[j].distance);
           p.vertex(coords.x, coords.y);
-          this.history[j].distance += p.random(-2, 2)*p.sin(10*this.history[j].i);
+          this.history[j].distance += p.random(-1, 1)*p.sin(10*this.history[j].i);
         }
         p.endShape();
       }
@@ -47,13 +44,11 @@ const createCode = (textWrap) => {
     p.setup = () => {
       const canvas = p.createCanvas(400, 400);
       canvas.canvas.className="p5";
-      //p.background(0)
     }
   
     let opacity = 100;
   
     p.draw = () => {
-      //p.background(0);
       p.clear();
       p.noFill();
       p.stroke(255, opacity);
@@ -64,7 +59,7 @@ const createCode = (textWrap) => {
       p.endShape();
       randomCirc.render();
       
-      opacity = opacity * 0.96;
+      opacity = opacity * 0.98;
     }
   
    textWrap.addEventListener('mouseenter', () => {
@@ -76,9 +71,6 @@ const createCode = (textWrap) => {
   }
   
 }
- 
-//const infoP5 = new p5(code, infoTextWrap);
-//infoP5.draw();
 
 for (const textWrap of [...infoTextWraps]) {
   const infoP5 = new p5(createCode(textWrap), textWrap);
@@ -216,9 +208,10 @@ toContactBtn.addEventListener('click', () => {
   contactSection.scrollIntoView({behavior: 'smooth'});
 });
 
-//VIDEO
+//WAVE
 
 const video = document.getElementById('wave');
+video.playbackRate = 0.5;
 
 //Whenever the window gets resized
 window.addEventListener('resize', () => {
