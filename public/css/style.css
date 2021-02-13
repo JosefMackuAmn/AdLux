@@ -272,21 +272,24 @@ body {
       text-transform: uppercase; }
       .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
         margin-right: 10rem; }
-        @media screen and (max-width: 1600px) {
+        @media screen and (max-width: 1650px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-            margin-right: 5.25vw; } }
+            margin-right: 4.5vw; } }
         @media screen and (max-width: 1300px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-            font-size: 2.2rem;
             margin-right: 2vw; } }
         @media screen and (max-width: 950px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
             margin: 0;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
+            font-size: 2.7rem;
             display: block; } }
       @media screen and (max-width: 1300px) {
         .header__menu-link:link, .header__menu-link:visited {
           font-size: 2.2rem; } }
+      @media screen and (max-width: 950px) {
+        .header__menu-link:link, .header__menu-link:visited {
+          font-size: 2.7rem; } }
     .header__menu-link:hover {
       transition: all 0.2s;
       color: #ffff;
@@ -298,9 +301,13 @@ body {
       top: 50%;
       transform: translate(-47.5%, -50%);
       display: inline-block; }
-      @media screen and (max-width: 1600px) {
+      @media screen and (max-width: 1650px) {
         .header__menu-content-text {
-          width: calc(91rem + 6*5.25vw); } }
+          width: calc(91rem + 6*4.5vw); } }
+      @media screen and (max-width: 1300px) {
+        .header__menu-content-text {
+          width: calc(76rem + 6*2vw);
+          transform: translate(-45.5%, -50%); } }
       @media screen and (max-width: 950px) {
         .header__menu-content-text {
           text-align: center;
@@ -328,10 +335,16 @@ body {
             left: calc(-50vw + 50%); } }
         @media screen and (max-width: 950px) {
           .header__menu-background::before {
-            height: 52.5rem;
-            width: 28.1rem;
+            height: 70rem;
+            width: 37.5rem;
             left: 50%;
             transform: translate(-50%, 0); } }
+        @media screen and (max-width: 545px) {
+          .header__menu-background::before {
+            top: 6.75rem;
+            transform: translate(-50%, 0);
+            width: 65vw;
+            height: 63rem; } }
       .header__menu-background-logo {
         height: 8.5rem;
         width: 8.5rem;
@@ -348,12 +361,23 @@ body {
           width: 71.32rem; } }
       @media screen and (max-width: 950px) {
         .header__menu-background {
-          height: 52.9rem;
-          width: 33.4rem; } }
+          height: 70.5rem;
+          width: 44.5rem; } }
+      @media screen and (max-width: 545px) {
+        .header__menu-background {
+          width: 72vw; } }
     @media screen and (max-width: 950px) {
       .header__menu {
-        height: 52.9rem;
-        width: 33.4rem; } }
+        height: 70.5rem;
+        width: 44.5rem; } }
+    @media screen and (max-width: 545px) {
+      .header__menu {
+        top: 6.75rem;
+        transform: translate(-50%, 0);
+        width: 72vw; } }
+    @media screen and (max-width: 400px) {
+      .header__menu {
+        transform: translate(calc(-50% - 2rem), 0); } }
 
 #cancelButton {
   position: fixed; }
