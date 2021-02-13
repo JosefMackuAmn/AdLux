@@ -257,7 +257,7 @@ body {
       margin-bottom: .8rem; }
   .header__menu {
     height: 25.7rem;
-    position: fixed;
+    position: absolute;
     z-index: 900;
     top: 50%;
     left: 50%;
@@ -380,7 +380,7 @@ body {
         transform: translate(calc(-50% - 2rem), 0); } }
 
 #cancelButton {
-  position: fixed; }
+  position: absolute; }
 
 .rotate-left {
   transform: rotate(45deg); }
