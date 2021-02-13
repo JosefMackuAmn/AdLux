@@ -342,9 +342,9 @@ body {
         @media screen and (max-width: 545px) {
           .header__menu-background::before {
             top: 6.75rem;
-            transform: translate(-50%, 0);
+            transform: translate(-50%, -10%);
             width: 65vw;
-            height: 63rem; } }
+            height: 70rem; } }
       .header__menu-background-logo {
         height: 8.5rem;
         width: 8.5rem;
