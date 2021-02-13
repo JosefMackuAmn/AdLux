@@ -1,7 +1,5 @@
 .header {
     height: 100vh;
-    //overflow-x: hidden;
-
     position: relative;
     z-index: 20;
 
@@ -125,7 +123,7 @@
     &__menu{
         height: 25.7rem;
         
-        position: absolute;
+        position: fixed;
         z-index: 900;
         top: 50%;
         left: 50%;
@@ -141,7 +139,10 @@
                 font-size: 2.7rem;
                 text-transform: uppercase;
                 &:not(:last-child){
-                    margin-right: 5.25vw;
+                    margin-right: 10rem;
+                    @media  screen and (max-width: 1600px) {
+                        margin-right: 5.25vw;
+                    }
                     @media screen and (max-width: 1300px){
                         font-size: $font_22;
                         margin-right: 2vw;
@@ -177,17 +178,20 @@
             }
         }
         &-content-text{
-            width: calc(91.5rem + 6*5.25vw);
+            width: 151rem;
 
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-47.5%, -50%);
             display: inline-block;
-            @media screen and (max-width: 1300px){
-                width: calc(76rem + 6*2vw);
-                transform: translate(-46%, -50%);
+            @media  screen and (max-width: 1600px) {
+                width: calc(91rem + 6*5.25vw);
             }
+            // @media screen and (max-width: 1300px){
+            //     width: calc(76rem + 6*2vw);
+            //     transform: translate(-46%, -50%);
+            // }
             // @media screen and (max-width: 1150px){
             //     width: calc(70rem + 6*3vw);
             //     transform: translate(-45%, -50%);
@@ -218,8 +222,9 @@
                 display: inline-block;
                 position: absolute;
                 z-index: -1;
-                @media screen and (max-width: 1300px){
-                    width: 71rem;
+                @media screen and (max-width: 1490px){
+                    width: 100vw;
+                    left: calc(-50vw + 50%);
                 }
                 @media screen and (max-width: 950px){
                     height: 52.5rem;
@@ -280,6 +285,10 @@
         //     width: 48rem;
         // }
     }
+}
+
+#cancelButton{
+    position: fixed;
 }
 
 .rotate{

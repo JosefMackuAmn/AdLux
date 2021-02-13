@@ -257,7 +257,7 @@ body {
       margin-bottom: .8rem; }
   .header__menu {
     height: 25.7rem;
-    position: absolute;
+    position: fixed;
     z-index: 900;
     top: 50%;
     left: 50%;
@@ -271,7 +271,10 @@ body {
       font-size: 2.7rem;
       text-transform: uppercase; }
       .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
-        margin-right: 5.25vw; }
+        margin-right: 10rem; }
+        @media screen and (max-width: 1600px) {
+          .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
+            margin-right: 5.25vw; } }
         @media screen and (max-width: 1300px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
             font-size: 2.2rem;
@@ -289,16 +292,15 @@ body {
       color: #ffff;
       font-weight: 700; }
     .header__menu-content-text {
-      width: calc(91.5rem + 6*5.25vw);
+      width: 151rem;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-47.5%, -50%);
       display: inline-block; }
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 1600px) {
         .header__menu-content-text {
-          width: calc(76rem + 6*2vw);
-          transform: translate(-46%, -50%); } }
+          width: calc(91rem + 6*5.25vw); } }
       @media screen and (max-width: 950px) {
         .header__menu-content-text {
           text-align: center;
@@ -320,9 +322,10 @@ body {
         display: inline-block;
         position: absolute;
         z-index: -1; }
-        @media screen and (max-width: 1300px) {
+        @media screen and (max-width: 1490px) {
           .header__menu-background::before {
-            width: 71rem; } }
+            width: 100vw;
+            left: calc(-50vw + 50%); } }
         @media screen and (max-width: 950px) {
           .header__menu-background::before {
             height: 52.5rem;
@@ -351,6 +354,9 @@ body {
       .header__menu {
         height: 52.9rem;
         width: 33.4rem; } }
+
+#cancelButton {
+  position: fixed; }
 
 .rotate-left {
   transform: rotate(45deg); }
@@ -1203,7 +1209,7 @@ body {
     left: 50%;
     width: 52rem;
     height: 5rem;
-    transform: translate(-50%, -1rem); }
+    transform: translate(-50%, -2.5rem); }
     @media screen and (max-width: 900px) {
       .footer-up__contacts {
         height: 15rem;
@@ -1261,9 +1267,8 @@ body {
     height: 7rem;
     width: 7rem;
     position: absolute;
-    top: 0.5rem;
+    top: 1rem;
     right: 2.5rem;
-    bottom: 3rem;
     transform: translate(-50%, -50%);
     text-decoration: none;
     color: #ffff;
@@ -1278,12 +1283,6 @@ body {
   @media screen and (max-width: 1200px) and (max-width: 900px) {
     .footer-up__AmnioN-link-logo:link, .footer-up__AmnioN-link-logo:visited {
       top: 28rem; } }
-  .footer-up__AmnioN-link-logo:hover {
-    transition: all .1s;
-    transform: translate(-50%, -50%) scale(1.1) translateY(-0.2rem); }
-  .footer-up__AmnioN-link-logo:active {
-    transition: all .1s;
-    transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem); }
 
 .footer-down {
   background-image: url("/img/footer-picture.jpg");
