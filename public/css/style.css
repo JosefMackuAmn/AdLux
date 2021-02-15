@@ -1154,7 +1154,11 @@ body {
 
 @media screen and (max-width: 1200px) {
   .footer {
-    margin-top: 10rem; } }
+    padding-top: 20rem; } }
+
+@media screen and (max-width: 320px) {
+  .footer {
+    padding-top: 15rem; } }
 
 .footer-up {
   background-color: #040E0F;
@@ -1183,7 +1187,7 @@ body {
         transform: translate(-50%, -50%); } }
   @media screen and (max-width: 1200px) and (max-width: 900px) {
     .footer-up__AdLux-logo {
-      top: -19rem; } }
+      top: -20rem; } }
   @media screen and (max-width: 1200px) and (max-width: 320px) {
     .footer-up__AdLux-logo {
       top: -14rem; } }
@@ -1198,10 +1202,10 @@ body {
       .footer-up__contacts {
         height: 15rem;
         width: 19rem;
-        bottom: 2rem; } }
+        bottom: 0; } }
     @media screen and (max-width: 320px) {
       .footer-up__contacts {
-        width: 15rem;
+        width: 14rem;
         height: 10rem; } }
     .footer-up__contacts-picture {
       position: relative;
@@ -1212,16 +1216,18 @@ body {
       @media screen and (max-width: 900px) {
         .footer-up__contacts-picture {
           margin: 0;
-          margin-bottom: 2rem; }
+          height: 4rem;
+          margin-bottom: 1rem;
+          transform: translateX(1.8rem) translateY(0.5rem); }
           .footer-up__contacts-picture:last-of-type {
-            transform: translateX(-7rem) translateY(-1rem); } }
+            transform: translateX(-5.5rem) translateY(-0.5rem); } }
       @media screen and (max-width: 320px) {
         .footer-up__contacts-picture {
-          height: 4rem;
           font-size: 1.5rem;
-          margin: 0; }
+          margin: 0;
+          transform: translateX(1rem); }
           .footer-up__contacts-picture:last-of-type {
-            transform: translateX(-5rem) translateY(-1rem); } }
+            transform: translateX(-4.5rem) translateY(-1rem); } }
     .footer-up__contacts-text {
       position: relative;
       display: inline-block;
@@ -1234,8 +1240,7 @@ body {
       @media screen and (max-width: 900px) {
         .footer-up__contacts-text {
           margin-left: 3rem;
-          margin-bottom: 2rem;
-          transform: translate(0, -3.5rem); }
+          transform: translate(0, -1.7rem); }
           .footer-up__contacts-text:last-of-type {
             position: absolute;
             transform: translate(-7rem, calc(56% - 1rem)); } }
@@ -1243,7 +1248,7 @@ body {
         .footer-up__contacts-text {
           margin-left: 2rem;
           font-size: 1.5rem;
-          transform: translate(0, 1.5rem); }
+          transform: translate(0, -1rem); }
           .footer-up__contacts-text:last-of-type {
             position: absolute;
             transform: translate(-5rem, calc(56% - 1rem)); } }
