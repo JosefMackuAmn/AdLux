@@ -93,7 +93,7 @@ class Animation {
 
     // Return whether an element is visible
     static isVisible(el) {
-        return el.getBoundingClientRect().top - window.innerHeight < 0;
+        return el.getBoundingClientRect().top - window.innerHeight < -100;
     }
 }
 
@@ -125,7 +125,22 @@ const { elsToAnim } = _state__WEBPACK_IMPORTED_MODULE_1__.default;
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
-// Animate benefits section
+
+//HEADER
+//
+
+gsap.from('.header__text p span', {
+    color: '#515151',
+    duration: .25,
+    delay: 0.25,
+    stagger: .25,
+});
+
+//Text highlight
+
+
+// BENEFITS
+//
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
@@ -142,6 +157,7 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benef
     });
 
 });
+
 
 elsToAnim.benefitsImg = document.getElementById('benefits-img');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
@@ -165,17 +181,34 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
 
 });
 
-//Products
+//Text highlight
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
+    const benefitsPSpan = document.querySelectorAll('.benefits__stripe p span');
+    gsap.from(benefitsPSpan, {
+        color: '#515151',
+        duration: .25,
+        delay: .9,
+        stagger: .25,
+    })
+});
+
+//PRODUCTS
+//
+
+//Text highlight
 elsToAnim.productsText = document.getElementById('products-text');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.productsText, () => {
     gsap.from(".products__text p span", {
         fontWeight: 300,
-        duration: .1,
-        stagger: .1
-    });
+        duration: .2,
+        stagger: .1,
+        fontSize: '1rem'
+    })
+    ;
 });
 
-//Revolution
+//REVOLUTION
+//
 elsToAnim.revolutionContent = document.getElementById('revolution-content');
 
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.revolutionContent, () => {
@@ -204,6 +237,27 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.revol
         duration: 1.5,
         delay: 1,
         opacity: 1
+    });
+});
+
+//Text highlight
+
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.revolutionContent, () => {
+    gsap.from('.info__revolution p span', {
+        color: '#515151',
+        duration: .25,
+        delay: 1.5,
+        stagger: .25,
+    });
+});
+
+elsToAnim.info = document.getElementById('info');
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.info, () => {
+    gsap.from('.info__meaning__text-wrap p span', {
+        color: '#515151',
+        duration: .25,
+        delay: 0.5,
+        stagger: .25,
     });
 });
 
@@ -445,7 +499,7 @@ const createCode = (textWrap) => {
       canvas.canvas.className="p5";
     }
   
-    let opacity = 100;
+    let opacity = 0;
   
     p.draw = () => {
       p.clear();
@@ -458,12 +512,12 @@ const createCode = (textWrap) => {
       p.endShape();
       randomCirc.render();
       
-      opacity = opacity * 0.98;
+      opacity = opacity * 0.955;
     }
   
    textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
-      opacity = 100;
+      opacity = 150;
     }) 
   
   
@@ -488,32 +542,42 @@ const productButtonB = document.getElementById('product-btn-b');
 const productImageA = document.getElementById('product-image-a');
 const productImageB = document.getElementById('product-image-b');
 
-const productFeatures = document.getElementById('product-features');
+const productFeaturesA = document.getElementById('product-features-a');
+const productFeaturesB = document.getElementById('product-features-b');
+
 const productHeading = document.getElementById('product-heading');
+
+const comingSoon = document.getElementById('coming-soon');
 
 //State of product when inactive
 const inActiveProductConf = {
   filter: 'blur(15px)',
-  cursor: 'pointer',
   scale: '0.6',
   y: '0rem',
   duration: '.5',
   opacity: 0.5
 }
 
-//State of product when active
-const activeProductConf = {
+//State of products when active
+const activeProductAConf = {
   filter: 'none',
-  cursor: 'clicker',
   scale: '1',
   y: '0',
   duration: '.5',
   opacity: 1
 }
 
+const activeProductBConf = {
+  filter: 'blur(6px)',
+  scale: '1',
+  y: '0',
+  duration: '.5',
+  opacity: .5
+}
+
 //Initiaizing product B to inactive config, product A to active config
-gsap.to(productImageB, activeProductConf);
-gsap.to(productImageA, inActiveProductConf);
+gsap.to(productImageA, activeProductAConf);
+gsap.to(productImageB, inActiveProductConf);
 
 //Function switches active product
 const switchProduct = (event) => {
@@ -532,23 +596,17 @@ const switchProduct = (event) => {
     productButtonB.classList.add('toggled');
     productImageA.classList.remove('toggled');
     productImageB.classList.add('toggled');
+    productFeaturesA.classList.remove('toggled');
+    productFeaturesB.classList.add('toggled');
+    comingSoon.classList.add('toggled');
 
-    //Adjusting text
-    productHeading.textContent = 'Stropní visací hologram';
-    productFeatures.innerHTML = `
-        <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Premiový vzhled</p></li>
-        <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    `;
+    productHeading.textContent = 'Holografický stojan';
+  
 
     //Animating smoothly product A to inActive config
     //Animating smoothly product B to active config
     gsap.to(productImageA,inActiveProductConf);
-    gsap.to(productImageB, activeProductConf);
+    gsap.to(productImageB, activeProductBConf);
 
   } else {
 
@@ -558,23 +616,17 @@ const switchProduct = (event) => {
     productButtonA.classList.add('toggled');
     productImageB.classList.remove('toggled');
     productImageA.classList.add('toggled');
+    productFeaturesB.classList.remove('toggled');
+    productFeaturesA.classList.add('toggled');
+    comingSoon.classList.remove('toggled');
 
     //Adjusting text
-    productHeading.textContent = 'Moucha';
-    productFeatures.innerHTML = `
-        <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Premiový vzhled</p></li>
-        <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    `;
+    productHeading.textContent = 'Holografická visací platforma';
 
     //Animating smoothly product B to inActive config
     //Animating smoothly product A to active config
     gsap.to(productImageB,inActiveProductConf);
-    gsap.to(productImageA, activeProductConf);
+    gsap.to(productImageA, activeProductAConf);
   }
 };
 

@@ -9,6 +9,19 @@
         margin-bottom: 24rem;
     }
     
+    &__wave {
+        opacity: .07;
+        width: 100%;
+
+        position: absolute;
+        top: 35rem;
+        left: 0;
+        transform: scaleY(-1);
+
+        @media screen and (max-width: 600px) {
+            display: none;
+        }
+    }
     &-content {
         //width: 104.6rem;
         margin:0 auto;

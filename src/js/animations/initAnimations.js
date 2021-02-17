@@ -12,7 +12,22 @@ const { elsToAnim } = state;
 // If no event needed to be fired for the callback to be called,
 // passed value will equal to null
 
-// Animate benefits section
+
+//HEADER
+//
+
+gsap.from('.header__text p span', {
+    color: '#515151',
+    duration: .25,
+    delay: 0.25,
+    stagger: .25,
+});
+
+//Text highlight
+
+
+// BENEFITS
+//
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     if (!elsToAnim.benefitsStripe) return;
@@ -29,6 +44,7 @@ Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
     });
 
 });
+
 
 elsToAnim.benefitsImg = document.getElementById('benefits-img');
 Animation.infiniteAnimation(() => {
@@ -52,17 +68,34 @@ Animation.infiniteAnimation(() => {
 
 });
 
-//Products
+//Text highlight
+Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
+    const benefitsPSpan = document.querySelectorAll('.benefits__stripe p span');
+    gsap.from(benefitsPSpan, {
+        color: '#515151',
+        duration: .25,
+        delay: .9,
+        stagger: .25,
+    })
+});
+
+//PRODUCTS
+//
+
+//Text highlight
 elsToAnim.productsText = document.getElementById('products-text');
 Animation.onScrollToTarget(elsToAnim.productsText, () => {
     gsap.from(".products__text p span", {
         fontWeight: 300,
-        duration: .1,
-        stagger: .1
-    });
+        duration: .2,
+        stagger: .1,
+        fontSize: '1rem'
+    })
+    ;
 });
 
-//Revolution
+//REVOLUTION
+//
 elsToAnim.revolutionContent = document.getElementById('revolution-content');
 
 Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
@@ -91,5 +124,26 @@ Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
         duration: 1.5,
         delay: 1,
         opacity: 1
+    });
+});
+
+//Text highlight
+
+Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
+    gsap.from('.info__revolution p span', {
+        color: '#515151',
+        duration: .25,
+        delay: 1.5,
+        stagger: .25,
+    });
+});
+
+elsToAnim.info = document.getElementById('info');
+Animation.onScrollToTarget(elsToAnim.info, () => {
+    gsap.from('.info__meaning__text-wrap p span', {
+        color: '#515151',
+        duration: .25,
+        delay: 0.5,
+        stagger: .25,
     });
 });
