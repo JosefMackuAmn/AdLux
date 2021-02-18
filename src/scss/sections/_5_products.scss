@@ -2,7 +2,8 @@
     position: relative;
     margin-bottom: 36rem;
     margin-top: 30rem;
-    height: 55rem;
+    height: 60rem;
+    overflow: hidden;
 
     @media screen and (max-width: 1400px) {
        margin-bottom: 24rem;
@@ -136,7 +137,7 @@
     }
     &__features {
         list-style: none;
-        width: 100%;
+        width: 40rem;
 
         @media screen and (max-width: 400px) {
             margin-left: 2rem;
