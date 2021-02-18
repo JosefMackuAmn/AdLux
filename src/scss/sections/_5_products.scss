@@ -155,11 +155,11 @@
             filter: blur(10px);
             opacity: .2;
 
-            position: absolute;
+            display: none;
 
-            @media screen and (max-width: 1150px) {
-                display: none;
-            }
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         &--a {
             &.toggled {
