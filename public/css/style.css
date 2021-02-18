@@ -173,7 +173,8 @@ body {
   height: 100vh;
   min-height: 80rem;
   position: relative;
-  z-index: 20; }
+  z-index: 20;
+  overflow: hidden; }
   .header__upper-part {
     height: 10rem;
     position: relative; }
@@ -587,7 +588,8 @@ body {
   min-height: 70rem;
   width: 100%;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  overflow: hidden; }
   @media only screen and (max-width: 1100px) {
     .benefits {
       height: auto; } }
@@ -707,7 +709,8 @@ body {
   position: relative;
   margin-bottom: 36rem;
   margin-top: 30rem;
-  height: 55rem; }
+  height: 60rem;
+  overflow: hidden; }
   @media screen and (max-width: 1400px) {
     .products {
       margin-bottom: 24rem; } }
@@ -804,7 +807,7 @@ body {
         width: 35rem; } }
   .products__features {
     list-style: none;
-    width: 100%;
+    width: 40rem;
     transition: filter .5s, opacity .5s;
     filter: blur(3px);
     opacity: .4; }
@@ -817,10 +820,10 @@ body {
     .products__features:not(.toggled) {
       filter: blur(10px);
       opacity: .2;
-      position: absolute; }
-      @media screen and (max-width: 1150px) {
-        .products__features:not(.toggled) {
-          display: none; } }
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0; }
     .products__features--a.toggled {
       filter: blur(0);
       opacity: 1; }
@@ -1160,7 +1163,8 @@ body {
   position: relative;
   overflow: hidden;
   padding-top: 18rem;
-  margin-bottom: 20rem; }
+  margin-bottom: 20rem;
+  overflow: hidden; }
   @media screen and (max-width: 900px) {
     .contact {
       padding-top: 0;
