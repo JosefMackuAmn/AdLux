@@ -9,10 +9,9 @@ html {
     
     font-family: $font_raleway;
     font-size:  62.5%;
-
     scroll-behavior: smooth;
 
-    @media only screen and (max-width: 1400px) {
+   @media only screen and (max-width: 1400px) {
         font-size: 56.25%;
     }
 }

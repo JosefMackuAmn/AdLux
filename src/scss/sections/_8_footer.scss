@@ -1,6 +1,9 @@
 .footer {
     @media screen and (max-width: 1200px){
-        margin-top: 10rem;
+        padding-top: 20rem;
+    }
+    @media screen and (max-width: 320px){
+        padding-top: 15rem;
     }
     &-up {
         background-color: $color-blue-black;
@@ -28,7 +31,7 @@
                 width: 13.65rem;
                 transform: translate(-50%, -50%);
                 @media screen and (max-width: 900px){
-                    top: -19rem;
+                    top: -20rem;
                 }
                 @media screen and (max-width: 320px){
                    top: -14rem;
@@ -41,14 +44,14 @@
             left: 50%;
             width: 52rem;
             height: 5rem;
-            transform: translate(-50%, -1rem);
+            transform: translate(-50%, -2.5rem);
             @media screen and (max-width: 900px){
                 height: 15rem;
                 width: 19rem;
-                bottom: 2rem;
+                bottom: 0;
             }
             @media screen and (max-width: 320px){
-                width: 15rem;
+                width: 14rem;
                 height: 10rem;
             }
             &-picture{
@@ -60,17 +63,19 @@
                 }
                 @media screen and (max-width: 900px){
                     margin: 0;
-                    margin-bottom: 2rem;
+                    height: 4rem;
+                    margin-bottom: 1rem;
+                    transform: translateX(1.8rem) translateY(0.5rem);
                     &:last-of-type{
-                        transform: translateX(-7rem) translateY(-1rem);
+                        transform: translateX(-5.5rem) translateY(-0.5rem);
                     }
                 }
                 @media screen and (max-width: 320px){
-                    height: 4rem;
-                    font-size: 1.5rem;
+                    font-size:$font_15;
                     margin: 0;
+                    transform: translateX(1rem);
                     &:last-of-type{
-                        transform: translateX(-5rem) translateY(-1rem);
+                        transform: translateX(-4.5rem) translateY(-1rem);
                     }
                 }
             }
@@ -86,8 +91,7 @@
                 }
                 @media screen and (max-width: 900px){
                     margin-left: 3rem;
-                    margin-bottom: 2rem;
-                    transform: translate(0, -3.5rem);
+                    transform: translate(0, -1.7rem);
                     &:last-of-type{
                         position: absolute;
                         transform: translate(-7rem, calc(56% - 1rem));
@@ -95,8 +99,8 @@
                 }
                 @media screen and (max-width: 320px){
                     margin-left: 2rem;
-                    font-size: 1.5rem;
-                    transform: translate(0, -1.5rem);
+                    font-size:$font_15;
+                    transform: translate(0, -1rem);
                     &:last-of-type{
                         position: absolute;
                         transform: translate(-5rem, calc(56% - 1rem));
@@ -110,14 +114,12 @@
                 height: 7rem;
                 width: 7rem;
                 position: absolute;
-                top: 0.5rem;
+                top: 1rem;
                 right: 2.5rem;
-                bottom: 3rem;
                 transform: translate(-50%, -50%);
                 text-decoration: none;
                 color: $text-color-white;
                 font-weight: $font_light;
-                transition: all .1s;
                 @media screen and (max-width: 1200px){
                     top: 25rem;
                     left: 50%;
@@ -128,13 +130,6 @@
                         top: 28rem;
                     }
                 }
-            }
-            &:hover{
-                transform: translate(-50%, -50%) scale(1.1) translateY(-0.2rem); 
-                
-            }
-            &:active {                
-                transform: translate(-50%, -50%) scale(1.1) translateY(-0.1rem);
             }
         }
     }
@@ -170,7 +165,6 @@
                 font-size: 2rem;
                 font-weight: $font_light;
                 color: $text-color-white;
-                transition: all .1s;
                 @media screen and (max-width: 1200px){
                     padding-bottom: 3rem;
                     position: absolute;
@@ -181,6 +175,7 @@
             }
 
             &:hover{
+                transition: all .1s;
                 transform: translateY(-0.4rem);
                 text-shadow: 0.2rem 0.2rem 0.8rem rgba(black, 1);
                 @media screen and (max-width: 1200px){
@@ -188,7 +183,8 @@
                     transform: translate(-43%, calc(-50% - 0.4rem));
                 }
             }
-            &:active {                
+            &:active {    
+                transition: all .1s;            
                 transform: translateY(-0.2rem);
                 @media screen and (max-width: 1200px){
                     margin-bottom: 0.5rem;
@@ -198,4 +194,3 @@
         }
     }
 }
-

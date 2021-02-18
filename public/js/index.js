@@ -143,12 +143,14 @@ gsap.from('.header__text p span', {
 //
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benefitsStripe, () => {
-    if (!elsToAnim.benefitsStripe) return;
+    const { benefitsStripe } = elsToAnim;
 
-    elsToAnim.benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+    if (!benefitsStripe) return;
 
-    const subheading = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__subheading');
-    const text = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__text');
+    benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+
+    const subheading = benefitsStripe.querySelector('.benefits__stripe__subheading');
+    const text = benefitsStripe.querySelector('.benefits__stripe__text');
 
     [subheading, text].forEach(el => {
         if (!el) return;
@@ -161,11 +163,13 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.benef
 
 elsToAnim.benefitsImg = document.getElementById('benefits-img');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
-    if (!_Animation__WEBPACK_IMPORTED_MODULE_0__.default.isVisible(elsToAnim.benefitsImg)) return;
+    const { benefitsImg } = elsToAnim;
 
-    const imgHeight = elsToAnim.benefitsImg.offsetHeight;
+    if (!_Animation__WEBPACK_IMPORTED_MODULE_0__.default.isVisible(benefitsImg)) return;
 
-    const scrolled = imgHeight - elsToAnim.benefitsImg.getBoundingClientRect().top;
+    const imgHeight = benefitsImg.offsetHeight;
+
+    const scrolled = imgHeight - benefitsImg.getBoundingClientRect().top;
     const scrollable = window.innerHeight + imgHeight;
     const percentageOnPage = scrolled / scrollable;
 
@@ -177,7 +181,7 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
     if (imgPositionX > 100) imgPositionX = 100;
     if (imgPositionY > 100) imgPositionY = 100;
 
-    elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
+    benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
 });
 
@@ -209,6 +213,83 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.produ
 
 //REVOLUTION
 //
+// Solutions
+let solutionsAnimated = false;
+elsToAnim.solCards = document.querySelectorAll('.solution__card');
+elsToAnim.solCardsCont = document.querySelector('.solution__cards');
+_Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.solCards[0], () => {
+    const [card1, card2, card3] = elsToAnim.solCards;
+
+    if (window.innerWidth < 1300) {
+        elsToAnim.solCards.forEach(card => {
+            card.style.opacity = "1";
+            card.style.transition = "all .3s";
+        })
+        return;
+    }
+
+    // Csf = Center from side
+    const containerCfs = elsToAnim.solCardsCont.clientWidth / 2;
+
+    // Get coordinates of cards
+    const card1Cfs = card1.getBoundingClientRect().left + (card1.clientWidth / 2);
+    const card3Cfs = card3.getBoundingClientRect().left + (card3.clientWidth / 2);
+
+    // Set initial positions
+    card1.style.transform = `translateX(${containerCfs - card1Cfs}px) scale(1.1)`;
+    card2.style.transform = "scale(1.05)";
+    card3.style.transform = `translateX(${containerCfs - card3Cfs}px) scale(1.1)`;
+
+    // Show cards
+    setTimeout(() => {
+        elsToAnim.solCards.forEach(card => {
+            card.style.opacity = "1";
+            card.style.transition = "2s cubic-bezier(.24,.84,0,1)";
+        });
+    }, 100);
+
+    // Animate cards
+    setTimeout(() => {
+        card1.style.transform = `translateX(0) scale(1)`;
+        card2.style.transform = "scale(1)";
+        card3.style.transform = `translateX(0) scale(1)`;
+    }, 150);
+
+    // Finish animation
+    setTimeout(() => {
+        card1.style.transform = ``;
+        card2.style.transform = "";
+        card3.style.transform = ``;
+        elsToAnim.solCards.forEach(card => {
+            card.style.transition = "all .3s";
+        })
+        solutionsAnimated = true;
+    }, 2000);
+});
+
+// Solutions mouseover
+const raiseCard = card => {
+    if (!solutionsAnimated) return;
+
+    elsToAnim.solCards.forEach(cardEl => {
+        cardEl.style.transform = 'scale(.95)';
+    });
+    card.style.transform = 'scale(1.05)';
+}
+const lowerCards = () => {
+    if (!solutionsAnimated) return;
+
+    elsToAnim.solCards.forEach(cardEl => {
+        cardEl.style.transform = '';
+    });
+}
+elsToAnim.solCards.forEach(card => {
+    card.addEventListener('mouseenter', raiseCard.bind(undefined, card));
+    card.addEventListener('mouseleave', lowerCards);
+})
+
+
+// Revolution
 elsToAnim.revolutionContent = document.getElementById('revolution-content');
 
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.revolutionContent, () => {
@@ -362,7 +443,7 @@ function sendAMessage(e) {
 
     // Reset validation errors
     [form[0], form[1], form[2]].forEach(input => {
-        input.style.border = 'none';
+        input.style.backgroundColor = 'white';
     });
 
     // Validate form data
@@ -371,13 +452,13 @@ function sendAMessage(e) {
     // Handle validation errors
     if (errors.length > 0) {
         if (errors.includes('name')) {
-            form[0].style.border = '3px solid red';
+            form[0].style.backgroundColor = '#EF8585';
         }
         if (errors.includes('email')) {
-            form[1].style.border = '3px solid red';
+            form[1].style.backgroundColor = '#EF8585';
         }
         if (errors.includes('message')) {
-            form[2].style.border = '3px solid red';
+            form[2].style.backgroundColor = '#EF8585';
         }
 
         // Back to normal & return early
@@ -714,46 +795,70 @@ class Element{
       if(this.methodVar === ADD){
         this.element.classList.add(this.classStyle);
       } else {
-        this.element.classList.remove(this.classStyle);
+        if(this.element === cancelButton || this.element === openButton){
+          this.element.classList.remove(this.classStyle);
+          return;
+        }
+        this.element.classList.add(`un${this.classStyle}`);
+        setTimeout(()=>{
+          this.element.classList.remove(`un${this.classStyle}`);
+          this.element.classList.remove(this.classStyle);
+        }, 
+        400);
       }
+    }
+    includesClass(style){
+      for(const classStyle of this.element.classList){
+        if(classStyle == style){
+          return true;
+        }
+      }
+      return false;
     }
 }
 
-function blurWeb(method){
-  const bodyObject = new Element(body, method, 'blur-body');
+function menuHandler(method){
+  const oppositeMethod = method === ADD ? REMOVE : ADD;
+  let menuObject, cancelButtonObject;
+  //body
+  new Element(body, method, 'blur-body');
   const header = document.getElementById('header').children;
   for(const div of header){
     if(div.id === 'upper-part'){
       for(const child of div.children){
-        if(child.id !== 'cancelButton'){
-          const childObject = new Element(child, method, 'blur');
+        if(child.id !== 'cancelButton' && child.id !== 'openButton'){
+          //some element in the upper part of header
+          new Element(child, method, 'blur');
+        }else if(child.id === 'openButton'){
+          //open button
+          new Element(child, oppositeMethod, 'visible');
+        } else {
+          //cancel button
+          cancelButtonObject = new Element(child, method, 'visible');
         }
       }
     } else if(div.id !== 'menu'){
-      const divObject = new Element(div, method, 'blur');
+      //some div element in the header
+      new Element(div, method, 'blur');
+    } else {
+      menuObject = new Element(div, method, 'visible');//menu
     }
   }
+  setTimeout(()=>{
+    if(!menuObject.includesClass('visible') && cancelButtonObject.includesClass('visible')){
+      new Element(cancelButton, REMOVE, 'visible');
+      new Element(openButton, ADD, 'visible');
+      menuHandler(ADD);
+    }
+  }, 
+  400);
 }
 
-function cancelMenu(){
-  blurWeb(REMOVE);
-  menu.classList.remove('visible');
-  cancelButton.classList.remove('visible');
-  openButton.classList.add('visible');
-}
 
-
-function openMenu(){
-  blurWeb(ADD);
-  menu.classList.add('visible');
-  cancelButton.classList.add('visible');
-  openButton.classList.remove('visible');
-}
-
-openButton.addEventListener('click', openMenu);
-cancelButton.addEventListener('click', cancelMenu);
+openButton.addEventListener('click', menuHandler.bind(null, ADD));
+cancelButton.addEventListener('click', menuHandler.bind(null, REMOVE));
 for(const a of link){
-  a.addEventListener('click', cancelMenu);
+  a.addEventListener('click', menuHandler.bind(null, REMOVE));
 }
 
 /***/ }),

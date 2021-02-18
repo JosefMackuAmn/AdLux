@@ -261,44 +261,68 @@ class Element{
       if(this.methodVar === ADD){
         this.element.classList.add(this.classStyle);
       } else {
-        this.element.classList.remove(this.classStyle);
+        if(this.element === cancelButton || this.element === openButton){
+          this.element.classList.remove(this.classStyle);
+          return;
+        }
+        this.element.classList.add(`un${this.classStyle}`);
+        setTimeout(()=>{
+          this.element.classList.remove(`un${this.classStyle}`);
+          this.element.classList.remove(this.classStyle);
+        }, 
+        400);
       }
+    }
+    includesClass(style){
+      for(const classStyle of this.element.classList){
+        if(classStyle == style){
+          return true;
+        }
+      }
+      return false;
     }
 }
 
-function blurWeb(method){
-  const bodyObject = new Element(body, method, 'blur-body');
+function menuHandler(method){
+  const oppositeMethod = method === ADD ? REMOVE : ADD;
+  let menuObject, cancelButtonObject;
+  //body
+  new Element(body, method, 'blur-body');
   const header = document.getElementById('header').children;
   for(const div of header){
     if(div.id === 'upper-part'){
       for(const child of div.children){
-        if(child.id !== 'cancelButton'){
-          const childObject = new Element(child, method, 'blur');
+        if(child.id !== 'cancelButton' && child.id !== 'openButton'){
+          //some element in the upper part of header
+          new Element(child, method, 'blur');
+        }else if(child.id === 'openButton'){
+          //open button
+          new Element(child, oppositeMethod, 'visible');
+        } else {
+          //cancel button
+          cancelButtonObject = new Element(child, method, 'visible');
         }
       }
     } else if(div.id !== 'menu'){
-      const divObject = new Element(div, method, 'blur');
+      //some div element in the header
+      new Element(div, method, 'blur');
+    } else {
+      menuObject = new Element(div, method, 'visible');//menu
     }
   }
+  setTimeout(()=>{
+    if(!menuObject.includesClass('visible') && cancelButtonObject.includesClass('visible')){
+      new Element(cancelButton, REMOVE, 'visible');
+      new Element(openButton, ADD, 'visible');
+      menuHandler(ADD);
+    }
+  }, 
+  400);
 }
 
-function cancelMenu(){
-  blurWeb(REMOVE);
-  menu.classList.remove('visible');
-  cancelButton.classList.remove('visible');
-  openButton.classList.add('visible');
-}
 
-
-function openMenu(){
-  blurWeb(ADD);
-  menu.classList.add('visible');
-  cancelButton.classList.add('visible');
-  openButton.classList.remove('visible');
-}
-
-openButton.addEventListener('click', openMenu);
-cancelButton.addEventListener('click', cancelMenu);
+openButton.addEventListener('click', menuHandler.bind(null, ADD));
+cancelButton.addEventListener('click', menuHandler.bind(null, REMOVE));
 for(const a of link){
-  a.addEventListener('click', cancelMenu);
+  a.addEventListener('click', menuHandler.bind(null, REMOVE));
 }

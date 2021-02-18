@@ -30,12 +30,14 @@ gsap.from('.header__text p span', {
 //
 elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
 Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
-    if (!elsToAnim.benefitsStripe) return;
+    const { benefitsStripe } = elsToAnim;
 
-    elsToAnim.benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+    if (!benefitsStripe) return;
 
-    const subheading = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__subheading');
-    const text = elsToAnim.benefitsStripe.querySelector('.benefits__stripe__text');
+    benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+
+    const subheading = benefitsStripe.querySelector('.benefits__stripe__subheading');
+    const text = benefitsStripe.querySelector('.benefits__stripe__text');
 
     [subheading, text].forEach(el => {
         if (!el) return;
@@ -48,11 +50,13 @@ Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
 
 elsToAnim.benefitsImg = document.getElementById('benefits-img');
 Animation.infiniteAnimation(() => {
-    if (!Animation.isVisible(elsToAnim.benefitsImg)) return;
+    const { benefitsImg } = elsToAnim;
 
-    const imgHeight = elsToAnim.benefitsImg.offsetHeight;
+    if (!Animation.isVisible(benefitsImg)) return;
 
-    const scrolled = imgHeight - elsToAnim.benefitsImg.getBoundingClientRect().top;
+    const imgHeight = benefitsImg.offsetHeight;
+
+    const scrolled = imgHeight - benefitsImg.getBoundingClientRect().top;
     const scrollable = window.innerHeight + imgHeight;
     const percentageOnPage = scrolled / scrollable;
 
@@ -64,7 +68,7 @@ Animation.infiniteAnimation(() => {
     if (imgPositionX > 100) imgPositionX = 100;
     if (imgPositionY > 100) imgPositionY = 100;
 
-    elsToAnim.benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
+    benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
 
 });
 
@@ -96,6 +100,83 @@ Animation.onScrollToTarget(elsToAnim.productsText, () => {
 
 //REVOLUTION
 //
+// Solutions
+let solutionsAnimated = false;
+elsToAnim.solCards = document.querySelectorAll('.solution__card');
+elsToAnim.solCardsCont = document.querySelector('.solution__cards');
+Animation.onScrollToTarget(elsToAnim.solCards[0], () => {
+    const [card1, card2, card3] = elsToAnim.solCards;
+
+    if (window.innerWidth < 1300) {
+        elsToAnim.solCards.forEach(card => {
+            card.style.opacity = "1";
+            card.style.transition = "all .3s";
+        })
+        return;
+    }
+
+    // Csf = Center from side
+    const containerCfs = elsToAnim.solCardsCont.clientWidth / 2;
+
+    // Get coordinates of cards
+    const card1Cfs = card1.getBoundingClientRect().left + (card1.clientWidth / 2);
+    const card3Cfs = card3.getBoundingClientRect().left + (card3.clientWidth / 2);
+
+    // Set initial positions
+    card1.style.transform = `translateX(${containerCfs - card1Cfs}px) scale(1.1)`;
+    card2.style.transform = "scale(1.05)";
+    card3.style.transform = `translateX(${containerCfs - card3Cfs}px) scale(1.1)`;
+
+    // Show cards
+    setTimeout(() => {
+        elsToAnim.solCards.forEach(card => {
+            card.style.opacity = "1";
+            card.style.transition = "2s cubic-bezier(.24,.84,0,1)";
+        });
+    }, 100);
+
+    // Animate cards
+    setTimeout(() => {
+        card1.style.transform = `translateX(0) scale(1)`;
+        card2.style.transform = "scale(1)";
+        card3.style.transform = `translateX(0) scale(1)`;
+    }, 150);
+
+    // Finish animation
+    setTimeout(() => {
+        card1.style.transform = ``;
+        card2.style.transform = "";
+        card3.style.transform = ``;
+        elsToAnim.solCards.forEach(card => {
+            card.style.transition = "all .3s";
+        })
+        solutionsAnimated = true;
+    }, 2000);
+});
+
+// Solutions mouseover
+const raiseCard = card => {
+    if (!solutionsAnimated) return;
+
+    elsToAnim.solCards.forEach(cardEl => {
+        cardEl.style.transform = 'scale(.95)';
+    });
+    card.style.transform = 'scale(1.05)';
+}
+const lowerCards = () => {
+    if (!solutionsAnimated) return;
+
+    elsToAnim.solCards.forEach(cardEl => {
+        cardEl.style.transform = '';
+    });
+}
+elsToAnim.solCards.forEach(card => {
+    card.addEventListener('mouseenter', raiseCard.bind(this, card));
+    card.addEventListener('mouseleave', lowerCards);
+})
+
+
+// Revolution
 elsToAnim.revolutionContent = document.getElementById('revolution-content');
 
 Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
