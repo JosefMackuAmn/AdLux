@@ -2,12 +2,14 @@
     position: relative;
     margin-bottom: 36rem;
     margin-top: 30rem;
+    height: 55rem;
 
     @media screen and (max-width: 1400px) {
        margin-bottom: 24rem;
     }
     @media screen and (max-width: 1150px) {
         margin-bottom: 18rem;
+        height: 90rem;
     }
     @media screen and (max-width: 1050px) {
         margin-top: 18rem;
@@ -134,22 +136,30 @@
     }
     &__features {
         list-style: none;
+        width: 100%;
 
         @media screen and (max-width: 400px) {
             margin-left: 2rem;
             margin-right: 2rem;
         }
 
-        position: absolute;
-
         transition: filter .5s, opacity .5s;
 
         filter: blur(3px);
         opacity: .4;
       
+        &.toggled {
+            position: relative;
+        }
         &:not(.toggled) {
             filter: blur(10px);
             opacity: .2;
+
+            position: absolute;
+
+            @media screen and (max-width: 1150px) {
+                display: none;
+            }
         }
         &--a {
             &.toggled {
@@ -180,6 +190,8 @@
     & .heading-4 {
         margin-bottom: 4.8rem;
         height: 5rem;
+
+        text-align: center;
 
         @media screen and (max-width: 1150px) {
             margin-bottom: 2.4rem;
@@ -245,7 +257,7 @@
         }
     }
     &__coming-soon {
-        font-size: 4rem;
+        font-size: 3rem;
         color: white;
         font-weight: 500;
         text-transform: uppercase;
@@ -257,14 +269,24 @@
 
         transition: opacity .5s, filter .5s;
 
+        @media screen and (max-width: 1150px) {
+            right: unset;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 40rem;
+        }
+
         &.toggled {
             display: block;
 
             filter: blur(0);
         }
         &:not(.toggled) {
+            display: none;
+
             filter: blur(10px);
             opacity: 0;
         }
+
     }
 }
