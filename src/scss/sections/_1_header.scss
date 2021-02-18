@@ -1,6 +1,7 @@
 
 .header {
     height: 100vh;
+    min-height: 80rem;
     position: relative;
     z-index: 20;
 
@@ -11,11 +12,16 @@
         &__logo{
             &-full{
                 display: inline-block;
+
+                z-index: 200;
                 position: absolute;
                 top: 4rem;
                 left: 4.7rem;
+
                 @media  screen and (max-width: 520px) {
-                    display: none;
+                    top: 3rem;
+                    left: 0rem;
+                    transform: scale(.75);
                 }
             }
 
@@ -88,6 +94,7 @@
     &__video{
         height: 75%;
         transform: translate(-50%, -50%);
+        max-width: 100%;
 
         color: white;
         text-align: center;
@@ -117,10 +124,15 @@
     &__text{
         text-align: center;
         transform: translate(-50%, -50%);
+        width: 75%;
 
         position: absolute;
         bottom: 5rem;
         left: 50%;
+
+        @media only screen and (max-width: 400px) {
+
+        }
 
         & .paragraph-big {
             margin-bottom: .8rem;

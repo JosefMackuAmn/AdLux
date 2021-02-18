@@ -55,6 +55,7 @@
     }
     &__cards {
         margin-top: 18rem;
+        margin-bottom: 2rem;
         width: 100%;
 
         display: flex;
@@ -109,8 +110,7 @@
         }
         @media screen and (max-width: 400px) {
             width: 100%;
-        }
-      
+        }   
         
         &:nth-child(2) {
             padding-top: 8.4rem;

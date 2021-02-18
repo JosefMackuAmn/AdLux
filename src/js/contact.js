@@ -91,7 +91,7 @@ function sendAMessage(e) {
 
     // Reset validation errors
     [form[0], form[1], form[2]].forEach(input => {
-        input.style.border = 'none';
+        input.style.backgroundColor = 'white';
     });
 
     // Validate form data
@@ -100,13 +100,13 @@ function sendAMessage(e) {
     // Handle validation errors
     if (errors.length > 0) {
         if (errors.includes('name')) {
-            form[0].style.border = '3px solid red';
+            form[0].style.backgroundColor = '#EF8585';
         }
         if (errors.includes('email')) {
-            form[1].style.border = '3px solid red';
+            form[1].style.backgroundColor = '#EF8585';
         }
         if (errors.includes('message')) {
-            form[2].style.border = '3px solid red';
+            form[2].style.backgroundColor = '#EF8585';
         }
 
         // Back to normal & return early
