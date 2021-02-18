@@ -150,6 +150,12 @@ $benefits-margin: 14rem;
                 }
             }
         }
+        & p span {
+            transform-origin: 0 0;
+
+            filter: blur(0.1px);
+
+        }
         &__list {
             list-style: none;
         }

@@ -46,7 +46,7 @@ const createCode = (textWrap) => {
       canvas.canvas.className="p5";
     }
   
-    let opacity = 100;
+    let opacity = 0;
   
     p.draw = () => {
       p.clear();
@@ -59,12 +59,12 @@ const createCode = (textWrap) => {
       p.endShape();
       randomCirc.render();
       
-      opacity = opacity * 0.98;
+      opacity = opacity * 0.955;
     }
   
    textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
-      opacity = 100;
+      opacity = 150;
     }) 
   
   
@@ -89,32 +89,42 @@ const productButtonB = document.getElementById('product-btn-b');
 const productImageA = document.getElementById('product-image-a');
 const productImageB = document.getElementById('product-image-b');
 
-const productFeatures = document.getElementById('product-features');
+const productFeaturesA = document.getElementById('product-features-a');
+const productFeaturesB = document.getElementById('product-features-b');
+
 const productHeading = document.getElementById('product-heading');
+
+const comingSoon = document.getElementById('coming-soon');
 
 //State of product when inactive
 const inActiveProductConf = {
   filter: 'blur(15px)',
-  cursor: 'pointer',
   scale: '0.6',
   y: '0rem',
   duration: '.5',
   opacity: 0.5
 }
 
-//State of product when active
-const activeProductConf = {
+//State of products when active
+const activeProductAConf = {
   filter: 'none',
-  cursor: 'clicker',
   scale: '1',
   y: '0',
   duration: '.5',
   opacity: 1
 }
 
+const activeProductBConf = {
+  filter: 'blur(6px)',
+  scale: '1',
+  y: '0',
+  duration: '.5',
+  opacity: .5
+}
+
 //Initiaizing product B to inactive config, product A to active config
-gsap.to(productImageB, activeProductConf);
-gsap.to(productImageA, inActiveProductConf);
+gsap.to(productImageA, activeProductAConf);
+gsap.to(productImageB, inActiveProductConf);
 
 //Function switches active product
 const switchProduct = (event) => {
@@ -133,23 +143,17 @@ const switchProduct = (event) => {
     productButtonB.classList.add('toggled');
     productImageA.classList.remove('toggled');
     productImageB.classList.add('toggled');
+    productFeaturesA.classList.remove('toggled');
+    productFeaturesB.classList.add('toggled');
+    comingSoon.classList.add('toggled');
 
-    //Adjusting text
-    productHeading.textContent = 'Stropní visací hologram';
-    productFeatures.innerHTML = `
-        <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Premiový vzhled</p></li>
-        <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    `;
+    productHeading.textContent = 'Holografický stojan';
+  
 
     //Animating smoothly product A to inActive config
     //Animating smoothly product B to active config
     gsap.to(productImageA,inActiveProductConf);
-    gsap.to(productImageB, activeProductConf);
+    gsap.to(productImageB, activeProductBConf);
 
   } else {
 
@@ -159,23 +163,17 @@ const switchProduct = (event) => {
     productButtonA.classList.add('toggled');
     productImageB.classList.remove('toggled');
     productImageA.classList.add('toggled');
+    productFeaturesB.classList.remove('toggled');
+    productFeaturesA.classList.add('toggled');
+    comingSoon.classList.remove('toggled');
 
     //Adjusting text
-    productHeading.textContent = 'Moucha';
-    productFeatures.innerHTML = `
-        <li class="products__feature"><p class="paragraph-small">Svítivost: <span>1600cd</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Rozměr zobrazení: <span>1165x1165 mm</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Kovový rám</span></p></li>
-        <li class="products__feature"><p class="paragraph-small">Premiový vzhled</p></li>
-        <li class="products__feature"><p class="paragraph-small">Úhel zobrazení <span>176°</span></p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>Dvě zobrazovací plochy</span>, jeden produkt</p></li>
-        <li class="products__feature"><p class="paragraph-small"><span>XXX HULK</span></p></li>
-    `;
+    productHeading.textContent = 'Holografická visací platforma';
 
     //Animating smoothly product B to inActive config
     //Animating smoothly product A to active config
     gsap.to(productImageB,inActiveProductConf);
-    gsap.to(productImageA, activeProductConf);
+    gsap.to(productImageA, activeProductAConf);
   }
 };
 

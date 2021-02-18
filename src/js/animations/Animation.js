@@ -79,7 +79,7 @@ class Animation {
 
     // Return whether an element is visible
     static isVisible(el) {
-        return el.getBoundingClientRect().top - window.innerHeight < 0;
+        return el.getBoundingClientRect().top - window.innerHeight < -100;
     }
 }
 
