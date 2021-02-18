@@ -269,7 +269,7 @@ body {
       margin-bottom: .8rem; }
   .header__menu {
     height: 25.7rem;
-    position: absolute;
+    position: fixed;
     z-index: 900;
     top: 50%;
     left: 50%;
@@ -293,13 +293,20 @@ body {
         @media screen and (max-width: 950px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
             margin: 0;
-            margin-bottom: 5rem;
-            font-size: 2.7rem;
+            margin-bottom: 3rem;
             display: block; } }
+        @media screen and (max-width: 950px) and (min-height: 750px) {
+          .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
+            font-size: 2.7rem;
+            margin-bottom: 5rem; } }
         @media screen and (max-width: 500px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
             margin-bottom: 3.5rem;
-            font-size: 1.7rem; } }
+            font-size: 2.2rem; } }
+        @media screen and (max-width: 900px) and (max-height: 560px) {
+          .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
+            margin-bottom: 3rem;
+            font-size: 1.5rem; } }
         @media screen and (max-width: 380px) {
           .header__menu-link:link:not(:last-child), .header__menu-link:visited:not(:last-child) {
             font-size: 1.5rem;
@@ -307,12 +314,12 @@ body {
       @media screen and (max-width: 1300px) {
         .header__menu-link:link, .header__menu-link:visited {
           font-size: 2.2rem; } }
-      @media screen and (max-width: 950px) {
+      @media screen and (max-width: 950px) and (min-height: 750px) {
         .header__menu-link:link, .header__menu-link:visited {
           font-size: 2.7rem; } }
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 900px) and (max-height: 560px) {
         .header__menu-link:link, .header__menu-link:visited {
-          font-size: 1.7rem; } }
+          font-size: 1.5rem; } }
       @media screen and (max-width: 380px) {
         .header__menu-link:link, .header__menu-link:visited {
           font-size: 1.5rem; } }
@@ -361,10 +368,15 @@ body {
             left: calc(-50vw + 50%); } }
         @media screen and (max-width: 950px) {
           .header__menu-background::before {
-            height: 70rem;
             width: 37.5rem;
             left: 50%;
             transform: translate(-50%, 0); } }
+        @media screen and (max-width: 950px) and (min-height: 750px) {
+          .header__menu-background::before {
+            height: 70rem; } }
+        @media screen and (max-width: 950px) and (max-height: 750px) {
+          .header__menu-background::before {
+            height: 50rem; } }
         @media screen and (max-width: 510px) {
           .header__menu-background::before {
             transform: translate(-50%, 0);
@@ -372,6 +384,9 @@ body {
         @media screen and (max-width: 500px) {
           .header__menu-background::before {
             height: 50rem; } }
+        @media screen and (max-width: 900px) and (max-height: 560px) {
+          .header__menu-background::before {
+            height: 40rem; } }
         @media screen and (max-width: 380px) {
           .header__menu-background::before {
             height: 40rem; } }
@@ -391,37 +406,54 @@ body {
           width: 71.32rem; } }
       @media screen and (max-width: 950px) {
         .header__menu-background {
-          height: 70.5rem;
           width: 44.5rem; } }
+      @media screen and (max-width: 950px) and (min-height: 750px) {
+        .header__menu-background {
+          height: 70.5rem; } }
+      @media screen and (max-width: 950px) and (max-height: 750px) {
+        .header__menu-background {
+          height: 50.5rem; } }
       @media screen and (max-width: 510px) {
         .header__menu-background {
           width: 72vw; } }
       @media screen and (max-width: 500px) {
         .header__menu-background {
           height: 50rem; } }
+      @media screen and (max-width: 900px) and (max-height: 560px) {
+        .header__menu-background {
+          height: 40rem; } }
       @media screen and (max-width: 380px) {
         .header__menu-background {
           height: 40rem; } }
     @media screen and (max-width: 950px) {
       .header__menu {
-        height: 70.5rem;
         width: 44.5rem; } }
+    @media screen and (max-width: 950px) and (min-height: 750px) {
+      .header__menu {
+        height: 70.5rem; } }
+    @media screen and (max-width: 950px) and (max-height: 750px) {
+      .header__menu {
+        height: 50.5rem; } }
+    @media screen and (max-width: 500px) {
+      .header__menu {
+        height: 50rem;
+        transform: translate(-50%, 0); } }
+    @media screen and (max-width: 900px) and (max-height: 560px) {
+      .header__menu {
+        transform: translate(calc(-50% - 2rem), -50%);
+        height: 40rem; } }
     @media screen and (max-width: 510px) {
       .header__menu {
         top: 6.75rem;
         transform: translate(-50%, 0);
         width: 72vw; } }
-    @media screen and (max-width: 500px) {
-      .header__menu {
-        height: 50rem;
-        transform: translate(-50%, 0); } }
     @media screen and (max-width: 380px) {
       .header__menu {
         transform: translate(calc(-50% - 2rem), 0);
         height: 40rem; } }
 
 #cancelButton {
-  position: absolute; }
+  position: fixed; }
 
 .rotate-left {
   transform: rotate(45deg); }
