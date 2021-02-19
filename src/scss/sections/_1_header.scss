@@ -232,6 +232,12 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
+            @media screen and (max-width: 900px) and (max-height: 420px){
+                column-count: 2;
+            }
+            @media screen and (max-width: 380px){
+               column-count: 1;
+            }
         }
         &-background{
             height: 25.7rem;
@@ -274,6 +280,9 @@
                 @media screen and (max-width: 900px) and (max-height: 560px){
                     height: 40rem;
                 }
+                @media screen and (max-width: 900px) and (max-height: 420px){
+                    height: 25rem;
+                }
                 @media screen and (max-width: 380px){
                     height: 40rem;
                 }
@@ -313,6 +322,9 @@
             @media screen and (max-width: 900px) and (max-height: 560px){
                 height: 40rem;
             }
+            @media screen and (max-width: 900px) and (max-height: 420px){
+                height: 25rem;
+            }
             @media screen and (max-width: 380px){
                 height: 40rem;
             }
@@ -331,7 +343,7 @@
             transform: translate(-50%, 0);    
         }
         @media screen and (max-width: 900px) and (max-height: 560px){
-            transform: translate(calc(-50% - 2rem), -50%);
+            transform: translate(-50%, -50%);
             height: 40rem;
         }
         @media screen and (max-width: 510px){
@@ -339,8 +351,11 @@
             transform: translate(-50%, 0);
             width: 72vw;
         }
+        @media screen and (max-width: 900px) and (max-height: 420px){
+            height: 25rem;
+        }
         @media screen and (max-width: 380px){
-            transform: translate(calc(-50% - 2rem), 0);
+            transform: translate(-50%, 0);
             height: 40rem;
         }
             
@@ -349,6 +364,12 @@
 
 #cancelButton{
     position: fixed;
+    @media screen and (max-width: 400px){
+        right: 7vw;
+    }
+    @media screen and (max-width: 310px){
+        right: 5vw;
+    }
 }
 
 .rotate{
