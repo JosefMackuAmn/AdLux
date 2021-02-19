@@ -5,75 +5,116 @@ import './animations/initAnimations';
 import './contact';
 
 ////////////////
+////////GLOBAL
+////////////////
+
+//Prevents the user from accidentaly dragging elements (for example images) 
+window.ondragstart = function() { return false; } 
+
+////////////////
 ////////INFO
 ////////////////
 
+//Random circle animation on info with p5.js
+
+//Selecting all text wraps ( elements around those the circle will appear)
 const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
 
+//This function returns p5 code for each textWrap
 const createCode = (textWrap) => {
   return p => {
 
+    //Perimeter of the resulting circle
     const defaultDistance = 150;
 
     const RandomCircle = function () {
+
       this.history = [];
   
       this.render = () => {
+
         p.beginShape();
+
         for (let j = 0; j < this.history.length; j += 1) {
+
+          //Calculating coords for each point stored in history
           const coords = this.calculateCoordsForI(this.history[j].i, this.history[j].distance);
+
+          //Selecting point given by calculated coords
           p.vertex(coords.x, coords.y);
+
+          //Altering the point distance slightly and randomly
           this.history[j].distance += p.random(-1, 1)*p.sin(10*this.history[j].i);
         }
+
         p.endShape();
       }
+
+      //Returns coords (x, y) for given point (determined by angle [i] and distance [distance])
       this.calculateCoordsForI = (i, distance) => {
         return p.createVector(p.width/2 + distance*p.cos(i),p.height/2 + distance*p.sin(i))
       } 
+
       this.setup = () => {
+
+        //Clears all stored points
         this.history = [];
-        for(let i = 0; i <= 2*Math.PI; i+= 1/100) {
+
+        //Creates a representation of circle in this history
+        for (let i = 0; i <= 2*Math.PI; i+= 1/100) {
+
           this.history.push({distance: defaultDistance,i: i});
+          //(i is the angle)
+
         }
+
       }
+
     }
+
+    //Creating new randomCircle instance
     const randomCirc = new RandomCircle();
+
+    //Resets the randomCirc object
     randomCirc.setup();
     
-  
+    //Initiates canvas
     p.setup = () => {
       const canvas = p.createCanvas(400, 400);
       canvas.canvas.className="p5";
+
+      //Removing fill from all shapes
+      p.noFill();
     }
   
     let opacity = 0;
   
+    //Draws one frame of the animation
     p.draw = () => {
       p.clear();
-      p.noFill();
       p.stroke(255, opacity);
-      p.beginShape();
-  
-  
-      
-      p.endShape();
+     
       randomCirc.render();
       
+      //Opacity goes exponentially down each frame
       opacity = opacity * 0.955;
     }
   
-   textWrap.addEventListener('mouseenter', () => {
+    //Reset circle on hover
+    textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
       opacity = 150;
     }) 
-  
   
   }
   
 }
 
+//Initiates a p5 sketch for each text wrap
 for (const textWrap of [...infoTextWraps]) {
+
   const infoP5 = new p5(createCode(textWrap), textWrap);
+
 }
 
 ////////////////
@@ -92,7 +133,8 @@ const productImageB = document.getElementById('product-image-b');
 const productFeaturesA = document.getElementById('product-features-a');
 const productFeaturesB = document.getElementById('product-features-b');
 
-const productHeading = document.getElementById('product-heading');
+const productHeadingA = document.getElementById('product-heading-a');
+const productHeadingB = document.getElementById('product-heading-b');
 
 const comingSoon = document.getElementById('coming-soon');
 
@@ -100,7 +142,6 @@ const comingSoon = document.getElementById('coming-soon');
 const inActiveProductConf = {
   filter: 'blur(15px)',
   scale: '0.6',
-  y: '0rem',
   duration: '.5',
   opacity: 0.5
 }
@@ -109,7 +150,6 @@ const inActiveProductConf = {
 const activeProductAConf = {
   filter: 'none',
   scale: '1',
-  y: '0',
   duration: '.5',
   opacity: 1
 }
@@ -117,9 +157,8 @@ const activeProductAConf = {
 const activeProductBConf = {
   filter: 'blur(6px)',
   scale: '1',
-  y: '0',
   duration: '.5',
-  opacity: .5
+  opacity: .5,
 }
 
 //Initiaizing product B to inactive config, product A to active config
@@ -135,7 +174,7 @@ const switchProduct = (event) => {
   }
 
   //If product A is active
-  if ([...productButtonA.classList].includes('toggled')) {
+  if ([...productButtonA.classList].includes('toggled')) /* [Animating from A to B] */{
 
     //Adding toggled class to product B and product B button
     //Removing toggled class from product A and product A button
@@ -143,19 +182,52 @@ const switchProduct = (event) => {
     productButtonB.classList.add('toggled');
     productImageA.classList.remove('toggled');
     productImageB.classList.add('toggled');
-    productFeaturesA.classList.remove('toggled');
-    productFeaturesB.classList.add('toggled');
-    comingSoon.classList.add('toggled');
 
-    productHeading.textContent = 'Holografický stojan';
+    //Blurring out product features A
+    gsap.to(productFeaturesA, {
+      opacity: 0,
+      filter: 'blur(2px)',
+      duration: 1,
+      display: 'none'
+    });
+
+    //Blurring in product features B
+    gsap.to(productFeaturesB, {
+      opacity: 1,
+      duration: 1,
+      display: 'block',
+      filter: 'blur(6px)'
+    });
+
+    //Blurring in "coming soon" text
+    gsap.to(comingSoon, {
+      opacity: 1,
+      filter: 'none',
+      duration: 1,
+      display: 'block'
+    });
+
+    //Blurring out product A heading
+    gsap.to(productHeadingA, {
+      opacity: 0,
+      duration: 1,
+      filter: 'blur(4px)',
+    });
+
+    //Blurring in product B heading
+    gsap.to(productHeadingB, {
+      opacity: 1,
+      duration: 1,
+      filter: 'blur(6px)',
+    });
+
   
-
     //Animating smoothly product A to inActive config
     //Animating smoothly product B to active config
     gsap.to(productImageA,inActiveProductConf);
     gsap.to(productImageB, activeProductBConf);
 
-  } else {
+  } else /* [Animating from B to A] */ {
 
      //Adding toggled class to product A and product A button
     //Removing toggled class from product B and product B button
@@ -163,12 +235,43 @@ const switchProduct = (event) => {
     productButtonA.classList.add('toggled');
     productImageB.classList.remove('toggled');
     productImageA.classList.add('toggled');
-    productFeaturesB.classList.remove('toggled');
-    productFeaturesA.classList.add('toggled');
-    comingSoon.classList.remove('toggled');
 
-    //Adjusting text
-    productHeading.textContent = 'Holografická visací platforma';
+    //Blurring out "coming soon" text
+    gsap.to(comingSoon, {
+      opacity: 0,
+      duration: 1,
+      display: 'none'
+    });
+
+    //Blurring in product features A
+    gsap.to(productFeaturesA, {
+      opacity: 1,
+      duration: 1,
+      filter: 'none',
+      display: 'block'
+    });
+
+    //Blurring out product features B
+    gsap.to(productFeaturesB, {
+      opacity: 0,
+      filter: 'blur(2px)',
+      duration: 1,
+      display: 'none'
+    });
+
+    //Blurring in product heading A
+    gsap.to(productHeadingA, {
+      opacity: 1,
+      duration: 1,
+      filter: 'none',
+    });
+
+    //Blurring out product heading B
+    gsap.to(productHeadingB, {
+      opacity: 0,
+      duration: 1,
+      filter: 'blur(4px)',
+    });
 
     //Animating smoothly product B to inActive config
     //Animating smoothly product A to active config
@@ -326,3 +429,4 @@ cancelButton.addEventListener('click', menuHandler.bind(null, REMOVE));
 for(const a of link){
   a.addEventListener('click', menuHandler.bind(null, REMOVE));
 }
+
