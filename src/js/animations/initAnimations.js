@@ -158,6 +158,8 @@ Animation.onScrollToTarget(elsToAnim.solCards[0], () => {
 const raiseCard = card => {
     if (!solutionsAnimated) return;
 
+    if (window.innerWidth < 1300) return;
+
     elsToAnim.solCards.forEach(cardEl => {
         cardEl.style.transform = 'scale(.95)';
     });
@@ -165,6 +167,8 @@ const raiseCard = card => {
 }
 const lowerCards = () => {
     if (!solutionsAnimated) return;
+
+    if (window.innerWidth < 1300) return;
 
     elsToAnim.solCards.forEach(cardEl => {
         cardEl.style.transform = '';

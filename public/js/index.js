@@ -271,6 +271,8 @@ _Animation__WEBPACK_IMPORTED_MODULE_0__.default.onScrollToTarget(elsToAnim.solCa
 const raiseCard = card => {
     if (!solutionsAnimated) return;
 
+    if (window.innerWidth < 1300) return;
+
     elsToAnim.solCards.forEach(cardEl => {
         cardEl.style.transform = 'scale(.95)';
     });
@@ -278,6 +280,8 @@ const raiseCard = card => {
 }
 const lowerCards = () => {
     if (!solutionsAnimated) return;
+
+    if (window.innerWidth < 1300) return;
 
     elsToAnim.solCards.forEach(cardEl => {
         cardEl.style.transform = '';
