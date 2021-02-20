@@ -55,6 +55,12 @@
                     margin-bottom: 2rem;
                 }
             }
+            @-moz-document url-prefix(){
+                height: 7.5rem;
+                @media (max-width: 1200px){
+                    height: 8.5rem;
+                }
+            }  
         }
         &__contacts {
             margin-left: auto;

@@ -39,8 +39,14 @@
 
             @media screen and (max-width: 700px) {
                 width: 20rem;
-                height: 10rem;
+                height: 11rem;
             }
+            @-moz-document url-prefix() {
+                height: 17rem;
+                @media (max-width: 700px){
+                    height: 13rem;
+                }
+            }  
         }
 
         &-table {
