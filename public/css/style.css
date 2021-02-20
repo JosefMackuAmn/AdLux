@@ -263,7 +263,7 @@ to{opacity:0}}@keyframes turnOffOpacity{from{opacity:1}to{opacity:0}}@-webkit-ke
 .footer-up__AmnioN-link-logo img{width:100%;display:block}.footer-down{background-image:url("/img/footer-picture.png");background-size:100%;padding-right:10rem;padding-left:10rem;height:8rem;text-align:right;display:flex;align-items:center;position:relative}
 @media screen and (max-width:1200px){.footer-down{padding-left:3rem;padding-right:3rem}
 }.footer-down__amnion-link-logo{width:8rem;height:8rem;display:none;position:absolute;top:22rem;left:50%;transform:translate(-50%,-50%)}
-@media screen and (max-width:1200px){.footer-down__amnion-link-logo{display:block}
+.footer-down__amnion-link-logo img{width:100%;display:block}@media screen and (max-width:1200px){.footer-down__amnion-link-logo{display:block}
 }.footer-down__heading{font-size:3.5rem;font-weight:300;color:#ffff;position:absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%)}
 .footer-down__AmnioNLink-text{margin-left:auto}.footer-down__AmnioNLink-text:link,.footer-down__AmnioNLink-text:visited{padding:1.3rem 0;text-align:center;text-decoration:none;font-size:2rem;font-weight:300;color:#ffff;display:inline-block;position:relative}
 @media screen and (max-width:1200px){.footer-down__AmnioNLink-text:link,.footer-down__AmnioNLink-text:visited{padding-bottom:3rem;position:absolute;top:28rem;left:50%;transform:translate(-50%,-50%)}
