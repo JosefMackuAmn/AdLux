@@ -24,7 +24,7 @@ to{opacity:0}}@keyframes turnOffOpacity{from{opacity:1}to{opacity:0}}@-webkit-ke
 }.heading-1--small{font-family:"Bebas Neue",cursive;color:#e8e8e8;font-size:6rem;letter-spacing:.15em}
 .heading-2{color:#36aeb7;font-size:2.5rem;font-weight:500;letter-spacing:2px;line-height:135%}
 .heading-3{color:#f1f1f1;font-size:1.7rem;font-weight:500;letter-spacing:3px}.heading-4{color:#f1f1f1;font-size:2.2rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-.heading-5{color:#f1f1f1;font-weight:400;font-size:1.5rem;font-family:"Montserrat",sans-serif;letter-spacing:.15em;text-align:center;text-transform:uppercase}
+.heading-5{color:#f1f1f1;font-weight:400;font-size:1.5rem;font-family:"Raleway",sans-serif;letter-spacing:.15em;text-align:center;text-transform:uppercase}
 .heading-6{color:#CCC;font-size:1.5rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em}
 .paragraph-big{color:#f1f1f1;font-size:2.2rem;font-weight:300;letter-spacing:2px;line-height:135%}
 @media only screen and (max-width:1250px){.paragraph-big{font-size:1.7rem}}.paragraph-big span{font-weight:800}
@@ -258,7 +258,7 @@ to{opacity:0}}@keyframes turnOffOpacity{from{opacity:1}to{opacity:0}}@-webkit-ke
 }.footer-up__AmnioN-link-logo:link,.footer-up__AmnioN-link-logo:visited{height:7rem;width:7rem;position:absolute;top:1rem;right:2.5rem;transform:translate(-50%,-50%);text-decoration:none;color:#ffff;font-weight:300}
 @media screen and (max-width:1200px){.footer-up__AmnioN-link-logo:link,.footer-up__AmnioN-link-logo:visited{top:25rem;left:50%;height:7.7rem;width:7.7rem;transform:translate(-50%,-50%)}
 }@media screen and (max-width:1200px) and (max-width:900px){.footer-up__AmnioN-link-logo:link,.footer-up__AmnioN-link-logo:visited{top:28rem}
-}.footer-down{background-image:url("/img/footer-picture.jpg");background-size:100%;display:block;position:relative;text-align:right;height:8rem}
+}.footer-down{background-image:url("/img/footer-picture.png");background-size:100%;display:block;position:relative;text-align:right;height:8rem}
 .footer-down__heading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:3.5rem;font-weight:300;color:#ffff}
 .footer-down__AmnioNLink-text:link,.footer-down__AmnioNLink-text:visited{position:relative;display:inline-block;text-align:center;width:16rem;text-decoration:none;padding:1.3rem 0;padding-right:3rem;font-size:2rem;font-weight:300;color:#ffff}
 @media screen and (max-width:1200px){.footer-down__AmnioNLink-text:link,.footer-down__AmnioNLink-text:visited{padding-bottom:3rem;position:absolute;top:28rem;left:50%;transform:translate(-43%,-50%)}
