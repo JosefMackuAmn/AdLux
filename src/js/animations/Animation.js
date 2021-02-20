@@ -20,7 +20,9 @@ class Animation {
         if (Animation.isVisible(element)) {
             cb(null);
         } else {
-            animationRegistry.push({ el: element, cb });
+            animationRegistry.push({
+                el: element, cb
+            });
         }
     }
 
