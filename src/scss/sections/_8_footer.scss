@@ -1,135 +1,141 @@
 .footer {
-
     @media screen and (max-width: 1200px){
         padding-top: 20rem;
     }
     @media screen and (max-width: 320px){
         padding-top: 15rem;
     }
+
     &-up {
+        margin-bottom: 2rem;
+        padding-left: 10rem;
+        padding-right: 10rem;
+
+        display: flex;
+        align-items: flex-end;
+
         color: $text-color-white;
         position: relative;
-        height: 5rem;
-        @media screen and (max-width: 900px){
-            height: 8rem;
-            bottom: 0;
-        }
 
+        @media screen and (max-width: 1200px){
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+        @media screen and (max-width: 800px){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        @media screen and (max-width: 550px) {
+            align-items: center;
+        }
         &__AdLux-logo {
-            position: absolute;
-            left: 0;
-            display: inline-block;
             height: 6.8rem;
             width: 12.411rem;
-            transform: translate(50%, -60%);
             background-image: url('/img/adlux-logo-text.svg');
             background-size: cover;
-            @media screen and (max-width: 1200px){
-                left: 50%;
-                top: -15rem;
-                height: 7.48rem;
-                width: 13.65rem;
-                transform: translate(-50%, -50%);
-                @media screen and (max-width: 900px){
-                    top: -20rem;
+            
+            display: inline-block;
+         
+            @media screen and (max-width: 800px){
+                margin-bottom: 4rem;      
+            }
+          
+        }
+        &__contact {
+            display: flex;
+            align-items: flex-end;
+
+            &:not(:last-child) {
+                margin-right: 8rem;
+
+                @media screen and (max-width: 600px) {
+                    margin-right: 4rem;
                 }
-                @media screen and (max-width: 320px){
-                   top: -14rem;
+                @media screen and (max-width: 550px) {
+                    margin-bottom: 2rem;
                 }
             }
         }
         &__contacts {
-            display: inline-block;
-            position: absolute;
-            left: 50%;
-            width: 52rem;
-            height: 5rem;
-            transform: translate(-50%, -2.5rem);
-            @media screen and (max-width: 900px){
-                height: 15rem;
-                width: 19rem;
-                bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: flex-end;
+           
+            @media screen and (max-width: 1200px){
+                margin-right: 0;
             }
-            @media screen and (max-width: 320px){
-                width: 14rem;
-                height: 10rem;
+            @media screen and (max-width: 800px){
+                margin-left: 0;
+               margin-right: auto;
+
+               align-items: flex-start;
             }
+            @media screen and (max-width: 550px) {
+                margin-right: 0;
+
+                flex-direction: column;
+            }
+        
             &-picture{
-                position: relative;
                 height: 5rem;
-                margin: 0 1.5rem 0 3rem;
+                margin-right: 2rem;
+
+                position: relative;
+
+                opacity: .5;
+
                 &:first-child{
                     margin-left: 0;
                 }
-                @media screen and (max-width: 900px){
-                    margin: 0;
-                    height: 4rem;
-                    margin-bottom: 1rem;
-                    transform: translateX(1.8rem) translateY(0.5rem);
-                    &:last-of-type{
-                        transform: translateX(-5.5rem) translateY(-0.5rem);
-                    }
-                }
-                @media screen and (max-width: 320px){
-                    font-size:$font_15;
-                    margin: 0;
-                    transform: translateX(1rem);
-                    &:last-of-type{
-                        transform: translateX(-4.5rem) translateY(-1rem);
-                    }
-                }
             }
-            &-text{
-                position: relative;
-                display: inline-block;
-                transform: translateY(-1.5rem);
+            &-text {
                 font-variant-numeric: lining-nums;
                 font-weight: $font_medium;
                 font-size: 2rem;
-                &__number{
-                    font-variant-numeric: lining-nums;
-                }
-                @media screen and (max-width: 900px){
-                    margin-left: 3rem;
-                    transform: translate(0, -1.7rem);
-                    &:last-of-type{
-                        position: absolute;
-                        transform: translate(-7rem, calc(56% - 1rem));
-                    }
+
+                position: relative;
+              
+                @media screen and (max-width: 500px) {
+                    font-size: 1.8rem;
                 }
                 @media screen and (max-width: 320px){
                     margin-left: 2rem;
+
                     font-size:$font_15;
+
                     transform: translate(0, -1rem);
+
                     &:last-of-type{
                         position: absolute;
                         transform: translate(-5rem, calc(56% - 1rem));
                     }
                 }
+
+                &__number{
+                    font-variant-numeric: lining-nums;
+                }
             }
         }
         &__AmnioN-link-logo {
+            align-items: flex-end;
+            display: flex;
+
+            transform: translateX(-6rem);
+
+            @media screen and (max-width: 1200px) {
+                display: none;
+            }
+
             &:link, 
             &:visited {
                 height: 7rem;
                 width: 7rem;
-                position: absolute;
-                top: 1rem;
-                right: 2.5rem;
-                transform: translate(-50%, -50%);
+
                 text-decoration: none;
                 color: $text-color-white;
                 font-weight: $font_light;
-                @media screen and (max-width: 1200px){
-                    top: 25rem;
-                    left: 50%;
-                    height: 7.7rem;
-                    width: 7.7rem;
-                    transform: translate(-50%, -50%);
-                    @media screen and (max-width: 900px){
-                        top: 28rem;
-                    }
-                }
             }
         }
     }
@@ -137,57 +143,85 @@
     &-down{
         background-image: url("/img/footer-picture.jpg");
         background-size: 100%;
-        display: block;
-        position: relative;
-        text-align: right;
+        padding-right: 10rem;
+        padding-left: 10rem;
         height: 8rem;
 
-        &__heading {
+        text-align: right;
+
+        display: flex;
+        align-items: center;
+
+        position: relative;
+
+        @media screen and (max-width: 1200px){
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        &__amnion-link-logo {
+            width: 8rem;
+            height: 8rem;
+
+            display: none;
+
             position: absolute;
+            top: 22rem;
             left: 50%;
-            top: 50%;
             transform: translate(-50%, -50%);
+
+            @media screen and (max-width: 1200px) {
+                display: block;
+            }
+        }
+        &__heading {
+
             font-size: 3.5rem;
             font-weight: $font_light;
-            color: $text-color-white;            
+            color: $text-color-white;    
+           
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translateX(-50%) translateY(-50%);         
         }
 
         &__AmnioNLink-text {  
+            margin-left: auto;
+
             &:link, 
             &:visited {
-                position: relative;
-                display: inline-block;
-                text-align: center;
-                width: 16rem;
-                text-decoration: none;
                 padding: 1.3rem 0;
-                padding-right: 3rem;
+
+                text-align: center;
+                text-decoration: none;
                 font-size: 2rem;
                 font-weight: $font_light;
                 color: $text-color-white;
+
+              
+                display: inline-block;
+
+                position: relative;
+              
                 @media screen and (max-width: 1200px){
                     padding-bottom: 3rem;
+
                     position: absolute;
                     top: 28rem;
                     left: 50%;
-                    transform: translate(-43%, -50%); 
+                    transform: translate(-50%, -50%); 
                 }
             }
 
-            &:hover{
-                transition: all .1s;
-                transform: translateY(-0.4rem);
-                text-shadow: 0.2rem 0.2rem 0.8rem rgba(black, 1);
-                @media screen and (max-width: 1200px){
-                    margin-bottom: 0.5rem;
-                    transform: translate(-43%, calc(-50% - 0.4rem));
-                }
-            }
             &:active {    
-                transition: all .1s;            
                 transform: translateY(-0.2rem);
+
+                transition: all .1s;            
+                
                 @media screen and (max-width: 1200px){
                     margin-bottom: 0.5rem;
+
                     transform: translate(-43%, calc(-50% - 0.2rem));
                 }
             }
