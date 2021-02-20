@@ -1,6 +1,7 @@
 node_modules
 documents
 public/css
-public/js
+public/js/index.js
+public/js/index.map.js
 nodemon.json
 projectInfo.txt

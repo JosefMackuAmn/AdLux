@@ -151,7 +151,7 @@ function sendAMessage(e) {
 
     }).catch(err => {
         // Handle error
-        console.log(err);
+        // console.log(err);
 
         // Show unsuccessful action feedback
         showSentFeedback(false);

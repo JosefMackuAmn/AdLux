@@ -22,6 +22,9 @@ $benefits-margin: 14rem;
 
         transition: all .05s;
 
+        @media only screen and (max-width: 1550px) {
+            width: 27%;
+        }
         @media only screen and (max-width: 1300px) {
             width: 20%;
 
@@ -137,11 +140,8 @@ $benefits-margin: 14rem;
                 }
             }
             & > *:nth-child(2) {
-                width: 42%;
-
-                @media only screen and (max-width: 1380px) {
-                    width: 47%;
-                }
+                width: 47%;
+                
                 @media only screen and (max-width: 1150px) {
                     width: 50%;
                 }

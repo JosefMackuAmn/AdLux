@@ -1,0 +1,7 @@
+How to make production-ready code:
+
+Build js and ts:
+npm run dev -> Save .js files -> ^C
+
+Build css:
+gulp sass
