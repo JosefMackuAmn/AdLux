@@ -1,3 +1,7 @@
+// Importing libraries
+import p5 from './libs/p5';
+import gsap from './libs/gsap';
+
 // Init animations
 import './animations/initAnimations';
 
@@ -8,8 +12,8 @@ import './contact';
 ////////GLOBAL
 ////////////////
 
-//Prevents the user from accidentaly dragging elements (for example images) 
-window.ondragstart = function() { return false; } 
+//Prevents the user from accidentaly dragging elements (for example images)
+window.ondragstart = function() { return false; }
 
 ////////////////
 ////////INFO
