@@ -31,7 +31,7 @@
                 top: 1rem;
                 width: 6.8rem;
                 height: 6.8rem;
-                background-image: url(../img/adlux-logo-blue-part.svg);
+                background-image: url('/img/adlux-logo-blue-part.svg');
                 background-size: cover;
 
                 display: inline-block;
@@ -42,7 +42,7 @@
             &-text{
                 height: 8.2rem;
                 width: 14.967rem;
-                background-image: url(../img/AdLux-logo-text.svg);
+                background-image: url('/img/AdLux-logo-text.svg');
                 background-size: cover;
 
                 display: inline-block;
@@ -61,6 +61,15 @@
             cursor: pointer;
 
             display: none;
+
+            &[id="openButton"]:hover {
+                .header__upper-part__menu-button__line:last-child {
+                    transform: translateY(.3rem);
+                }
+                .header__upper-part__menu-button__line:first-child {
+                    transform: translateY(-.3rem);
+                }
+            }
             &__line{
                 height: 0.75rem;
                 width: 6.043rem;
@@ -68,6 +77,8 @@
     
                 border-radius: .5rem;
                 position: relative;
+
+                transition: transform .3s;
 
                 &__circle{
                     height: 1.6rem;
