@@ -24,6 +24,8 @@ const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
 const createCode = (textWrap) => {
   return p => {
 
+    let isActive = true;
+
     //Perimeter of the resulting circle
     const defaultDistance = 150;
 
@@ -91,6 +93,11 @@ const createCode = (textWrap) => {
   
     //Draws one frame of the animation
     p.draw = () => {
+
+      if (!isActive) {
+        return;
+      }
+      
       p.clear();
       p.stroke(255, opacity);
      
@@ -98,11 +105,16 @@ const createCode = (textWrap) => {
       
       //Opacity goes exponentially down each frame
       opacity = opacity * 0.955;
+
+      if (opacity < 1) {
+        isActive = false;
+      }
     }
   
     //Reset circle on hover
     textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
+      isActive = true;
       opacity = 150;
     }) 
   
