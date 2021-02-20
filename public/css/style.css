@@ -215,7 +215,7 @@ body {
 
 @-moz-document url-prefix() {
   .header__upper-part__logo-text {
-    height: 8rem; } }
+    height: 9rem; } }
     .header__upper-part__menu-button {
       height: 4rem;
       width: 6rem;
@@ -351,16 +351,19 @@ body {
       top: 50%;
       transform: translate(-47.5%, -50%);
       display: inline-block; }
-      @media screen and (max-width: 1650px) {
-        .header__menu-content-text {
-          width: calc(91rem + 6*4.5vw); } }
       @media screen and (max-width: 1300px) {
         .header__menu-content-text {
           width: calc(76rem + 6*2vw);
           transform: translate(-45.5%, -50%); } }
-  @media screen and (max-width: 1300px) and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) {
-    .header__menu-content-text {
-      width: calc(77rem + 6*2vw); } }
+      @media not all and (min-resolution: 0.001dpcm) and (max-width: 1300px) {
+        .header__menu-content-text {
+          width: calc(77rem + 6*2vw); } }
+      @media screen and (min-width: 1300px) {
+        .header__menu-content-text {
+          width: calc(91rem + 6*4.5vw); } }
+      @media screen and (min-width: 1650px) {
+        .header__menu-content-text {
+          width: 151rem; } }
       @media screen and (max-width: 950px) {
         .header__menu-content-text {
           text-align: center;
@@ -1265,7 +1268,14 @@ body {
       @media screen and (max-width: 700px) {
         .contact-content__Adlux-logo {
           width: 20rem;
-          height: 10rem; } }
+          height: 11rem; } }
+
+@-moz-document url-prefix() {
+  .contact-content__Adlux-logo {
+    height: 17rem; }
+    @media (max-width: 700px) {
+      .contact-content__Adlux-logo {
+        height: 13rem; } } }
     .contact-content-table {
       width: 80rem;
       margin-left: auto;
@@ -1433,6 +1443,13 @@ body {
   @media screen and (max-width: 1200px) and (max-width: 320px) {
     .footer-up__AdLux-logo {
       top: -14rem; } }
+
+@-moz-document url-prefix() {
+  .footer-up__AdLux-logo {
+    height: 7.5rem; }
+    @media (max-width: 1200px) {
+      .footer-up__AdLux-logo {
+        height: 8.5rem; } } }
   .footer-up__contacts {
     display: inline-block;
     position: absolute;
