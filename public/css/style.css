@@ -176,6 +176,16 @@ body {
   .paragraph-solution span {
     font-weight: 700; }
 
+.menu {
+  display: block; }
+  .menu__back-drop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100; }
+
 .header {
   height: 100vh;
   min-height: 80rem;
@@ -224,7 +234,8 @@ body {
       top: 5rem;
       right: 4rem;
       cursor: pointer;
-      display: none; }
+      display: inline-block;
+      animation: turnUpOpacity 1s ease; }
       .header__upper-part__menu-button[id="openButton"]:hover .header__upper-part__menu-button__line:last-child {
         transform: translateY(0.3rem); }
       .header__upper-part__menu-button[id="openButton"]:hover .header__upper-part__menu-button__line:first-child {
@@ -291,7 +302,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none; }
+    display: block; }
     .header__menu-link:link, .header__menu-link:visited {
       text-decoration: none;
       color: #ACAFAF;
@@ -508,30 +519,19 @@ body {
     transform: rotate(-45deg) translate(-21.5%, -1.1rem); }
 
 .visible {
-  animation: turnUpOpacity 1s ease;
   display: block; }
 
 .unvisible {
-  animation: turnOffOpacity 0.5s ease; }
+  display: none; }
 
-.blur-body > :not(.header) {
+.blur-body > :not(.menu) {
   transition: all 1s;
   filter: blur(5px) brightness(45%); }
 
-.blur {
-  transition: all 1s;
-  filter: blur(5px) brightness(45%); }
-
-.unblur-body > :not(.header) {
+.unblur-body > :not(.menu) {
   transition: all 0.5s;
   animation-fill-mode: backwards;
   animation-direction: reverse;
-  filter: blur(0) brightness(100%); }
-
-.unblur {
-  transition: all 0.5s;
-  animation-direction: reverse;
-  animation-fill-mode: backwards;
   filter: blur(0) brightness(100%); }
 
 .info .info__revolution, .info .info__meaning {

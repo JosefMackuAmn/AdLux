@@ -915,88 +915,31 @@ const menu = document.getElementById('menu');
 const openButton = document.getElementById('openButton');
 const cancelButton = document.getElementById('cancelButton');
 const link = document.querySelectorAll('#menu a');
+const backDrop = document.getElementById('back-drop');
 const body = document.body;
-const ADD = 'add';
-const REMOVE = 'remove';
 
-class Element{
-    constructor(element, methodVar, classStyle){
-      this.classStyle = classStyle;
-      this.methodVar = methodVar;
-      this.element = element;
-      this.method();
-    }
-    method(){
-      if(this.methodVar === ADD){
-        this.element.classList.add(this.classStyle);
-      } else {
-        if(this.element === cancelButton || this.element === openButton){
-          this.element.classList.remove(this.classStyle);
-          return;
-        }
-        this.element.classList.add(`un${this.classStyle}`);
-        setTimeout(()=>{
-          this.element.classList.remove(`un${this.classStyle}`);
-          this.element.classList.remove(this.classStyle);
-        }, 
-        400);
-      }
-    }
-    includesClass(style){
-      for(const classStyle of this.element.classList){
-        if(classStyle == style){
-          return true;
-        }
-      }
-      return false;
-    }
+function openMenuHandler(){
+  body.classList.add('blur-body');
+  menu.classList.remove('unvisible');
+  openButton.classList.add('unvisible');
 }
 
-function menuHandler(method){
-  const oppositeMethod = method === ADD ? REMOVE : ADD;
-  let menuObject, cancelButtonObject;
-  //body
-  new Element(body, method, 'blur-body');
-  const header = document.getElementById('header').children;
-  for(const div of header){
-    if(div.id === 'upper-part'){
-      for(const child of div.children){
-        if(child.id !== 'cancelButton' && child.id !== 'openButton'){
-          //some element in the upper part of header
-          new Element(child, method, 'blur');
-        }else if(child.id === 'openButton'){
-          //open button
-          new Element(child, oppositeMethod, 'visible');
-        } else {
-          //cancel button
-          cancelButtonObject = new Element(child, method, 'visible');
-        }
-      }
-    } else if(div.id !== 'menu'){
-      //some div element in the header
-      new Element(div, method, 'blur');
-    } else {
-      menuObject = new Element(div, method, 'visible');//menu
-    }
-  }
+function closeMenuHandler(){
+  body.classList.add('unblur-body');
   setTimeout(()=>{
-    if(!menuObject.includesClass('visible') && cancelButtonObject.includesClass('visible')){
-      new Element(cancelButton, REMOVE, 'visible');
-      new Element(openButton, ADD, 'visible');
-      menuHandler(ADD);
-    }
-  }, 
-  400);
+    body.classList.remove('unblur-body');
+    body.classList.remove('blur-body');
+  }, 500);
+  menu.classList.add('unvisible');
+  openButton.classList.remove('unvisible');
 }
 
-
-openButton.addEventListener('click', menuHandler.bind(null, ADD));
-cancelButton.addEventListener('click', menuHandler.bind(null, REMOVE));
+openButton.addEventListener('click', openMenuHandler);
+cancelButton.addEventListener('click', closeMenuHandler);
 for(const a of link){
-  a.addEventListener('click', menuHandler.bind(null, REMOVE));
+  a.addEventListener('click', closeMenuHandler);
 }
-
-
+backDrop.addEventListener('click', closeMenuHandler);
 
 /***/ }),
 

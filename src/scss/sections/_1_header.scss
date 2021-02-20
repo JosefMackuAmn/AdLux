@@ -63,7 +63,8 @@
 
             cursor: pointer;
 
-            display: none;
+            display: inline-block;
+            animation: turnUpOpacity 1s ease;
 
             &[id="openButton"]:hover {
                 .header__upper-part__menu-button__line:last-child {
@@ -158,7 +159,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        display: none;
+        display: block;
         &-link{
             &:link, 
             &:visited{
@@ -405,31 +406,20 @@
 }
 
 .visible{
-    animation: turnUpOpacity 1s ease;
     display: block;
 }
 
 .unvisible{
-    animation: turnOffOpacity 0.5s ease;
+    display: none;
 }
 
-.blur-body > :not(.header){
+.blur-body > :not(.menu){
     transition: all 1s;
     filter: blur(5px) brightness(45%);
 }
-.blur{
-    transition: all 1s;
-    filter: blur(5px) brightness(45%);
-}
-.unblur-body > :not(.header){
+.unblur-body > :not(.menu){
     transition: all 0.5s;
     animation-fill-mode: backwards;
     animation-direction: reverse;
-    filter: blur(0) brightness(100%);
-}
-.unblur{
-    transition: all 0.5s;
-    animation-direction: reverse;
-    animation-fill-mode: backwards;
     filter: blur(0) brightness(100%);
 }
