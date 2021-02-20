@@ -1,7 +1,3 @@
-// Importing libraries
-import p5 from './libs/p5';
-import gsap from './libs/gsap';
-
 // Init animations
 import './animations/initAnimations';
 
