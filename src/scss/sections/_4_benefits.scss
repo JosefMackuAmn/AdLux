@@ -153,6 +153,9 @@ $benefits-margin: 14rem;
                 }
             }
         }
+        & span {
+            filter: none !important;
+        }
         & p span {
             transform-origin: 0 0;
 
