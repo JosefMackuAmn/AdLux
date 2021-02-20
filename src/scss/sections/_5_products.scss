@@ -144,12 +144,14 @@
         @media screen and (max-width: 1150px) {
          top: 65rem;
         }
-        @media screen and (max-width: 450px) {
-            width: 30rem;
-        }
         @media screen and (max-width: 400px) {
             margin-left: 2rem;
             margin-right: 2rem;
+            width: 32rem;
+
+            p {
+                font-size: 1.4rem;
+            }
         }
 
         &--b {
@@ -164,6 +166,13 @@
             display: inline-block;
             color: white;
             position: relative;
+
+            @media screen and (max-width: 450px) {
+                margin-right: 0.6rem;
+            }
+            @media screen and (max-width: 400px) {
+              display: none;
+            }
         }
     }
     &__feature {
