@@ -4,7 +4,17 @@
     min-height: 80rem;
     position: relative;
     z-index: 20;
-    overflow: hidden;
+    overflow: hidden;    
+
+    @media only screen and (max-width: 750px) {
+        min-height: 70rem;
+    }
+    @media only screen and (max-width: 600px) {
+        min-height: 65rem;
+    }
+    @media only screen and (max-width: 500px) {
+        min-height: 55rem;
+    }
 
     &__upper-part{
         height: 10rem;
@@ -117,6 +127,10 @@
         position: absolute;
         left: 50%;
         top: 50%;
+
+        @media only screen and (max-width: 750px) {
+            top: 44%;
+        }
     }
 
     &__background-gradient {
