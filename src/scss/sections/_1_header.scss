@@ -47,6 +47,9 @@
 
                 display: inline-block;
                 margin-left: 8.5rem;
+                @-moz-document url-prefix() {
+                   height: 9rem;
+                }  
             }
         }
         &__menu-button{
@@ -235,6 +238,10 @@
             @media screen and (max-width: 1300px){
                 width: calc(76rem + 6*2vw);
                 transform: translate(-45.5%, -50%);
+                @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0){
+                    width: calc(77rem + 6*2vw);
+                }
+
             }
            
             @media screen and (max-width: 950px){
