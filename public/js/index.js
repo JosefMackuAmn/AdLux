@@ -29,12 +29,20 @@ class Animation {
     static onScrollToTarget(element, cb) {
         if (!isInit) Animation.init();
 
+        const pageYOffset = window.pageYOffset;
+
+        const elAnimObj = {
+            el: element,
+            pos: element.getBoundingClientRect().top + pageYOffset,
+            cb
+        }
+
         // If element is already visible, run callback immediately
         // Otherwise, register it to run later
-        if (Animation.isVisible(element)) {
+        if (Animation.isVisible(elAnimObj.pos, pageYOffset)) {
             cb(null);
         } else {
-            animationRegistry.push({ el: element, cb });
+            animationRegistry.push(elAnimObj);
         }
     }
 
@@ -49,7 +57,14 @@ class Animation {
     static init() {
         // Start listening for animEvents
         animEvents.forEach(event => {
-            window.addEventListener(event, Animation.initListener);
+            if (event === 'resize') {
+                window.addEventListener(event, () => {
+                    Animation.recalcElementPositions();
+                    Animation.initListener();
+                });
+            } else {
+                window.addEventListener(event, Animation.initListener);
+            }
         });
         isInit = true;
     }
@@ -60,11 +75,14 @@ class Animation {
         // Return, if there is nothing to animate
         if (animationRegistry.length <= 0 && infiniteAnimationRegistry.length <= 0) return;
 
+        // Get current pageYOffset
+        const pageYOffset = window.pageYOffset;
+
         // Loop through elements and try to find visible element
         for (let i = 0; i < animationRegistry.length; i++) {
-            const el = animationRegistry[i].el;
+            const el = animationRegistry[i];
 
-            if (Animation.isVisible(el)) {
+            if (Animation.isVisible(el.pos, pageYOffset)) {
                 // Call callback
                 animationRegistry[i].cb(e);
 
@@ -91,9 +109,19 @@ class Animation {
 
     }
 
+    static recalcElementPositions() {
+        // Get current pageYOffset
+        const pageYOffset = window.pageYOffset;
+
+        // Change relative positions of elements
+        animationRegistry.forEach(elAnimObj => {
+            elAnimObj.pos = elAnimObj.el.getBoundingClientRect().top + pageYOffset;
+        })
+    }
+
     // Return whether an element is visible
-    static isVisible(el) {
-        return el.getBoundingClientRect().top - window.innerHeight < -100;
+    static isVisible(pos, pageYOffset) {
+        return pos - pageYOffset - window.innerHeight < -100;
     }
 }
 
@@ -165,7 +193,7 @@ elsToAnim.benefitsImg = document.getElementById('benefits-img');
 _Animation__WEBPACK_IMPORTED_MODULE_0__.default.infiniteAnimation(() => {
     const { benefitsImg } = elsToAnim;
 
-    if (!_Animation__WEBPACK_IMPORTED_MODULE_0__.default.isVisible(benefitsImg)) return;
+    //if (!Animation.isVisible(benefitsImg)) return;
 
     const imgHeight = benefitsImg.offsetHeight;
 

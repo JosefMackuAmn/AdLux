@@ -52,7 +52,7 @@ elsToAnim.benefitsImg = document.getElementById('benefits-img');
 Animation.infiniteAnimation(() => {
     const { benefitsImg } = elsToAnim;
 
-    if (!Animation.isVisible(benefitsImg)) return;
+    //if (!Animation.isVisible(benefitsImg)) return;
 
     const imgHeight = benefitsImg.offsetHeight;
 
