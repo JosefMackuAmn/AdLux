@@ -121,6 +121,8 @@
         &__AmnioN-link-logo {
             align-items: flex-end;
             display: flex;
+            width: 8rem;
+            height: 8rem;
 
             transform: translateX(-6rem);
 
@@ -211,18 +213,6 @@
                     top: 28rem;
                     left: 50%;
                     transform: translate(-50%, -50%); 
-                }
-            }
-
-            &:active {    
-                transform: translateY(-0.2rem);
-
-                transition: all .1s;            
-                
-                @media screen and (max-width: 1200px){
-                    margin-bottom: 0.5rem;
-
-                    transform: translate(-43%, calc(-50% - 0.2rem));
                 }
             }
         }
