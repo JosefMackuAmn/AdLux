@@ -3,7 +3,6 @@ import './animations/initAnimations';
 
 // Contact form handling
 import './contact';
-
 ////////////////
 ////////GLOBAL
 ////////////////
@@ -125,7 +124,7 @@ const createCode = (textWrap) => {
 //Initiates a p5 sketch for each text wrap
 for (const textWrap of [...infoTextWraps]) {
 
-  const infoP5 = new p5(createCode(textWrap), textWrap);
+  new p5(createCode(textWrap), textWrap);
 
 }
 
