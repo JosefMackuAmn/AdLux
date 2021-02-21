@@ -112,6 +112,7 @@ const createCode = (textWrap) => {
 
       if (opacity < 1) {
         isActive = false;
+        p.frameRate(0);
       }
     }
   
@@ -119,6 +120,7 @@ const createCode = (textWrap) => {
     textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
       isActive = true;
+      p.frameRate(30);
       opacity = 150;
     }) 
   
