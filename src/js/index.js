@@ -98,7 +98,7 @@ const createCode = (textWrap) => {
       if (!isActive) {
         return;
       }
-      
+
       p.clear();
       p.stroke(255, opacity);
      
