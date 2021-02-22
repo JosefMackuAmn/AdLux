@@ -250,7 +250,7 @@ body {
       height: 4rem;
       width: 6rem;
       z-index: 1000;
-      position: absolute;
+      position: fixed;
       top: 5rem;
       right: 4rem;
       cursor: pointer;
@@ -526,14 +526,13 @@ body {
         transform: translate(-50%, 0);
         height: 40rem; } }
 
-#cancelButton {
-  position: fixed; }
-  @media screen and (max-width: 400px) {
-    #cancelButton {
-      right: 7vw; } }
-  @media screen and (max-width: 310px) {
-    #cancelButton {
-      right: 5vw; } }
+@media screen and (max-width: 400px) {
+  #cancelButton {
+    right: 7vw; } }
+
+@media screen and (max-width: 310px) {
+  #cancelButton {
+    right: 5vw; } }
 
 .rotate-left {
   transform: rotate(45deg); }
@@ -543,10 +542,10 @@ body {
   .rotate-right-circle {
     transform: rotate(-45deg) translate(-21.5%, -1.1rem); }
 
-.visible {
-  display: block; }
+.unvisibleOpenButton {
+  display: none; }
 
-.unvisible {
+.unvisible > :not(#openButton) {
   display: none; }
 
 .blur-body > :not(.menu) {
