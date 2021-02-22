@@ -186,28 +186,28 @@ elsToAnim.revolutionContent = document.getElementById('revolution-content');
 Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
     gsap.to(elsToAnim.revolutionContent.querySelector('.border-left'), {
         transform: 'scaleY(1)',
-        duration: .4
+        duration: .1
     });
     gsap.to(elsToAnim.revolutionContent.querySelector('.border-top'), {
         transform: 'translateX(0)',
-        duration: .4,
-        delay: .4
+        duration: .1,
+        delay: .2
     });
     gsap.to(elsToAnim.revolutionContent.querySelector('.border-bottom'), {
         transform: 'translateX(0)',
-        duration: .4,
-        delay: .4
+        duration: .2,
+        delay: .1
     });
     gsap.to(elsToAnim.revolutionContent.querySelector('.heading-2'), {
         transform: 'translateX(0)',
-        duration: .75,
-        delay: .75,
+        duration: .4,
+        delay: .2,
         opacity: 1
     });
     gsap.to(elsToAnim.revolutionContent.querySelector('.paragraph-big'), {
         transform: 'translateX(0)',
-        duration: .75,
-        delay: .75,
+        duration: .4,
+        delay: .2,
         opacity: 1
     });
 });
@@ -217,9 +217,9 @@ Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
 Animation.onScrollToTarget(elsToAnim.revolutionContent, () => {
     gsap.from('.info__revolution p span', {
         color: '#515151',
-        duration: .25,
-        delay: 1,
-        stagger: .25,
+        duration: .1,
+        delay: 0,
+        stagger: .15,
     });
 });
 
@@ -227,8 +227,8 @@ elsToAnim.info = document.getElementById('info');
 Animation.onScrollToTarget(elsToAnim.info, () => {
     gsap.from('.info__meaning__text-wrap p span', {
         color: '#515151',
-        duration: .25,
-        delay: 0.5,
-        stagger: .25,
+        duration: .1,
+        delay: 0,
+        stagger: .15,
     });
 });
