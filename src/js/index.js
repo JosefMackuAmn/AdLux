@@ -7,6 +7,7 @@ import './animations/initAnimations';
 
 // Contact form handling
 import './contact';
+import { tree } from 'gulp';
 
 ////////////////
 ////////GLOBAL
@@ -355,18 +356,23 @@ const cancelButton = document.getElementById('cancelButton');
 const link = document.querySelectorAll('#menu a');
 const backDrop = document.getElementById('back-drop');
 const body = document.body;
+const isMenuOpen = false;
 
 function openMenuHandler(){
+  isMenuOpen = true;
   body.classList.add('blur-body');
   menu.classList.remove('unvisible');
   openButton.classList.add('unvisibleOpenButton');
 }
 
 function closeMenuHandler(){
+  isMenuOpen = false;
   body.classList.add('unblur-body');
   setTimeout(()=>{
     body.classList.remove('unblur-body');
-    body.classList.remove('blur-body');
+    if(!isMenuOpen){
+      body.classList.remove('blur-body');
+    }
   }, 500);
   menu.classList.add('unvisible');
   openButton.classList.remove('unvisibleOpenButton');
