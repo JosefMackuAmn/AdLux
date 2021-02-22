@@ -368,7 +368,7 @@ const body = document.body;
 function openMenuHandler(){
   body.classList.add('blur-body');
   menu.classList.remove('unvisible');
-  openButton.classList.add('unvisible');
+  openButton.classList.add('unvisibleOpenButton');
 }
 
 function closeMenuHandler(){
@@ -378,7 +378,7 @@ function closeMenuHandler(){
     body.classList.remove('blur-body');
   }, 500);
   menu.classList.add('unvisible');
-  openButton.classList.remove('unvisible');
+  openButton.classList.remove('unvisibleOpenButton');
 }
 
 openButton.addEventListener('click', openMenuHandler);
