@@ -28,6 +28,7 @@ app.get('*', function (req, res) {
 });
 app.use(function (err, req, res, next) {
     console.log('---------------------------------------');
+    console.log(new Date().toString());
     console.log('Express error handler:');
     console.log(err);
     console.log('---------------------------------------');

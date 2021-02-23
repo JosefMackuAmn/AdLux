@@ -39,6 +39,7 @@ app.use((
     next: NextFunction
 ) => {
     console.log('---------------------------------------');
+    console.log(new Date().toString())
     console.log('Express error handler:');
     console.log(err);
     console.log('---------------------------------------');
