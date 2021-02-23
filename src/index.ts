@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 
@@ -15,6 +17,16 @@ app.use(emailRouter);
 app.get('/', (req, res) => {
     res.render('index');
 });
+
+app.get('/gdpr', (req, res) => {
+    const gdprPath = path.join('public', 'pdf', 'adlux_gdpr.pdf');
+    const fileStream = fs.createReadStream(gdprPath);
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename="adlux_gdpr.pdf"');
+
+    fileStream.pipe(res);
+})
 
 app.get('*', (req, res) => {
     res.redirect('/');

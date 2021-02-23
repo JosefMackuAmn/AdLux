@@ -1,6 +1,6 @@
 
 .header {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     min-height: 80rem;
     position: relative;
     z-index: 20;

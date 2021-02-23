@@ -3,6 +3,25 @@ import './animations/initAnimations';
 
 // Contact form handling
 import './contact';
+
+// Define :root --vh variable
+let vh;
+const setVhCSSVar = () => {
+  vh = window.innerHeight / 100;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVhCSSVar();
+window.addEventListener('resize', () => {
+  // Recalc vh on significant resize (more than 20%)
+  const newVh = window.innerHeight / 100;
+  const vhChange = Math.abs(vh - newVh) / vh;
+  if (vhChange > 0.2) {
+    setVhCSSVar();
+  }
+});
+
+
+
 ////////////////
 ////////GLOBAL
 ////////////////

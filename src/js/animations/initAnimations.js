@@ -107,11 +107,12 @@ elsToAnim.solCardsCont = document.querySelector('.solution__cards');
 Animation.onScrollToTarget(elsToAnim.solCards[0], () => {
     const [card1, card2, card3] = elsToAnim.solCards;
 
-    if (window.innerWidth < 1300) {
+    if (window.innerWidth <= 1300) {
         elsToAnim.solCards.forEach(card => {
             card.style.opacity = "1";
             card.style.transition = "all .3s";
-        })
+        });
+        solutionsAnimated = true;
         return;
     }
 
@@ -158,17 +159,32 @@ Animation.onScrollToTarget(elsToAnim.solCards[0], () => {
 const raiseCard = card => {
     if (!solutionsAnimated) return;
 
-    if (window.innerWidth < 1300) return;
+    if (window.innerWidth < 1000) return;
 
-    elsToAnim.solCards.forEach(cardEl => {
-        cardEl.style.transform = 'scale(.95)';
-    });
-    card.style.transform = 'scale(1.05)';
+    if (window.innerWidth <= 1300) {
+        elsToAnim.solCards[0].style.transform = 'scale(.95)';
+        elsToAnim.solCards[1].style.transform = 'translateX(-50%) scale(.95)';
+        elsToAnim.solCards[2].style.transform = 'scale(.95)';
+        console.log('here')
+    
+        if (card == elsToAnim.solCards[1]) {
+            card.style.transform = 'translateX(-50%) scale(1.05)';
+        } else {
+            card.style.transform = 'scale(1.05)';
+        }
+    } else {
+        elsToAnim.solCards.forEach(solCard => {
+            solCard.style.transform = 'scale(.95)';
+        });
+
+        card.style.transform = 'scale(1.05)';
+    }
+
 }
 const lowerCards = () => {
     if (!solutionsAnimated) return;
 
-    if (window.innerWidth < 1300) return;
+    if (window.innerWidth < 1000) return;
 
     elsToAnim.solCards.forEach(cardEl => {
         cardEl.style.transform = '';
