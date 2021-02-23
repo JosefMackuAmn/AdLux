@@ -1526,7 +1526,8 @@ a {
         margin-right: 0;
         flex-direction: column; } }
     .footer-up__contacts-picture {
-      height: 5rem;
+      width: 2rem;
+      height: 2rem;
       margin-right: 2rem;
       position: relative;
       opacity: .5; }
@@ -1544,8 +1545,7 @@ a {
         font-variant-numeric: lining-nums; }
   .footer-up__AmnioN-link-logo {
     align-items: flex-end;
-    display: flex;
-    transform: translateX(-6rem); }
+    display: flex; }
     @media screen and (max-width: 1200px) {
       .footer-up__AmnioN-link-logo {
         display: none; } }
@@ -1582,7 +1582,14 @@ a {
       display: block; }
     @media screen and (max-width: 1200px) {
       .footer-down__amnion-link-logo {
-        display: block; } }
+        display: block;
+        width: 6rem;
+        height: 5rem; } }
+    @media screen and (max-width: 800px) {
+      .footer-down__amnion-link-logo {
+        display: block;
+        width: 5rem;
+        height: 4rem; } }
   .footer-down__heading {
     font-size: 3.5rem;
     font-weight: 300;
@@ -1592,10 +1599,12 @@ a {
     left: 50%;
     transform: translateX(-50%) translateY(-50%); }
   .footer-down__AmnioNLink-text {
-    margin-left: auto; }
+    margin-left: auto;
+    width: 18rem;
+    text-align: right; }
     .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
       padding: 1.3rem 0;
-      text-align: center;
+      text-align: right;
       text-decoration: none;
       font-size: 2rem;
       font-weight: 300;
@@ -1605,7 +1614,11 @@ a {
       @media screen and (max-width: 1200px) {
         .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
           padding-bottom: 3rem;
+          font-size: 1.8rem;
           position: absolute;
           top: 28rem;
           left: 50%;
           transform: translate(-50%, -50%); } }
+      @media screen and (max-width: 800px) {
+        .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
+          font-size: 1.6rem; } }
