@@ -1,15 +1,8 @@
 .footer {
-    @media screen and (max-width: 1200px){
-        padding-top: 20rem;
-    }
-    @media screen and (max-width: 320px){
-        padding-top: 15rem;
-    }
-
     &-up {
         margin-bottom: 2rem;
-        padding-left: 10rem;
-        padding-right: 10rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
 
         display: flex;
         align-items: flex-end;
@@ -17,10 +10,6 @@
         color: $text-color-white;
         position: relative;
 
-        @media screen and (max-width: 1200px){
-            padding-left: 3rem;
-            padding-right: 3rem;
-        }
         @media screen and (max-width: 800px){
             flex-direction: column;
             align-items: flex-start;
@@ -29,8 +18,8 @@
             align-items: center;
         }
         &__AdLux-logo {
-            height: 6.8rem;
-            width: 12.411rem;
+            height: 7.4rem;
+            width: 12.4rem;
             background-image: url('/img/adlux-logo-text.svg');
             background-size: cover;
             
@@ -52,15 +41,10 @@
                     margin-right: 4rem;
                 }
                 @media screen and (max-width: 550px) {
-                    margin-bottom: 2rem;
+                    margin-bottom: 1rem;
                 }
             }
-            @-moz-document url-prefix(){
-                height: 7.5rem;
-                @media (max-width: 1200px){
-                    height: 8.5rem;
-                }
-            }  
+           
         }
         &__contacts {
             margin-left: auto;
@@ -106,19 +90,6 @@
                 @media screen and (max-width: 500px) {
                     font-size: 1.8rem;
                 }
-                @media screen and (max-width: 320px){
-                    margin-left: 2rem;
-
-                    font-size:$font_15;
-
-                    transform: translate(0, -1rem);
-
-                    &:last-of-type{
-                        position: absolute;
-                        transform: translate(-5rem, calc(56% - 1rem));
-                    }
-                }
-
                 &__number{
                     font-variant-numeric: lining-nums;
                 }
@@ -155,8 +126,8 @@
     &-down{
         background-image: url("/img/footer-picture.png");
         background-size: 100%;
-        padding-right: 10rem;
-        padding-left: 10rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
         height: 8rem;
 
         text-align: right;
@@ -165,11 +136,6 @@
         align-items: center;
 
         position: relative;
-
-        @media screen and (max-width: 1200px){
-            padding-left: 3rem;
-            padding-right: 3rem;
-        }
 
         &__amnion-link-logo {
             width: 8rem;

@@ -1,14 +1,8 @@
-// Importing libraries
-import p5 from './libs/p5';
-import gsap from './libs/gsap';
-
 // Init animations
 import './animations/initAnimations';
 
 // Contact form handling
 import './contact';
-import { tree } from 'gulp';
-
 ////////////////
 ////////GLOBAL
 ////////////////
@@ -28,6 +22,8 @@ const infoTextWraps = document.querySelectorAll('.info__meaning__text-wrap');
 //This function returns p5 code for each textWrap
 const createCode = (textWrap) => {
   return p => {
+
+    let isActive = true;
 
     //Perimeter of the resulting circle
     const defaultDistance = 150;
@@ -96,6 +92,11 @@ const createCode = (textWrap) => {
   
     //Draws one frame of the animation
     p.draw = () => {
+
+      if (!isActive) {
+        return;
+      }
+
       p.clear();
       p.stroke(255, opacity);
      
@@ -103,11 +104,18 @@ const createCode = (textWrap) => {
       
       //Opacity goes exponentially down each frame
       opacity = opacity * 0.955;
+
+      if (opacity < 1) {
+        isActive = false;
+        p.frameRate(0);
+      }
     }
   
     //Reset circle on hover
     textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
+      isActive = true;
+      p.frameRate(30);
       opacity = 150;
     }) 
   
@@ -118,7 +126,7 @@ const createCode = (textWrap) => {
 //Initiates a p5 sketch for each text wrap
 for (const textWrap of [...infoTextWraps]) {
 
-  const infoP5 = new p5(createCode(textWrap), textWrap);
+  new p5(createCode(textWrap), textWrap);
 
 }
 
@@ -356,7 +364,7 @@ const cancelButton = document.getElementById('cancelButton');
 const link = document.querySelectorAll('#menu a');
 const backDrop = document.getElementById('back-drop');
 const body = document.body;
-const isMenuOpen = false;
+let isMenuOpen = false;
 
 function openMenuHandler(){
   isMenuOpen = true;
@@ -368,12 +376,17 @@ function openMenuHandler(){
 function closeMenuHandler(){
   isMenuOpen = false;
   body.classList.add('unblur-body');
+  setInterval(()=>{
+    if(isMenuOpen){
+      body.classList.remove('unblur-body');
+    }
+  }, 480);
   setTimeout(()=>{
     body.classList.remove('unblur-body');
     if(!isMenuOpen){
       body.classList.remove('blur-body');
     }
-  }, 500);
+  }, 480);
   menu.classList.add('unvisible');
   openButton.classList.remove('unvisibleOpenButton');
 }
