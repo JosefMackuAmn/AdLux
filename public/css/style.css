@@ -1627,8 +1627,10 @@ a {
     margin-left: auto;
     width: 18rem;
     text-align: right; }
+    @media screen and (max-width: 1200px) {
+      .footer-down__AmnioNLink-text {
+        width: auto; } }
     .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
-      padding: 1.3rem 0;
       text-align: right;
       text-decoration: none;
       font-size: 2rem;
@@ -1647,3 +1649,8 @@ a {
       @media screen and (max-width: 800px) {
         .footer-down__AmnioNLink-text:link, .footer-down__AmnioNLink-text:visited {
           font-size: 1.6rem; } }
+    .footer-down__AmnioNLink-text span {
+      margin-left: 5rem; }
+      @media screen and (max-width: 1200px) {
+        .footer-down__AmnioNLink-text span {
+          margin-left: 0; } }

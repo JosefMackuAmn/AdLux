@@ -185,17 +185,18 @@
 
             text-align: right;
 
+            @media screen and (max-width: 1200px) {
+                width: auto;
+            }
+
             &:link, 
             &:visited {
-                padding: 1.3rem 0;
-
                 text-align: right;
                 text-decoration: none;
                 font-size: 2rem;
                 font-weight: $font_light;
                 color: $text-color-white;
 
-              
                 display: inline-block;
 
                 position: relative;
@@ -212,6 +213,14 @@
                 }
                 @media screen and (max-width: 800px){
                    font-size: 1.6rem;
+                }
+            }
+
+            span {
+                margin-left: 5rem;
+
+                @media screen and (max-width: 1200px) {
+                    margin-left: 0;
                 }
             }
         }
