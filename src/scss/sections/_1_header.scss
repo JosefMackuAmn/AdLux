@@ -1,6 +1,6 @@
 
 .header {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     min-height: 80rem;
     position: relative;
     z-index: 20;
@@ -72,7 +72,7 @@
             width: 6rem;
 
             z-index: 1000;
-            position: absolute;
+            position: fixed;
             top: 5rem;
             right: 4rem;
 
@@ -431,7 +431,6 @@
 }
 
 #cancelButton{
-    position: fixed;
     @media screen and (max-width: 400px){
         right: 7vw;
     }
@@ -454,11 +453,11 @@
     }
 }
 
-.visible{
-    display: block;
+.unvisibleOpenButton{
+    display: none;
 }
 
-.unvisible{
+.unvisible > :not(#openButton){
     display: none;
 }
 

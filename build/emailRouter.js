@@ -83,8 +83,8 @@ router.post('/email', [
                 }
                 _a = req.body, name = _a.name, email = _a.email, message = _a.message;
                 mailDetails = {
-                    from: process.env.MAIL_USER,
-                    to: 'adlux@email.cz',
+                    from: "AdLux Holograms <" + process.env.MAIL_USER + ">",
+                    to: process.env.MAIL_USER,
                     subject: 'Zpráva z webu AdLux',
                     replyTo: email,
                     text: (message + '\n' +
@@ -104,6 +104,7 @@ router.post('/email', [
             case 3:
                 err_1 = _b.sent();
                 console.log('---------------------------------------');
+                console.log(new Date().toString());
                 console.log('Sending mail failed:');
                 console.log(err_1);
                 console.log('---------------------------------------');

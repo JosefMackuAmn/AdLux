@@ -1,6 +1,6 @@
 .info {
     %revolution-container {
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         padding: 26rem;
         padding-right: 25rem;
 
@@ -35,7 +35,7 @@
         &__content {
             padding: 5rem 0 5rem 5rem;
             //border-left: 2px solid $color-blue;
-            transform: translateY(12vh);
+            transform: translateY(calc(var(--vh, 1vh) * 12));
             
             display: flex;
 
@@ -114,7 +114,7 @@
         justify-content: space-between;
 
         @media only screen and (max-width: $bp-mobile) {
-            min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
 
             flex-direction: column;
             justify-content: space-evenly;
@@ -124,7 +124,7 @@
 
         &__text-wrap {
             width: 32rem;
-            transform: translateY(-12vh);
+            transform: calc(var(--vh, 1vh) * -12);
 
             @media only screen and (max-width: 1250px) {
                 width: 26rem;

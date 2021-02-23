@@ -200,7 +200,7 @@ a {
     z-index: 100; }
 
 .header {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   min-height: 80rem;
   position: relative;
   z-index: 20;
@@ -257,7 +257,7 @@ a {
       height: 4rem;
       width: 6rem;
       z-index: 1000;
-      position: absolute;
+      position: fixed;
       top: 5rem;
       right: 4rem;
       cursor: pointer;
@@ -559,14 +559,13 @@ a {
         transform: translate(-50%, 0);
         height: 40rem; } }
 
-#cancelButton {
-  position: fixed; }
-  @media screen and (max-width: 400px) {
-    #cancelButton {
-      right: 7vw; } }
-  @media screen and (max-width: 310px) {
-    #cancelButton {
-      right: 5vw; } }
+@media screen and (max-width: 400px) {
+  #cancelButton {
+    right: 7vw; } }
+
+@media screen and (max-width: 310px) {
+  #cancelButton {
+    right: 5vw; } }
 
 .rotate-left {
   transform: rotate(45deg); }
@@ -576,10 +575,10 @@ a {
   .rotate-right-circle {
     transform: rotate(-45deg) translate(-21.5%, -1.1rem); }
 
-.visible {
-  display: block; }
+.unvisibleOpenButton {
+  display: none; }
 
-.unvisible {
+.unvisible > :not(#openButton) {
   display: none; }
 
 .blur-body > :not(.menu) {
@@ -593,7 +592,7 @@ a {
   filter: blur(0) brightness(100%); }
 
 .info .info__revolution, .info .info__meaning {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   padding: 26rem;
   padding-right: 25rem; }
   @media only screen and (max-width: 1700px) {
@@ -622,7 +621,7 @@ a {
   align-items: center; }
   .info__revolution__content {
     padding: 5rem 0 5rem 5rem;
-    transform: translateY(12vh);
+    transform: translateY(calc(var(--vh, 1vh) * 12));
     display: flex;
     position: relative;
     z-index: 2;
@@ -678,12 +677,12 @@ a {
   justify-content: space-between; }
   @media only screen and (max-width: 950px) {
     .info__meaning {
-      min-height: 100vh;
+      min-height: calc(var(--vh, 1vh) * 100);
       flex-direction: column;
       justify-content: space-evenly; } }
   .info__meaning__text-wrap {
     width: 32rem;
-    transform: translateY(-12vh); }
+    transform: calc(var(--vh, 1vh) * -12); }
     @media only screen and (max-width: 1250px) {
       .info__meaning__text-wrap {
         width: 26rem; } }
@@ -722,7 +721,7 @@ a {
       display: none; } }
 
 .benefits {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   max-height: 90rem;
   min-height: 70rem;
   width: 100%;
@@ -1170,6 +1169,8 @@ a {
           width: 48rem;
           padding-top: 4.8rem;
           padding-bottom: 4.8rem;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
           position: absolute;
           top: 52rem;
           left: 50%;
@@ -1195,10 +1196,22 @@ a {
             top: -3rem; } }
     .solution__card:not(:last-child) {
       margin-right: 4.8rem; }
+      @media screen and (max-width: 1300px) {
+        .solution__card:not(:last-child) {
+          margin-right: 2.4rem;
+          margin-left: 2.4rem; } }
       @media screen and (max-width: 900px) {
         .solution__card:not(:last-child) {
           margin-right: 0;
           margin-bottom: 12rem; } }
+    @media screen and (max-width: 1300px) {
+      .solution__card:last-child {
+        margin-right: 2.4rem;
+        margin-left: 2.4rem; } }
+    @media screen and (max-width: 900px) {
+      .solution__card:last-child {
+        margin-right: 0;
+        margin-left: 0; } }
     .solution__card::after, .solution__card::before {
       content: "";
       width: 1px;
@@ -1374,7 +1387,8 @@ a {
         width: 100%;
         font-size: 2rem;
         outline: none;
-        padding-left: 0.5rem; }
+        padding-left: 0.5rem;
+        border: 1px solid #056369; }
         .contact-content-table__input::placeholder {
           color: #ACAFAF; }
       .contact-content-table__label {
@@ -1399,6 +1413,15 @@ a {
               left: 0; } }
         .contact-content-table__label-message {
           top: 0.5rem; }
+    .contact-content__gdpr {
+      color: #36AEB7;
+      text-decoration: none;
+      font-size: 1.4rem; }
+    .contact-content__err-msg {
+      margin-top: .5rem;
+      color: red;
+      font-weight: 700;
+      display: none; }
 
 .message {
   width: 100%;
@@ -1408,7 +1431,8 @@ a {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   outline: none;
-  padding-left: 0.5rem; }
+  padding-left: 0.5rem;
+  border: 1px solid #056369; }
   @media screen and (max-width: 900px) {
     .message {
       height: 30rem; } }
@@ -1531,8 +1555,7 @@ a {
       width: 2rem;
       height: 2rem;
       margin-right: 2rem;
-      position: relative;
-      opacity: .5; }
+      position: relative; }
       .footer-up__contacts-picture:first-child {
         margin-left: 0; }
     .footer-up__contacts-text {

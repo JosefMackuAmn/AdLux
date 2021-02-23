@@ -7,6 +7,24 @@ import './contact';
 //Reponsive video
 import ResponsiveVideo from './responsiveVideo/responsiveVideo';
 
+// Define :root --vh variable
+let vh;
+const setVhCSSVar = () => {
+  vh = window.innerHeight / 100;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVhCSSVar();
+window.addEventListener('resize', () => {
+  // Recalc vh on significant resize (more than 20%)
+  const newVh = window.innerHeight / 100;
+  const vhChange = Math.abs(vh - newVh) / vh;
+  if (vhChange > 0.2) {
+    setVhCSSVar();
+  }
+});
+
+
+
 ////////////////
 ////////GLOBAL
 ////////////////
@@ -395,21 +413,31 @@ const cancelButton = document.getElementById('cancelButton');
 const link = document.querySelectorAll('#menu a');
 const backDrop = document.getElementById('back-drop');
 const body = document.body;
+let isMenuOpen = false;
 
 function openMenuHandler(){
+  isMenuOpen = true;
   body.classList.add('blur-body');
   menu.classList.remove('unvisible');
-  openButton.classList.add('unvisible');
+  openButton.classList.add('unvisibleOpenButton');
 }
 
 function closeMenuHandler(){
+  isMenuOpen = false;
   body.classList.add('unblur-body');
+  setInterval(()=>{
+    if(isMenuOpen){
+      body.classList.remove('unblur-body');
+    }
+  }, 480);
   setTimeout(()=>{
     body.classList.remove('unblur-body');
-    body.classList.remove('blur-body');
-  }, 500);
+    if(!isMenuOpen){
+      body.classList.remove('blur-body');
+    }
+  }, 480);
   menu.classList.add('unvisible');
-  openButton.classList.remove('unvisible');
+  openButton.classList.remove('unvisibleOpenButton');
 }
 
 openButton.addEventListener('click', openMenuHandler);

@@ -84,6 +84,7 @@
                 font-size: 2rem;
                 outline: none;
                 padding-left: 0.5rem;
+                border: 1px solid $color-blue-dark;
                 &::placeholder{
                     color: $color-grey-dark;
                 }
@@ -119,6 +120,20 @@
                 }
             }     
         }
+
+        &__gdpr {
+            color: $color-blue;
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+        &__err-msg {
+            margin-top: .5rem;
+
+            color: red;
+            font-weight: $font_bold;
+
+            display: none;
+        }
     }
 }
 
@@ -131,6 +146,7 @@
     font-weight: $font_regular;
     outline: none;
     padding-left: 0.5rem;
+    border: 1px solid $color-blue-dark;
 
     @media screen and (max-width: 900px) {
         height: 30rem;

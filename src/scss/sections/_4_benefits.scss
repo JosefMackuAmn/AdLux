@@ -1,7 +1,7 @@
 $benefits-margin: 14rem;
 
 .benefits {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     max-height: 90rem;
     min-height: 70rem;
     width: 100%;

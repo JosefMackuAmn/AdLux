@@ -79,19 +79,42 @@ function showSentFeedback(success) {
 
 }
 
+
+// Get error message elements
+const errMsgs = document.querySelectorAll('.contact-content__err-msg');
+
+// Functions for handling change of input
+// and recheck their validity
+const checkInputAgain = (e, input, i) => {
+    const errs = validateData({ [input]: e.target.value });
+    if (!errs.includes(input)) {
+        e.target.style.backgroundColor = 'white';
+        errMsgs[i].style.display = 'none';
+    }
+}
+const checkNameAgain = e => {
+    return checkInputAgain(e, 'name', 0)
+}
+const checkMailAgain = e => {
+    return checkInputAgain(e, 'email', 1)
+}
+const checkMessageAgain = e => {
+    return checkInputAgain(e, 'message', 2)
+}
+
 function sendAMessage(e) {
     e.preventDefault();
     const sendImg = document.getElementById('send-img');
     sendImg.className = 'loading-efect__img-send';
-
 
     // Create payload object
     const form = e.target.form;
     const data = createPayloadObject(form);
 
     // Reset validation errors
-    [form[0], form[1], form[2]].forEach(input => {
+    [form[0], form[1], form[2]].forEach((input, i) => {
         input.style.backgroundColor = 'white';
+        errMsgs[i].style.display = 'none';
     });
 
     // Validate form data
@@ -99,14 +122,29 @@ function sendAMessage(e) {
     
     // Handle validation errors
     if (errors.length > 0) {
+
+        // Get error message elements
+
         if (errors.includes('name')) {
             form[0].style.backgroundColor = '#EF8585';
+            errMsgs[0].style.display = 'inline-block';
+
+            form[0].removeEventListener('input', checkNameAgain);
+            form[0].addEventListener('input', checkNameAgain);
         }
         if (errors.includes('email')) {
             form[1].style.backgroundColor = '#EF8585';
+            errMsgs[1].style.display = 'inline-block';
+
+            form[1].removeEventListener('input', checkMailAgain);
+            form[1].addEventListener('input', checkMailAgain);
         }
         if (errors.includes('message')) {
             form[2].style.backgroundColor = '#EF8585';
+            errMsgs[2].style.display = 'inline-block';
+
+            form[2].removeEventListener('input', checkMessageAgain);
+            form[2].addEventListener('input', checkMessageAgain);
         }
 
         // Back to normal & return early

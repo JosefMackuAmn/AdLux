@@ -7,6 +7,7 @@
                     <label for="contact-input-1" class="contact-content-table__label" >Jméno</label>
                 </div>
                 <input type="text" class="contact-content-table__input" id="contact-input-1">
+                <p class="contact-content__err-msg">Jméno musí mít alespoň 5 znaků</p>
             </div>
     
             <div class="contact-content-table-row">
@@ -14,6 +15,7 @@
                     <label for="contact-input-2" class="contact-content-table__label" >E-mail</label>
                 </div>
                 <input type="text" class="contact-content-table__input" id="contact-input-2">
+                <p class="contact-content__err-msg">Zadejte, prosím, validní e-mail</p>
             </div>
     
             <div class="contact-content-table-row-message">
@@ -21,7 +23,10 @@
                     <label for="contact-input-3" class="contact-content-table__label contact-content-table__label-message" >Zpráva</label>
                 </div>
                 <textarea name="message" class="message" cols="30" rows="10" id="contact-input-3"></textarea>
+                <p class="contact-content__err-msg">Zpráva musí mít alespoň 20 znaků</p>
             </div>
+
+            <a class="contact-content__gdpr" href="/gdpr" target="_blank">Odesláním souhlasíte se zpracováním osobních údajů.</a>
     
             <div class="send-button-box">
                 <button type="submit" class="send-button" id="send-btn">Odeslat</button>
