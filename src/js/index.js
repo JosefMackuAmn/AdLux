@@ -3,12 +3,43 @@ import './animations/initAnimations';
 
 // Contact form handling
 import './contact';
+
+//Reponsive video
+import ResponsiveVideo from './responsiveVideo/responsiveVideo';
+
 ////////////////
 ////////GLOBAL
 ////////////////
 
 //Prevents the user from accidentaly dragging elements (for example images)
 window.ondragstart = function() { return false; }
+
+////////////////
+////////HEADER
+////////////////
+
+//Adlux animation video source config
+const sources = [
+  {extension: 'webm', type: 'video/webm', filePath: 'img/animation/',
+    sizes: [
+      {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
+      {maxWidth: 1200, name: '300'},
+      {maxWidth: 800, name: '200'},
+      {maxWidth: 500, name: '150'}
+    ]  
+  },
+  {extension: 'mov', type: 'video/quicktime', filePath: 'img/animation/',
+    sizes: [
+      {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
+      {maxWidth: 1200, name: '300'},
+      {maxWidth: 800, name: '200'},
+      {maxWidth: 500, name: '150'}
+    ]  
+  }
+]
+
+//Making adlux animation video responsive
+new ResponsiveVideo('adluxvideo', sources);
 
 ////////////////
 ////////INFO
@@ -115,7 +146,7 @@ const createCode = (textWrap) => {
     textWrap.addEventListener('mouseenter', () => {
       randomCirc.setup();
       isActive = true;
-      p.frameRate(30);
+      p.frameRate(60);
       opacity = 150;
     }) 
   

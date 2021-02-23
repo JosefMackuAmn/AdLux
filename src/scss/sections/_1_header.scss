@@ -126,19 +126,47 @@
 
     &__video{
         height: 75%;
-        transform: translate(-50%, -50%);
+        width: 40rem;
+        transform: translate(-50%, -50%) scaleX(1.35);
         max-width: 100%;
 
         color: white;
         text-align: center;
+        object-fit: contain;
 
         position: absolute;
         left: 50%;
         top: 50%;
 
-        @media only screen and (max-width: 750px) {
-            top: 44%;
+        @media screen and (max-width: 1200px) {
+            width: 30rem;
         }
+        @media screen and (max-width: 900px) {
+            top: 45%;
+        }
+        @media screen and (max-width: 800px) {
+            width: 18rem;
+
+            top: 50%;
+        }
+        @media only screen and (max-width: 750px) {
+            top: 46%;
+        }
+        @media screen and (max-width: 600px) {
+            transform: translate(-50%, -50%) scaleX(1.25) scaleY(.9);
+        }
+        @media screen and (max-width: 500px) {
+            transform: translate(-50%, -50%) scaleX(1) scaleY(.65);
+        }
+        @media screen and (max-width: 450px) {
+            top: 42%;
+            transform: translate(-50%, -50%) scaleX(.9) scaleY(.55);
+        }
+        @media screen and (max-width: 400px) {
+            top: 42%;
+            transform: translate(-50%, -50%) scaleX(.8) scaleY(.45);
+        }
+        
     }
 
     &__background-gradient {
