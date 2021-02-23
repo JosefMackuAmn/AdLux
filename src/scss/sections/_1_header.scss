@@ -29,10 +29,15 @@
                 top: 4rem;
                 left: 4.7rem;
 
-                @media  screen and (max-width: 520px) {
+                @media  screen and (max-width: 800px) {
                     top: 3rem;
                     left: 0rem;
                     transform: scale(.75);
+                }
+                @media  screen and (max-width: 550px) {
+                    top: 1rem;
+                    left: -2rem;
+                    transform: scale(.5);
                 }
             }
 
@@ -108,10 +113,12 @@
             &__line:not(:last-child){
               margin-bottom: 0.85rem;
             }
-            @media screen and (max-width: 510px){
-                transform: scale(0.8);
+            @media screen and (max-width: 800px){
+                transform: scale(0.9);
+                right: 3rem;
             }
-            @media screen and (max-width: 350px){
+            @media screen and (max-width: 550px){
+                top: 3rem;
                 transform: scale(0.7);
             }
         }
@@ -303,9 +310,9 @@
                 @media screen and (max-width: 950px) and (max-height: 750px){
                     height: 50rem;
                 }
-                @media screen and (max-width: 510px){
+                @media screen and (max-width: 550px){
                     transform: translate(-50%, 0);
-                    width: 65vw;
+                    width: 66vw;
                 }
                 @media screen and (max-width: 500px){
                     height: 50rem;
@@ -346,8 +353,8 @@
             @media screen and (max-width: 950px) and (max-height: 750px){
                 height: 50.5rem;
             }
-            @media screen and (max-width: 510px){
-                width: 72vw;
+            @media screen and (max-width: 550px){
+                width: 73vw;
             }
             @media screen and (max-width: 500px){
                 height: 50rem;
@@ -379,10 +386,10 @@
             transform: translate(-50%, -50%);
             height: 40rem;
         }
-        @media screen and (max-width: 510px){
-            top: 6.75rem;
+        @media screen and (max-width: 550px){
+            top: 4.75rem;
             transform: translate(-50%, 0);
-            width: 72vw;
+            width: 73vw;
         }
         @media screen and (max-width: 900px) and (max-height: 420px){
             height: 25rem;

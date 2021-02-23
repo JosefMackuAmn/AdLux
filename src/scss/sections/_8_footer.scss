@@ -69,7 +69,9 @@
             }
         
             &-picture{
-                height: 5rem;
+                //height: 5rem;
+                width: 2rem;
+                height: 2rem;
                 margin-right: 2rem;
 
                 position: relative;
@@ -99,7 +101,7 @@
             align-items: flex-end;
             display: flex;
 
-            transform: translateX(-6rem);
+            //transform: translateX(-6rem);
 
             @media screen and (max-width: 1200px) {
                 display: none;
@@ -156,6 +158,15 @@
 
             @media screen and (max-width: 1200px) {
                 display: block;
+
+                width: 6rem;
+                height: 5rem;
+            }
+            @media screen and (max-width: 800px) {
+                display: block;
+
+                width: 5rem;
+                height: 4rem;
             }
         }
         &__heading {
@@ -172,12 +183,15 @@
 
         &__AmnioNLink-text {  
             margin-left: auto;
+            width: 18rem;
+
+            text-align: right;
 
             &:link, 
             &:visited {
                 padding: 1.3rem 0;
 
-                text-align: center;
+                text-align: right;
                 text-decoration: none;
                 font-size: 2rem;
                 font-weight: $font_light;
@@ -191,10 +205,15 @@
                 @media screen and (max-width: 1200px){
                     padding-bottom: 3rem;
 
+                    font-size: 1.8rem;
+
                     position: absolute;
                     top: 28rem;
                     left: 50%;
                     transform: translate(-50%, -50%); 
+                }
+                @media screen and (max-width: 800px){
+                   font-size: 1.6rem;
                 }
             }
         }
