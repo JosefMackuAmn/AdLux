@@ -5,7 +5,7 @@
         padding-right: 2rem;
 
         display: flex;
-        align-items: flex-end;
+        align-items: center;
 
         color: $text-color-white;
         position: relative;
@@ -32,7 +32,7 @@
         }
         &__contact {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
 
             &:not(:last-child) {
                 margin-right: 8rem;
@@ -51,7 +51,6 @@
             margin-right: auto;
 
             display: flex;
-            align-items: flex-end;
            
             @media screen and (max-width: 1200px){
                 margin-right: 0;
@@ -69,12 +68,13 @@
             }
         
             &-picture{
-                //height: 5rem;
                 width: 2rem;
                 height: 2rem;
                 margin-right: 2rem;
 
                 position: relative;
+
+                opacity: .5;
 
                 &:first-child{
                     margin-left: 0;
@@ -96,7 +96,7 @@
             }
         }
         &__AmnioN-link-logo {
-            align-items: flex-end;
+            align-items: center;
             display: flex;
 
             //transform: translateX(-6rem);

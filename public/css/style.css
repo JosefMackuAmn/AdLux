@@ -1504,7 +1504,7 @@ a {
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   color: #ffff;
   position: relative; }
   @media screen and (max-width: 800px) {
@@ -1525,7 +1525,7 @@ a {
         margin-bottom: 4rem; } }
   .footer-up__contact {
     display: flex;
-    align-items: flex-end; }
+    align-items: center; }
     .footer-up__contact:not(:last-child) {
       margin-right: 8rem; }
       @media screen and (max-width: 600px) {
@@ -1537,8 +1537,7 @@ a {
   .footer-up__contacts {
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    align-items: flex-end; }
+    display: flex; }
     @media screen and (max-width: 1200px) {
       .footer-up__contacts {
         margin-right: 0; } }
@@ -1555,7 +1554,8 @@ a {
       width: 2rem;
       height: 2rem;
       margin-right: 2rem;
-      position: relative; }
+      position: relative;
+      opacity: .5; }
       .footer-up__contacts-picture:first-child {
         margin-left: 0; }
     .footer-up__contacts-text {
@@ -1569,7 +1569,7 @@ a {
       .footer-up__contacts-text__number {
         font-variant-numeric: lining-nums; }
   .footer-up__AmnioN-link-logo {
-    align-items: flex-end;
+    align-items: center;
     display: flex; }
     @media screen and (max-width: 1200px) {
       .footer-up__AmnioN-link-logo {
