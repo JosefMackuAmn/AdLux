@@ -1,0 +1,980 @@
+<footer class="footer">
+<div class="footer-up">
+<div class="footer-up__AdLux-logo">
+</div>
+<div class="footer-up__contacts">
+<div class="footer-up__contact">
+<img src="img/white-phone.svg" alt="phone-number" class="footer-up__contacts-picture">
+<h2 class="footer-up__contacts-text footer-up__contacts-text__number">
+792 316 653
+</h2>
+</div>
+<div class="footer-up__contact">
+<img src="img/white-mail.svg" alt="e-mail" class="footer-up__contacts-picture">
+<h2 class="footer-up__contacts-text">
+adlux.holograms@gmail.com
+</h2>
+</div>
+</div>
+<a target="_blank" href="https://www.amnionweb.cz" rel="noopener" class="footer-up__AmnioN-link-logo">
+<img src="img/NL1.svg" alt="AmnioN">
+</a>
+</div>
+<div class="footer-down">
+<h3 class="footer-down__heading">
+Kontakt
+</h3>
+<a href="https://www.amnionweb.cz" rel="noopener" class="footer-down__amnion-link-logo">
+<img src="img/NL1.svg" alt="AmnioN">
+</a>
+<a target="_blank" rel="noopener"  href="https://www.amnionweb.cz" class="footer-down__AmnioNLink-text">
+Vytvořil <span>AmnioN Web</span>
+</a>
+</div>
+</footer>
+<section class="contact">
+<div class="contact-content">
+<div class="contact-content__Adlux-logo" id="contact"></div>
+<form action="/email" method="POST" class="contact-content-table">
+<div class="contact-content-table-row" >
+<div class="contact-content-table__label-box">
+<label for="contact-input-1" class="contact-content-table__label" >Jméno</label>
+</div>
+<input type="text" class="contact-content-table__input" id="contact-input-1">
+<p class="contact-content__err-msg">Jméno musí mít alespoň 5 znaků</p>
+</div>
+
+<div class="contact-content-table-row">
+<div class="contact-content-table__label-box">
+<label for="contact-input-2" class="contact-content-table__label" >E-mail</label>
+</div>
+<input type="text" class="contact-content-table__input" id="contact-input-2">
+<p class="contact-content__err-msg">Zadejte, prosím, validní e-mail</p>
+</div>
+
+<div class="contact-content-table-row-message">
+<div class="contact-content-table__label-box">
+<label for="contact-input-3" class="contact-content-table__label contact-content-table__label-message" >Zpráva</label>
+</div>
+<textarea name="message" class="message" cols="30" rows="10" id="contact-input-3"></textarea>
+<p class="contact-content__err-msg">Zpráva musí mít alespoň 20 znaků</p>
+</div>
+
+<div class="send-button-box">
+<button type="submit" class="send-button" id="send-btn">Odeslat</button>
+</div>
+<div class="loading-efect">
+<div class="loading-efect__img" id="send-img"></div>
+</div>
+
+</form>
+</div>
+<img class="contact__wave" src="img/wave.svg"></img>
+</section><header class="header" id="header">
+<div class="header__upper-part" id="upper-part">
+<div class="header__upper-part__logo-full">
+<div class="header__upper-part__logo-blue" id="logo-spin"></div>
+<div class="header__upper-part__logo-text"></div>
+</div>
+</div>
+
+<video class="header__video" autoplay muted preload loop id="adluxvideo">
+Your browser does not support HTML5 video
+</video>
+
+<div class="header__background-gradient"></div>
+
+<div class="header__text">
+<p class="paragraph-big">vyšší <span>návštěvnost</span>, vyšší <span>příjmy</span>, vyšší <span>atraktivita</span>, <span>náskok</span> před konkurencí</p>
+<p class="paragraph-small">pro obchodní centra a pasáže</p>
+</div>
+</header>
+<section class="menu unvisible" id="menu">
+<div class="menu__back-drop" id="back-drop"></div>
+<div class="header__upper-part__menu-button" id="cancelButton">
+<div class="header__upper-part__menu-button__line rotate-right"></div>
+<div class="header__upper-part__menu-button__line rotate-left"><div class="header__upper-part__menu-button__line__circle rotate-right-circle"></div></div>
+</div>
+<div class="header__upper-part__menu-button" id="openButton">
+<div class="header__upper-part__menu-button__line"></div>
+<div class="header__upper-part__menu-button__line"><div class="header__upper-part__menu-button__line__circle"></div></div>
+<div class="header__upper-part__menu-button__line"></div>
+</div>
+<div class="header__menu">
+<div class="header__menu-content">
+<div class="header__menu-background">
+<img src="/img/adlux-logo-blue-part.svg" alt="AdLux logo" class="header__menu-background-logo">
+<div class="header__menu-content-text">
+<a href="#"class="header__menu-link">úvod</a>
+<a href="/#info-revolution"class="header__menu-link">revoluce</a>
+<a href="/#info"class="header__menu-link">smysl</a>
+<a href="/#benefits"class="header__menu-link">benefity</a>
+<a href="/#products"class="header__menu-link">produkt</a>
+<a href="/#solution"class="header__menu-link">řešení</a>
+<a href="/#contact"class="header__menu-link">kontakt</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+@import "sections/0_menu";
+.footer {
+&-up {
+margin-bottom: 2rem;
+padding-left: 2rem;
+padding-right: 2rem;
+
+display: flex;
+align-items: center;
+
+color: $text-color-white;
+position: relative;
+
+@media screen and (max-width: 800px){
+flex-direction: column;
+align-items: flex-start;
+}
+@media screen and (max-width: 550px) {
+align-items: center;
+}
+&__AdLux-logo {
+height: 7.4rem;
+width: 12.4rem;
+background-image: url('/img/adlux-logo-text.svg');
+background-size: cover;
+
+display: inline-block;
+
+@media screen and (max-width: 800px){
+margin-bottom: 4rem;      
+}
+
+}
+&__contact {
+display: flex;
+align-items: center;
+
+&:not(:last-child) {
+margin-right: 8rem;
+
+@media screen and (max-width: 600px) {
+margin-right: 4rem;
+}
+@media screen and (max-width: 550px) {
+margin-bottom: 1rem;
+}
+}
+
+}
+&__contacts {
+margin-left: auto;
+margin-right: auto;
+
+display: flex;
+
+@media screen and (max-width: 1200px){
+margin-right: 0;
+}
+@media screen and (max-width: 800px){
+margin-left: 0;
+margin-right: auto;
+
+align-items: flex-start;
+}
+@media screen and (max-width: 550px) {
+margin-right: 0;
+
+flex-direction: column;
+}
+
+&-picture{
+width: 2rem;
+height: 2rem;
+margin-right: 2rem;
+
+position: relative;
+
+opacity: .5;
+
+&:first-child{
+margin-left: 0;
+}
+}
+&-text {
+font-variant-numeric: lining-nums;
+font-weight: $font_medium;
+font-size: 2rem;
+
+position: relative;
+
+@media screen and (max-width: 500px) {
+font-size: 1.8rem;
+}
+&__number{
+font-variant-numeric: lining-nums;
+}
+}
+}
+&__AmnioN-link-logo {
+align-items: center;
+display: flex;
+
+//transform: translateX(-6rem);
+
+@media screen and (max-width: 1200px) {
+display: none;
+}
+
+&:link, 
+&:visited {
+height: 7rem;
+width: 7rem;
+
+text-decoration: none;
+color: $text-color-white;
+font-weight: $font_light;
+}
+
+img {
+width: 100%;
+
+display: block;
+}
+}
+}
+
+&-down{
+background-image: url("/img/footer-picture.png");
+background-size: 100%;
+padding-right: 2rem;
+padding-left: 2rem;
+height: 8rem;
+
+text-align: right;
+
+display: flex;
+align-items: center;
+
+position: relative;
+
+&__amnion-link-logo {
+width: 8rem;
+height: 8rem;
+
+display: none;
+
+position: absolute;
+top: 22rem;
+left: 50%;
+transform: translate(-50%, -50%);
+
+img {
+width: 100%;
+
+display: block;
+}
+
+@media screen and (max-width: 1200px) {
+display: block;
+
+width: 6rem;
+height: 5rem;
+}
+@media screen and (max-width: 800px) {
+display: block;
+
+width: 5rem;
+height: 4rem;
+}
+}
+&__heading {
+
+font-size: 3.5rem;
+font-weight: $font_light;
+color: $text-color-white;    
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateX(-50%) translateY(-50%);         
+}
+
+&__AmnioNLink-text {  
+margin-left: auto;
+width: 18rem;
+
+text-align: right;
+
+@media screen and (max-width: 1200px) {
+width: auto;
+}
+
+&:link, 
+&:visited {
+text-align: right;
+text-decoration: none;
+font-size: 2rem;
+font-weight: $font_light;
+color: $text-color-white;
+
+display: inline-block;
+
+position: relative;
+
+@media screen and (max-width: 1200px){
+padding-bottom: 3rem;
+
+font-size: 1.8rem;
+
+position: absolute;
+top: 28rem;
+left: 50%;
+transform: translate(-50%, -50%); 
+}
+@media screen and (max-width: 800px){
+font-size: 1.6rem;
+}
+}
+
+span {
+margin-left: 5rem;
+
+@media screen and (max-width: 1200px) {
+margin-left: 0;
+}
+}
+}
+}
+}
+}
+}
+
+.message {
+width: 100%;
+height: 43.4rem;
+font-size: 2rem;
+line-height: 4rem;
+font-family: $font_raleway;
+font-weight: $font_regular;
+outline: none;
+padding-left: 0.5rem;
+border: 1px solid $color-blue-dark;
+
+@media screen and (max-width: 900px) {
+height: 30rem;
+}
+@media screen and (max-width: 500px) {
+height: 25rem;
+}
+
+&::placeholder{
+font-weight: $font_medium;
+font-family: $font_raleway;
+color: $color-grey-dark;
+font-size: 2rem;
+}
+}
+
+.send-button {
+margin: 2rem auto 1rem auto;
+background-color: $color-blue-black;
+outline: none;
+border: none;
+cursor: pointer;
+
+font-family: $font_raleway;
+letter-spacing: 2px;
+font-size: 3.5rem;
+font-weight: $font_regular;
+color: $text-color-white;
+
+display: block;
+
+transition: all .2s;
+
+&:hover {
+transform: translateX(0.2rem);
+}
+
+@media screen and (max-width: 600px) {
+font-size: 3rem;
+}
+
+
+}
+
+.loading-efect{
+height: .4rem;
+width: 19rem;
+margin-left: auto;
+margin-right: auto;
+background-color: $color-blue-stripe-1;
+border-radius: .2rem;
+overflow: hidden;
+
+transform: translateX(1rem);
+
+display: block;
+
+position: relative;
+
+@media screen and (max-width: 600px) {
+width: 14rem;
+}
+
+&__img {
+width: 10rem;
+height: 0.4rem;
+border-radius: 0.2rem;
+background-image: linear-gradient(to right, $color-blue-stripe-1, $color-blue-light);
+animation: loadingEffectAnimation 2s ease-in;
+animation-iteration-count: infinite;
+
+@media screen and (max-width: 600px) {
+width: 5rem;
+}
+&-send{
+width: 19rem;
+height: 0.4rem;
+border-radius: 0.2rem;
+background-color: $color-blue-light;
+animation: sendingEffectAnimation 1s ease-in;
+transform: translateX(0rem);
+
+@media screen and (max-width: 600px) {
+width: 9rem;
+}
+}
+}
+}
+.contact {
+position: relative;
+padding-top: 18rem;
+margin-bottom: 20rem;
+
+
+@media screen and (max-width: 900px) {
+padding-top: 0;
+margin-bottom: 24rem;
+}
+&-content {
+//width: 104.6rem;
+margin:0 auto;
+
+
+&__Adlux-logo {
+
+margin: 7rem auto;
+width: 27.83rem;
+height: 15.248rem;
+
+background-image: url("/img/adlux-logo-text.svg");
+background-size: cover;
+
+@media screen and (max-width: 700px) {
+width: 20rem;
+height: 11rem;
+}
+@-moz-document url-prefix() {
+height: 17rem;
+@media (max-width: 700px){
+height: 13rem;
+}
+}  
+}
+
+&-table {
+width: 80rem;
+margin-left: auto;
+margin-right: auto;
+
+@media screen and (max-width: 1400px) {
+width: 65%;
+}
+@media screen and (max-width: 1000px) {
+width: 75%;
+}
+@media screen and (max-width: 700px) {
+width: 80%;
+}
+@media screen and (max-width: 600px) {
+width: auto;
+margin-left: 3rem;
+margin-right: 3rem;
+}
+
+&-row{
+margin-bottom: 2.5rem;
+position: relative;
+&-message{
+position: relative;
+}
+
+}
+&__input{
+// background-color: 
+height: 4.1rem;
+width: 100%;
+font-size: 2rem;
+outline: none;
+padding-left: 0.5rem;
+border: 1px solid $color-blue-dark;
+&::placeholder{
+color: $color-grey-dark;
+}
+}
+&__label{
+color: $text-color-white;
+margin: 0 auto;
+font-size: 2.2rem;
+font-weight: $font_regular;
+//position: absolute;
+
+@media screen and (max-width: 600px) {
+font-size: $font_20;
+}
+
+&-box{
+display: inline-block;
+width: 6.8rem;
+height: 100%;
+left: -10rem;
+margin-right: 3rem;
+position: absolute;
+
+@media screen and (max-width: 1000px) {
+margin-bottom: 1rem;
+
+position: relative;
+left: 0;
+}
+}
+&-message{
+top: 0.5rem;
+}
+}     
+}
+&__menu{
+height: 25.7rem;
+
+position: fixed;
+z-index: 900;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+display: block;
+&-link{
+&:link, 
+&:visited{
+text-decoration: none;
+color: $color-grey-dark;
+font-weight: $font_medium;
+letter-spacing: .2rem;
+font-size: 2.7rem;
+text-transform: uppercase;
+&:not(:last-child){
+margin-right: 10rem;
+@media  screen and (max-width: 1650px) {
+margin-right: 4.5vw;
+}
+@media screen and (max-width: 1300px){
+margin-right: 2vw;
+}
+
+@media screen and (max-width: 950px){
+margin: 0;
+margin-bottom: 3rem;
+display: block;
+}
+@media screen and (max-width: 950px) and (min-height: 750px){
+font-size: 2.7rem;
+margin-bottom: 5rem;
+}
+@media screen and (max-width: 500px){
+margin-bottom: 3.5rem;
+font-size: $font_22;
+}
+@media screen and (max-width: 900px) and (max-height: 560px){
+margin-bottom: 3rem;
+font-size: $font_18;
+}
+@media screen and (max-width: 380px){
+font-size: $font_18;
+margin-bottom: 3rem;
+}
+}
+@media screen and (max-width: 1300px){
+font-size: $font_22;
+}
+@media screen and (max-width: 950px) and (min-height: 750px){                
+font-size: 2.7rem;
+}
+@media screen and (max-width: 900px) and (max-height: 560px){
+font-size: $font_18;
+}
+@media screen and (max-width: 380px){
+font-size: $font_18;
+}
+
+}
+&:hover{
+transition: all 0.2s;
+color: $text-color-white;
+font-weight: $font_bold;
+}
+}
+&-content-text{
+width: 151rem;
+
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-47.5%, -50%);
+display: inline-block;
+
+@media screen and (max-width: 1300px){
+width: calc(76rem + 6*2vw);
+transform: translate(-45.5%, -50%);
+}
+
+@media not all and (min-resolution: .001dpcm) and (max-width: 1300px){
+width: calc(77rem + 6*2vw);
+}
+
+@media screen and (min-width: 1300px){
+width: calc(91rem + 6*4.5vw);   
+}
+
+@media  screen and (min-width: 1650px) {
+width: 151rem;
+}
+@media screen and (max-width: 950px){
+text-align: center;
+width: 33rem;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 900px) and (max-height: 420px){
+column-count: 2;
+}
+@media screen and (max-width: 380px){
+column-count: 1;
+}
+}
+&-background{
+height: 25.7rem;
+width: 117rem;
+border-top: 3px solid $color-blue-light;
+border-bottom: 3px solid $color-blue-light;
+position: relative;
+&::before{
+content: "";
+height: 25.7rem;
+width: 117rem;
+background-color: #0D1213;
+clip-path: polygon(1% 0, 99% 0, 99% 100%, 1% 100%);
+display: inline-block;
+position: absolute;
+z-index: -1;
+@media screen and (max-width: 1490px){
+width: 100vw;
+left: calc(-50vw + 50%);
+}
+@media screen and (max-width: 950px){
+width: 37.5rem;
+left: 50%;
+transform: translate(-50%, 0);
+
+}
+@media screen and (max-width: 950px) and (min-height: 750px){
+height: 70rem;
+}
+@media screen and (max-width: 950px) and (max-height: 750px){
+height: 50rem;
+}
+@media screen and (max-width: 550px){
+transform: translate(-50%, 0);
+width: 66vw;
+}
+@media screen and (max-width: 500px){
+height: 50rem;
+}
+@media screen and (max-width: 900px) and (max-height: 560px){
+height: 40rem;
+}
+@media screen and (max-width: 900px) and (max-height: 420px){
+height: 25rem;
+}
+@media screen and (max-width: 380px){
+height: 40rem;
+}
+}
+
+&-logo{
+height: 8.5rem;
+width: 8.5rem;
+object-fit: cover;
+
+position: absolute;
+left: 47%;
+top: -4.25rem;
+animation: rotationOfBlueLogo .7s ease;
+@media screen and (max-width: 950px){
+display: none;
+}
+}
+@media screen and (max-width: 1300px){
+width: 71.32rem;
+}
+@media screen and (max-width: 950px){
+width: 44.5rem;
+}
+@media screen and (max-width: 950px) and (min-height: 750px){
+height: 70.5rem;
+}
+@media screen and (max-width: 950px) and (max-height: 750px){
+height: 50.5rem;
+}
+@media screen and (max-width: 550px){
+width: 73vw;
+}
+@media screen and (max-width: 500px){
+height: 50rem;
+}
+@media screen and (max-width: 900px) and (max-height: 560px){
+height: 40rem;
+}
+@media screen and (max-width: 900px) and (max-height: 420px){
+height: 25rem;
+}
+@media screen and (max-width: 380px){
+height: 40rem;
+}
+}
+@media screen and (max-width: 950px){
+width: 44.5rem;
+}
+@media screen and (max-width: 950px) and (min-height: 750px){
+height: 70.5rem;
+}
+@media screen and (max-width: 950px) and (max-height: 750px){
+height: 50.5rem;
+}
+@media screen and (max-width: 500px){
+height: 50rem;
+transform: translate(-50%, 0);    
+}
+@media screen and (max-width: 900px) and (max-height: 560px){
+transform: translate(-50%, -50%);
+height: 40rem;
+}
+@media screen and (max-width: 550px){
+top: 4.75rem;
+transform: translate(-50%, 0);
+width: 73vw;
+}
+@media screen and (max-width: 900px) and (max-height: 420px){
+height: 25rem;
+}
+@media screen and (max-width: 380px){
+transform: translate(-50%, 0);
+height: 40rem;
+}
+
+}
+}
+
+#cancelButton{
+@media screen and (max-width: 400px){
+right: 7vw;
+}
+@media screen and (max-width: 310px){
+right: 5vw;
+}
+}
+
+.rotate{
+&-left{
+transform: rotate(45deg);
+}
+
+&-right{
+transform: rotate(-45deg) translate(-18%, 1.1rem);
+
+&-circle{
+transform: rotate(-45deg) translate(-21.5%, -1.1rem);
+}
+}
+}
+
+.unvisibleOpenButton{
+display: none;
+}
+
+.unvisible > :not(#openButton){
+display: none;
+}
+
+.blur-body > :not(.menu){
+transition: all 1s;
+filter: blur(5px) brightness(45%);
+}
+.unblur-body > :not(.menu){
+transition: all 0.5s;
+animation-fill-mode: backwards;
+animation-direction: reverse;
+filter: blur(0) brightness(100%);
+}
+&__upper-part{
+height: 10rem;
+position: relative;
+
+&__logo{
+&-full{
+display: inline-block;
+
+z-index: 200;
+position: absolute;
+top: 4rem;
+left: 4.7rem;
+
+@media  screen and (max-width: 800px) {
+top: 3rem;
+left: 0rem;
+transform: scale(.75);
+}
+@media  screen and (max-width: 550px) {
+top: 1rem;
+left: -2rem;
+transform: scale(.5);
+}
+}
+
+&-blue{
+position: absolute;
+top: 1rem;
+width: 6.8rem;
+height: 6.8rem;
+background-image: url('/img/adlux-logo-blue-part.svg');
+background-size: cover;
+
+display: inline-block;
+
+animation: rotationOfBlueLogo 1s ease-out;
+}
+
+&-text{
+height: 8.2rem;
+width: 14.967rem;
+background-image: url('/img/adlux-logo-text.svg');
+background-size: cover;
+
+display: inline-block;
+margin-left: 8.5rem;
+@-moz-document url-prefix() {
+height: 9rem;
+}  
+}
+}
+&__menu-button{
+height: 4rem;
+width: 6rem;
+
+z-index: 1000;
+position: fixed;
+top: 5rem;
+right: 4rem;
+
+cursor: pointer;
+
+display: inline-block;
+animation: turnUpOpacity 1s ease;
+
+&[id="openButton"]:hover {
+.header__upper-part__menu-button__line:last-child {
+transform: translateY(.3rem);
+}
+.header__upper-part__menu-button__line:first-child {
+transform: translateY(-.3rem);
+}
+}
+&__line{
+height: 0.75rem;
+width: 6.043rem;
+background-color: $color-grey-light;
+
+border-radius: .5rem;
+position: relative;
+
+transition: transform .3s;
+
+&__circle{
+height: 1.6rem;
+width: 2.2rem;
+border-radius: 50%;
+background-color: inherit;
+position: absolute;
+left: 50%;
+top: 0;
+transform: translate(-50%, -25%);
+}
+}
+&__line:not(:last-child){
+margin-bottom: 0.85rem;
+}
+@media screen and (max-width: 800px){
+transform: scale(0.9);
+right: 3rem;
+}
+@media screen and (max-width: 550px){
+top: 3rem;
+transform: scale(0.7);
+}
+}
+}
+
+.header {
+height: calc(var(--vh, 1vh) * 100);
+min-height: 80rem;
+position: relative;
+z-index: 20;
+overflow: hidden;
+.menu{
+display: block;
+&__back-drop{
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+z-index: 100;
+}
+}
+scroll-behavior: smooth;
+@keyframes rotationOfBlueLogo {
+from{
+transform: rotate(0deg);
+} to {
+transform: rotate(360deg);
+}
+}
+
+@keyframes sendingEffectAnimation {
+0%{
+transform: translateX(-19rem);
+}
+100%{
+transform: translateX(0rem);
+}
+}
+
+
+@keyframes loadingEffectAnimation {
+0%{
+transform: translateX(-10rem);
+}
+100%{
+transform: translateX(20rem);
+}
+}

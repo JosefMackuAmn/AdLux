@@ -124,7 +124,7 @@
 
         &__text-wrap {
             width: 32rem;
-            transform: calc(var(--vh, 1vh) * -12);
+            transform: calc(var(--vh, 1vh) * (-12)); //-12vh
 
             @media only screen and (max-width: 1250px) {
                 width: 26rem;

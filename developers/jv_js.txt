@@ -1,0 +1,65 @@
+const menu = document.getElementById('menu');
+const openButton = document.getElementById('openButton');
+const cancelButton = document.getElementById('cancelButton');
+const link = document.querySelectorAll('#menu a');
+const backDrop = document.getElementById('back-drop');
+const body = document.body;
+let isMenuOpen = false;
+
+function openMenuHandler(){
+isMenuOpen = true;
+body.classList.add('blur-body');
+menu.classList.remove('unvisible');
+openButton.classList.add('unvisibleOpenButton');
+}
+
+function closeMenuHandler(){
+isMenuOpen = false;
+body.classList.add('unblur-body');
+setInterval(()=>{
+if(isMenuOpen){
+  body.classList.remove('unblur-body');
+}
+}, 480);
+setTimeout(()=>{
+body.classList.remove('unblur-body');
+if(!isMenuOpen){
+  body.classList.remove('blur-body');
+}
+}, 480);
+menu.classList.add('unvisible');
+openButton.classList.remove('unvisibleOpenButton');
+}
+
+openButton.addEventListener('click', openMenuHandler);
+cancelButton.addEventListener('click', closeMenuHandler);
+for(const a of link){
+a.addEventListener('click', closeMenuHandler);
+}
+backDrop.addEventListener('click', closeMenuHandler);
+
+function sendAMessage(e) {
+e.preventDefault();
+const sendImg = document.getElementById('send-img');
+sendImg.className = 'loading-efect__img-send';
+
+// Create payload object
+const form = e.target.form;
+const data = createPayloadObject(form);
+const sendBtn = document.getElementById('send-btn');
+if (sendBtn) {
+sendBtn.addEventListener('click', sendAMessage);
+}
+
+function backToNormal(img) {
+img.className = 'loading-efect__img';  
+}
+
+function cleanInput() {
+for(let i = 1; i <= 3; i++){
+    let input = document.getElementById(`contact-input-${i}`);
+    if (input) {
+        input.value = '';
+    }
+}
+}

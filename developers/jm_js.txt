@@ -1,0 +1,619 @@
+const state = {
+// Elements to be animated
+elsToAnim: {}
+}
+
+export default state;
+// Init animations
+import './animations/initAnimations';
+
+// Contact form handling
+import './contact';
+
+//Reponsive video
+import ResponsiveVideo from './responsiveVideo/responsiveVideo';
+
+// Define :root --vh variable
+let vh;
+const setVhCSSVar = () => {
+vh = window.innerHeight / 100;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVhCSSVar();
+window.addEventListener('resize', () => {
+// Recalc vh on significant resize (more than 20%)
+const newVh = window.innerHeight / 100;
+const vhChange = Math.abs(vh - newVh) / vh;
+if (vhChange > 0.2) {
+setVhCSSVar();
+}
+});
+
+function validateData(data) {
+const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const errors = [];
+
+if (!data.name || !(data.name.length > 4)) {
+errors.push('name');
+}
+if (!data.email || !regex.test(data.email.toLowerCase())) {
+errors.push('email');
+}
+if (!data.message || !(data.message.length > 19)) {
+errors.push('message');
+}
+
+return errors;
+}
+
+function createPayloadObject(form) {
+return {
+name: form[0].value.trim(),
+email: form[1].value.trim(),
+message: form[2].value.trim()
+}
+}
+
+function showSentFeedback(success) {
+let message, color;
+if (success) {
+message = "Odesláno";
+color = "lightgreen";
+} else {
+message = "Odesílání se nezdařilo";
+color = "red";
+}
+
+// Store initial values
+sendBtnPrevText = "Odeslat";
+sendBtnPrevColor = sendBtn.style.color;
+sendBtnPrevTransition = sendBtn.style.transition;
+
+// Update success message
+sendBtn.innerText = message;
+sendBtn.style.color = color;
+sendBtn.style.transition = "none";
+sendBtn.style.opacity = "0";
+
+// Show message
+setTimeout(() => {
+sendBtn.style.opacity = "1";
+sendBtn.style.transition = sendBtnPrevTransition;
+}, 20);
+
+setTimeout(() => {
+// Restore initial values
+sendBtn.innerText = sendBtnPrevText;
+sendBtn.style.color = sendBtnPrevColor;
+}, 2000);
+
+}
+
+
+// Get error message elements
+const errMsgs = document.querySelectorAll('.contact-content__err-msg');
+
+// Functions for handling change of input
+// and recheck their validity
+const checkInputAgain = (e, input, i) => {
+const errs = validateData({ [input]: e.target.value });
+if (!errs.includes(input)) {
+e.target.style.backgroundColor = 'white';
+errMsgs[i].style.display = 'none';
+}
+}
+const checkNameAgain = e => {
+return checkInputAgain(e, 'name', 0)
+}
+const checkMailAgain = e => {
+return checkInputAgain(e, 'email', 1)
+}
+const checkMessageAgain = e => {
+return checkInputAgain(e, 'message', 2)
+}
+
+// Reset validation errors
+[form[0], form[1], form[2]].forEach((input, i) => {
+input.style.backgroundColor = 'white';
+errMsgs[i].style.display = 'none';
+});
+
+// Validate form data
+const errors = validateData(data);
+
+// Handle validation errors
+if (errors.length > 0) {
+
+// Get error message elements
+
+if (errors.includes('name')) {
+form[0].style.backgroundColor = '#EF8585';
+errMsgs[0].style.display = 'inline-block';
+
+form[0].removeEventListener('input', checkNameAgain);
+form[0].addEventListener('input', checkNameAgain);
+}
+if (errors.includes('email')) {
+form[1].style.backgroundColor = '#EF8585';
+errMsgs[1].style.display = 'inline-block';
+
+form[1].removeEventListener('input', checkMailAgain);
+form[1].addEventListener('input', checkMailAgain);
+}
+if (errors.includes('message')) {
+form[2].style.backgroundColor = '#EF8585';
+errMsgs[2].style.display = 'inline-block';
+
+form[2].removeEventListener('input', checkMessageAgain);
+form[2].addEventListener('input', checkMessageAgain);
+}
+
+// Back to normal & return early
+backToNormal(sendImg);
+return;
+}
+
+// Set timeout for handling animation
+let response, timeout = false;
+setTimeout(() => {
+if (response) {
+// Restore animation
+backToNormal(sendImg);
+} else {
+timeout = true;
+}
+}, 1300);
+
+fetch('/email', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(data)
+}).then((res) => {
+if (!res.ok) {
+throw new Error('Not ok response');
+}
+
+return res.json();
+
+}).then((json) => {
+if (!json.success) {
+throw new Error('Unsuccessfull send email action');
+}
+
+// Handle success case
+cleanInput();
+
+// Show successful action feedback
+showSentFeedback("Odesláno");
+
+}).catch(err => {
+// Handle error
+// console.log(err);
+
+// Show unsuccessful action feedback
+showSentFeedback(false);
+
+}).finally(() => {
+response = true;
+if (timeout) {
+// Restore animation
+backToNormal(sendImg);
+}
+});
+
+}
+import Animation from './Animation';
+import state from '../state';
+
+const { elsToAnim } = state;
+elsToAnim.benefitsStripe = document.querySelector('.benefits__stripe');
+Animation.onScrollToTarget(elsToAnim.benefitsStripe, () => {
+const { benefitsStripe } = elsToAnim;
+
+if (!benefitsStripe) return;
+
+benefitsStripe.style.animation = 'showBenefitsStripe .7s forwards ease-out';
+
+const subheading = benefitsStripe.querySelector('.benefits__stripe__subheading');
+const text = benefitsStripe.querySelector('.benefits__stripe__text');
+
+[subheading, text].forEach(el => {
+if (!el) return;
+
+el.style.animation = 'turnUpOpacity 1s .5s forwards ease-out';
+});
+
+});
+
+
+elsToAnim.benefitsImg = document.getElementById('benefits-img');
+Animation.infiniteAnimation(() => {
+const { benefitsImg } = elsToAnim;
+
+//if (!Animation.isVisible(benefitsImg)) return;
+
+const imgHeight = benefitsImg.offsetHeight;
+
+const scrolled = imgHeight - benefitsImg.getBoundingClientRect().top;
+const scrollable = window.innerHeight + imgHeight;
+const percentageOnPage = scrolled / scrollable;
+
+let imgPositionX = percentageOnPage * 100;
+let imgPositionY = percentageOnPage * 100;
+
+if (imgPositionX < 0) imgPositionX = 0;
+if (imgPositionY < 0) imgPositionY = 0;
+if (imgPositionX > 100) imgPositionX = 100;
+if (imgPositionY > 100) imgPositionY = 100;
+
+benefitsImg.style.objectPosition = `${imgPositionX}% ${imgPositionY}%`;
+
+});
+let solutionsAnimated = false;
+elsToAnim.solCards = document.querySelectorAll('.solution__card');
+elsToAnim.solCardsCont = document.querySelector('.solution__cards');
+Animation.onScrollToTarget(elsToAnim.solCards[0], () => {
+const [card1, card2, card3] = elsToAnim.solCards;
+
+if (window.innerWidth <= 1300) {
+elsToAnim.solCards.forEach(card => {
+card.style.opacity = "1";
+card.style.transition = "all .3s";
+});
+solutionsAnimated = true;
+return;
+}
+
+// Csf = Center from side
+const containerCfs = elsToAnim.solCardsCont.clientWidth / 2;
+
+// Get coordinates of cards
+const card1Cfs = card1.getBoundingClientRect().left + (card1.clientWidth / 2);
+const card3Cfs = card3.getBoundingClientRect().left + (card3.clientWidth / 2);
+
+// Set initial positions
+card1.style.transform = `translateX(${containerCfs - card1Cfs}px) scale(1.1)`;
+card2.style.transform = "scale(1.05)";
+card3.style.transform = `translateX(${containerCfs - card3Cfs}px) scale(1.1)`;
+
+// Show cards
+setTimeout(() => {
+elsToAnim.solCards.forEach(card => {
+card.style.opacity = "1";
+card.style.transition = "2s cubic-bezier(.24,.84,0,1)";
+});
+}, 100);
+
+// Animate cards
+setTimeout(() => {
+card1.style.transform = `translateX(0) scale(1)`;
+card2.style.transform = "scale(1)";
+card3.style.transform = `translateX(0) scale(1)`;
+}, 150);
+
+// Finish animation
+setTimeout(() => {
+card1.style.transform = ``;
+card2.style.transform = "";
+card3.style.transform = ``;
+elsToAnim.solCards.forEach(card => {
+card.style.transition = "all .3s";
+})
+solutionsAnimated = true;
+}, 2000);
+});
+
+// Solutions mouseover
+const raiseCard = card => {
+if (!solutionsAnimated) return;
+
+if (window.innerWidth < 1000) return;
+
+if (window.innerWidth <= 1300) {
+elsToAnim.solCards[0].style.transform = 'scale(.95)';
+elsToAnim.solCards[1].style.transform = 'translateX(-50%) scale(.95)';
+elsToAnim.solCards[2].style.transform = 'scale(.95)';
+console.log('here')
+
+if (card == elsToAnim.solCards[1]) {
+card.style.transform = 'translateX(-50%) scale(1.05)';
+} else {
+card.style.transform = 'scale(1.05)';
+}
+} else {
+elsToAnim.solCards.forEach(solCard => {
+solCard.style.transform = 'scale(.95)';
+});
+
+card.style.transform = 'scale(1.05)';
+}
+
+}
+const lowerCards = () => {
+if (!solutionsAnimated) return;
+
+if (window.innerWidth < 1000) return;
+
+elsToAnim.solCards.forEach(cardEl => {
+cardEl.style.transform = '';
+});
+}
+elsToAnim.solCards.forEach(card => {
+card.addEventListener('mouseenter', raiseCard.bind(this, card));
+card.addEventListener('mouseleave', lowerCards);
+})
+const infiniteAnimationRegistry = [];
+const animationRegistry = [];
+let isInit = false;
+const animEvents = ['scroll', 'resize'];
+
+class Animation {
+
+// Fcn to register an element and the associated callback,
+// which will be executed when the element will appear on the screen
+static onScrollToTarget(element, cb) {
+if (!isInit) Animation.init();
+
+const pageYOffset = window.pageYOffset;
+
+const elAnimObj = {
+el: element,
+pos: element.getBoundingClientRect().top + pageYOffset,
+cb
+}
+
+// If element is already visible, run callback immediately
+// Otherwise, register it to run later
+if (Animation.isVisible(elAnimObj.pos, pageYOffset)) {
+cb(null);
+} else {
+animationRegistry.push(elAnimObj);
+}
+}
+
+// Register animation invoked on every event
+static infiniteAnimation(cb) {
+if (!isInit) Animation.init();
+
+infiniteAnimationRegistry.push(cb);
+}
+
+// Init looking for visible elements
+static init() {
+// Start listening for animEvents
+animEvents.forEach(event => {
+if (event === 'resize') {
+window.addEventListener(event, () => {
+Animation.recalcElementPositions();
+Animation.initListener();
+});
+} else {
+window.addEventListener(event, Animation.initListener);
+}
+});
+isInit = true;
+}
+
+// Callback function to addEventListener
+// listening for animEvents on window object
+static initListener(e) {
+// Return, if there is nothing to animate
+if (animationRegistry.length <= 0 && infiniteAnimationRegistry.length <= 0) return;
+
+// Get current pageYOffset
+const pageYOffset = window.pageYOffset;
+
+// Loop through elements and try to find visible element
+for (let i = 0; i < animationRegistry.length; i++) {
+const el = animationRegistry[i];
+
+if (Animation.isVisible(el.pos, pageYOffset)) {
+// Call callback
+animationRegistry[i].cb(e);
+
+// Remove element from array
+animationRegistry.splice(i, 1);
+}
+}
+
+// Execute all infinitely invoked animations
+infiniteAnimationRegistry.forEach(cb => cb(e));
+
+// Stop listening for animEvents
+// if there are no more animations left
+// and reset isInit variable
+if (
+animationRegistry.length <= 0
+&& infiniteAnimationRegistry.length <= 0
+) {
+animEvents.forEach(event => {
+window.removeEventListener(event, Animation.initListener);
+});
+isInit = false;
+}
+
+}
+
+static recalcElementPositions() {
+// Get current pageYOffset
+const pageYOffset = window.pageYOffset;
+
+// Change relative positions of elements
+animationRegistry.forEach(elAnimObj => {
+elAnimObj.pos = elAnimObj.el.getBoundingClientRect().top + pageYOffset;
+})
+}
+
+// Return whether an element is visible
+static isVisible(pos, pageYOffset) {
+return pos - pageYOffset - window.innerHeight < -100;
+}
+}
+
+export default Animation;
+import express, { Request, Response } from 'express';
+import { body, validationResult } from 'express-validator';
+
+import { sendMail } from './sendMail';
+
+const router = express.Router();
+
+router.post('/email', [
+body('name')
+.trim()
+.notEmpty()
+.withMessage('Name must not be empty')
+.escape()
+.isString()
+.isLength({ min: 5 })
+.withMessage('Name must be a string with a minimum of 5 characters'),
+body('email')
+.trim()
+.notEmpty()
+.withMessage('Email must not be empty')
+.isEmail()
+.normalizeEmail()
+.withMessage('Email must be a valid email'),
+body('message')
+.trim()
+.notEmpty()
+.withMessage('Message must not be empty')
+.escape()
+.isString()
+.isLength({ min: 20 })
+.withMessage('Message must be a string with a minimum of 20 characters')
+], async (
+req: Request,
+res: Response
+) => {
+const errors = validationResult(req);
+if (!errors.isEmpty()) {
+return res.status(400).send(JSON.stringify({
+success: false,
+errors: errors.array()
+}));
+}
+
+const { name, email, message } = req.body;
+
+const mailDetails = {
+from: `AdLux Holograms <${process.env.MAIL_USER}>`,
+to: process.env.MAIL_USER,
+subject: 'Zpráva z webu AdLux',
+replyTo: email,
+text: (
+message + '\n' +
+'\n' +
+name + '\n' +
+email
+)
+}
+
+try {
+await sendMail(mailDetails);
+
+return res
+.status(200)
+.send(JSON.stringify({ success: true }));
+
+} catch (err) {
+console.log('---------------------------------------');
+console.log(new Date().toString())
+console.log('Sending mail failed:');
+console.log(err);
+console.log('---------------------------------------');
+
+return res
+.status(503)
+.send(JSON.stringify({ success: false }));
+}
+
+});
+
+export { router as emailRouter };
+import fs from 'fs';
+import path from 'path';
+import express, { Request, Response, NextFunction } from 'express';
+import bodyParser from 'body-parser';
+
+import { emailRouter } from './emailRouter';
+
+const app = express();
+
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
+app.use(express.static('public'));
+
+app.use(emailRouter);
+
+app.get('/', (req, res) => {
+res.render('index');
+});
+
+app.get('/gdpr', (req, res) => {
+const gdprPath = path.join('public', 'pdf', 'adlux_gdpr.pdf');
+const fileStream = fs.createReadStream(gdprPath);
+
+res.setHeader('Content-Type', 'application/pdf');
+res.setHeader('Content-Disposition', 'inline; filename="adlux_gdpr.pdf"');
+
+fileStream.pipe(res);
+})
+
+app.get('*', (req, res) => {
+res.redirect('/');
+});
+
+app.use((
+err: any,
+req: Request,
+res: Response,
+next: NextFunction
+) => {
+console.log('---------------------------------------');
+console.log(new Date().toString())
+console.log('Express error handler:');
+console.log(err);
+console.log('---------------------------------------');
+
+res.sendStatus(500);
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+console.log('Listening on port 8080');
+});
+import nodemailer, { SentMessageInfo, SendMailOptions } from 'nodemailer';
+
+const transporter = nodemailer.createTransport({
+host: process.env.MAIL_SERV,
+port: 465,
+secure: true,
+auth: {
+user: process.env.MAIL_USER,
+pass: process.env.MAIL_PASS
+},
+tls: {
+rejectUnauthorized: false
+}
+});
+
+// Create promise-wrapper
+const sendMail = (mailDetails: SendMailOptions) => {
+return new Promise((resolve, reject) => {
+
+transporter.sendMail(mailDetails, (err: Error | null, info: SentMessageInfo) => {
+if (err) {
+reject(err);
+} else {
+resolve(info)
+}
+});
+});
+
+}
+
+export { sendMail };

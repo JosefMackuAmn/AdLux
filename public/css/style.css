@@ -682,7 +682,7 @@ a {
       justify-content: space-evenly; } }
   .info__meaning__text-wrap {
     width: 32rem;
-    transform: calc(var(--vh, 1vh) * -12); }
+    transform: calc(var(--vh, 1vh) * (-12)); }
     @media only screen and (max-width: 1250px) {
       .info__meaning__text-wrap {
         width: 26rem; } }

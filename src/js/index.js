@@ -38,15 +38,15 @@ window.ondragstart = function() { return false; }
 
 //Adlux animation video source config
 const sources = [
-  {extension: 'webm', type: 'video/webm', filePath: 'img/animation/',
+  {extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
     sizes: [
       {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
       {maxWidth: 1200, name: '300'},
       {maxWidth: 800, name: '200'},
       {maxWidth: 500, name: '150'}
-    ]  
+    ]
   },
-  {extension: 'mov', type: 'video/quicktime', filePath: 'img/animation/',
+  {extension: 'mov', type: '', filePath: '/img/animation/',
     sizes: [
       {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
       {maxWidth: 1200, name: '300'},

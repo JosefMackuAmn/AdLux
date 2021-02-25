@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: [
       './src/js/index.js'
     ],
@@ -10,5 +10,5 @@ module.exports = {
       path: path.resolve(__dirname, 'public', 'js'),
       publicPath: './public/'
     },
-    /* devtool: 'source-map' */
+    devtool: 'eval-source-map'
   };

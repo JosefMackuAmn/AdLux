@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="img/adlux-logo-blue-part.svg">
+<meta name="description" content="Udělejte z reklamy atrakci! Revoluční marketingový produkt pro obchodní centra a pasáže. Užitím technologií holografického zobrazení zvyšte svoje příjmy a atraktivitu.">
+<link rel="canonical" href="https://www.adluxholo.cz" />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:title" content="AdLux Holograms" />
+<meta property="og:description" content="Udělejte z reklamy atrakci! Revoluční marketingový produkt pro obchodní centra a pasáže. Užitím technologií holografického zobrazení zvyšte svoje příjmy a atraktivitu." />
+<meta property="og:url" content="https://www.adluxholo.cz" />
+<meta property="og:image" content="/img/adlux_og-image.jpg" />
+<meta property="og:image:secure_url" content="https://www.adluxholo.cz" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:type" content="website" />
+
+<title>AdLux Holograms</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" async defer>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<script src="/js/p5.js"></script>
+<script src="/js/gsap.js"></script>
+</head>
+<body>
+
+<!-- MENU -->
+<%- include('./0_menu.ejs') %>
+
+<!-- HEADER -->
+<%- include('./1_header.ejs') %>
+
+<!-- VIDEO -->
+<!-- <%- include('./2_video.ejs') %> -->
+
+<!-- INFO -->
+<%- include('./3_info.ejs') %>
+
+<!-- BENEFITS -->
+<%- include('./4_benefits.ejs') %>
+
+<!-- PRODUCTS -->
+<%- include('./5_products.ejs') %>
+
+<!-- SOLUTION -->
+<%- include('./6_solution.ejs') %>
+
+<!-- CONTACT -->
+<%- include('./7_contact.ejs') %>
+
+<!-- FOOTER -->
+<%- include('./8_footer.ejs') %>
+
+</body>
+<script src="/js/index.js" defer></script>
+<a class="contact-content__gdpr" href="/gdpr" target="_blank">Odesláním souhlasíte se zpracováním osobních údajů.</a>
+<section class="benefits" id="benefits">
+<img
+src="/img/jellyfish.jpg"
+alt="AdLux Holograms"
+class="benefits__img"
+id="benefits-img"
+>
+<div class="benefits__content">
+<h1 class="heading-1 heading-1--big">BENEFITY</h1>
+<h3 class="heading-3">Využijte výhody reklamy budoucnosti.</h3>
+<div class="benefits__stripe">
+<p class="benefits__stripe__subheading paragraph-small"><span>Jedinečný vizuální zážitek z reklamní plochy = vyšší atraktivita pro veřejnost.</span></p>
+<div class="benefits__stripe__text">
+<p class="paragraph-small">Kompletní řešení umožňující flexibilní řízení reklam dle vašich požadavků. Zatím, co <span>my se staráme o bezstarostný provoz</span>, vy rozhodujete o tom, <span>jak chcete holografickou reklamní plochu využít.</span></p>
+<ul class="benefits__stripe__list">
+<li class="beneftis__stripe__item"><p class="paragraph-small">&bull;  reklama pro vaše nájemníky a třetí strany</p></li>
+<li class="beneftis__stripe__item"><p class="paragraph-small">&bull;  reklama pro vás</p></li>
+<li class="beneftis__stripe__item"><p class="paragraph-small">&bull;  dekorace</p></li>
+<li class="beneftis__stripe__item"><p class="paragraph-small">&bull;  jiné individuální potřeby</p></li>
+<li class="beneftis__stripe__item"><p class="paragraph-small">&bull;  užití dvou reklamních produktů</p></li>
+</ul>
+</div>
+</div>
+<div class="benefits__content__animators">
+<p class="paragraph-small">Náš tým animátorů zajistí <span>kompletní tvorbu animací</span> dle vašich požadavků.</p>
+</div>
+</div>
+</section>
+<section class="info">
+<section class="info__revolution" id="info-revolution">
+<div class="info__revolution__content" id="revolution-content">
+<div class="border-left"></div>
+<div class="border-top"></div>
+<div class="border-bottom"></div>
+<h2 class="heading-2">Reklamní <br>Revoluce</h2>
+<p class="paragraph-big paragraph-big--blue">Tradiční forma reklamy se v dnešní době stává stále méně schopnou v <span>získání pozornosti zákazníka a uspokojení požadavků</span> stávajících značek. Pohlcující zážitek 3D hologramu se k uživatelům dostane tak, <span>jako žádné jiné reklamní médium.</span></p>
+</div>
+</section>
+<section class="info__meaning" id="info">
+<div class="info__meaning__text-wrap">
+<p class="paragraph-big info__meaning__text">Uděláte <span>z reklamy atrakci.</span></p>
+</div>
+<div class="info__meaning__text-wrap">
+<p class="paragraph-big info__meaning__text">Získáte <span>náskok před ostatními</span> v marketingové revoluci.</p>
+</div>
+<div class="info__meaning__text-wrap">
+<p class="paragraph-big info__meaning__text">Návštěvníci na vás budou <span>myslet i doma.</span></p>
+</div>
+</section>
+</section>
+@import "abstracts/variables";
+@import "abstracts/animations";
+
+@import "base/base";
+@import "base/typography";
+
+@import "sections/1_header";
+@import "sections/2_video";
+@import "sections/3_info";
+@import "sections/4_benefits";
+@import "sections/5_products";
+@import "sections/6_solution";
+@import "sections/7_contact";
+@import "sections/8_footer";
+&__gdpr {
+color: $color-blue;
+text-decoration: none;
+font-size: 1.4rem;
+}
+&__err-msg {
+margin-top: .5rem;
+
+color: red;
+font-weight: $font_bold;
+
+display: none;
+}
+$benefits-margin: 14rem;
+
+.benefits {
+height: calc(var(--vh, 1vh) * 100);
+max-height: 90rem;
+min-height: 70rem;
+width: 100%;
+
+display: flex;
+align-items: center;
+
+overflow : hidden;
+
+@media only screen and (max-width: 1100px) {
+height: auto;
+}
+
+&__img {
+height: 100%;
+
+object-fit: none;
+
+transition: all .05s;
+
+@media only screen and (max-width: 1550px) {
+width: 27%;
+}
+@media only screen and (max-width: 1300px) {
+width: 20%;
+
+object-fit: cover;
+object-position: right;
+}
+@media only screen and (max-width: 1100px) {
+display: none;
+}
+}
+&__content {
+width: 100%;
+padding: 4rem 0;
+
+display: flex;
+flex-direction: column;
+
+@media only screen and (max-width: 1100px) {
+padding: 3rem 0;
+}
+
+& .heading-1, .heading-3 {
+margin-left: $benefits-margin;
+
+@media only screen and (max-width: 1100px) {
+margin-left: 8rem;
+}
+@media only screen and (max-width: 600px) {
+margin: 0 5rem;
+}
+@media only screen and (max-width: 420px) {
+margin: 0 3rem;
+}
+}
+& .heading-3 {
+margin-top: -1rem;
+
+@media only screen and (max-width: 500px) {
+margin-top: -.5rem;
+}
+}
+&__animators {
+width: 100%;
+padding: 0 $benefits-margin;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+@media only screen and (max-width: 1100px) {
+padding: 0 8rem;
+}
+@media only screen and (max-width: 600px) {
+padding: 0 5rem;
+}
+@media only screen and (max-width: 420px) {
+padding: 0 3rem;
+}
+
+& p {
+width: 35rem;
+
+text-align: center;
+}
+}
+}
+&__stripe {
+width: 100%;
+background-image: linear-gradient(to right bottom, $color-blue-stripe-1, $color-blue-stripe-2);
+background-repeat: no-repeat;
+background-size: 100%;
+background-position: -100vw;
+padding: 10rem 12rem 10rem $benefits-margin;
+margin: 5rem 0 3.5rem 0;
+
+@media only screen and (max-width: 1100px) {
+padding: 10rem 8rem;
+}
+@media only screen and (max-width: 850px) {
+padding: 6rem 8rem;
+}
+@media only screen and (max-width: 600px) {
+padding: 6rem 5rem;
+}
+@media only screen and (max-width: 500px) {
+padding: 4rem 5rem;
+}
+@media only screen and (max-width: 420px) {
+padding: 4rem 3rem;
+}
+
+&__subheading {
+margin-bottom: 4rem;
+
+opacity: 0;
+}
+&__text {
+display: flex;
+justify-content: space-between;
+
+opacity: 0; 
+
+@media only screen and (max-width: 850px) {
+flex-direction: column;
+}
+
+& > *:first-child {
+width: 46%;
+
+@media only screen and (max-width: 850px) {
+width: 100%;
+margin-bottom: 3rem;
+}
+}
+& > *:nth-child(2) {
+width: 47%;
+
+@media only screen and (max-width: 1150px) {
+width: 50%;
+}
+@media only screen and (max-width: 1000px) {
+width: 47%;
+}
+@media only screen and (max-width: 850px) {
+width: 100%;
+}
+}
+}
+&__list {
+list-style: none;
+}
+}
+}
+.info {
+%revolution-container {
+height: calc(var(--vh, 1vh) * 100);
+padding: 26rem;
+padding-right: 25rem;
+
+@media only screen and (max-width: 1700px) {
+padding: 20rem;
+padding-right: 19rem;
+}
+@media only screen and (max-width: 1550px) {
+padding: 15rem;
+}
+@media only screen and (max-width: 1100px) {
+padding: 10rem;
+}
+@media only screen and (max-width: $bp-mobile) {
+height: auto;
+padding: 10rem 8rem;
+}
+@media only screen and (max-width: 600px) {
+padding: 10rem 4rem;
+}
+@media only screen and (max-width: 420px) {
+padding: 10rem 2rem;
+}
+}
+
+&__revolution {
+@extend %revolution-container;
+
+display: flex;
+align-items: center;
+
+&__content {
+padding: 5rem 0 5rem 5rem;
+transform: translateY(calc(var(--vh, 1vh) * 12));
+
+display: flex;
+
+position: relative;
+z-index: 2;
+overflow: hidden;
+
+transition: border-left .1s 1s, ;
+
+@media only screen and (max-width: 950px) {
+padding: 5rem 0 5rem 5rem;
+
+flex-direction: column;
+}
+@media only screen and (max-width: 420px) {
+padding: 3rem 0 3rem 2rem;
+}
+
+& .border-bottom, & .border-top {
+width: 30rem;
+height: 2px;
+background-image: linear-gradient(to right, $color-blue, transparent);
+
+position: absolute;
+left: 0;
+}
+& .border-top {
+top: 0;
+transform: translateX(-100%)
+}
+& .border-left {
+width: 2px;
+height: 100%;
+background-color: $color-blue;
+
+left: 0;
+top: 0;
+transform-origin: 50% 50%;
+position: absolute;
+transform: scaleY(0);
+}
+& .border-bottom {
+bottom: 0;
+transform: translateX(-100%);
+}
+
+& .heading-2 {
+margin-right: 8rem;
+
+display: flex;
+align-items: center;
+
+transform: translateX(-3px);
+opacity: 0;
+
+@media only screen and (max-width: 950px) {
+margin-right: 0;
+margin-bottom: 1.5rem;
+
+& br {
+display: none
+}
+}
+}
+& .paragraph-big {
+transform: translateX(-3px);
+opacity: 0;
+}
+}
+}
+&__meaning {
+@extend %revolution-container;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+@media only screen and (max-width: $bp-mobile) {
+min-height: calc(var(--vh, 1vh) * 100);
+
+flex-direction: column;
+justify-content: space-evenly;
+}
+@media only screen and (max-width: $bp-mobile) {
+}
+
+&__text-wrap {
+width: 32rem;
+transform: calc(var(--vh, 1vh) * (-12));
+
+@media only screen and (max-width: 1250px) {
+width: 26rem;
+}
+@media only screen and (max-width: $bp-mobile) {
+transform: translateY(0);
+}
+}
+&__text {
+text-align: center;
+}
+}
+&__video{
+height: 75%;
+width: 40rem;
+transform: translate(-50%, -50%) scaleX(1.35);
+max-width: 100%;
+
+color: white;
+text-align: center;
+object-fit: contain;
+
+position: absolute;
+left: 50%;
+top: 50%;
+
+@media screen and (max-width: 1200px) {
+width: 30rem;
+}
+@media screen and (max-width: 900px) {
+top: 45%;
+}
+@media screen and (max-width: 800px) {
+width: 18rem;
+
+top: 50%;
+}
+@media only screen and (max-width: 750px) {
+top: 46%;
+}
+@media screen and (max-width: 600px) {
+transform: translate(-50%, -50%) scaleX(1.25) scaleY(.9);
+}
+@media screen and (max-width: 500px) {
+transform: translate(-50%, -50%) scaleX(1) scaleY(.65);
+}
+@media screen and (max-width: 450px) {
+top: 42%;
+transform: translate(-50%, -50%) scaleX(.9) scaleY(.55);
+}
+@media screen and (max-width: 400px) {
+top: 42%;
+transform: translate(-50%, -50%) scaleX(.8) scaleY(.45);
+}
+
+}
+
+&__background-gradient {
+width: 100%;
+height: 60rem;
+background-image: radial-gradient($color-blue-header-grad, transparent 50%);
+background-size: 1% 100%;
+background-position: center center;
+background-repeat: repeat-x;
+
+z-index: -1;
+position: absolute;
+bottom: -15%;
+left: 50%;
+transform: translateX(-50%);
+
+animation: headerBackgroundGradient 5s infinite ease-out;
+}
+
+&__text{
+text-align: center;
+transform: translate(-50%, -50%);
+width: 75%;
+
+position: absolute;
+bottom: 5rem;
+left: 50%;
+
+& .paragraph-big {
+margin-bottom: .8rem;
+}
+}
+@media only screen and (max-width: 750px) {
+min-height: 70rem;
+}
+@media only screen and (max-width: 600px) {
+min-height: 65rem;
+}
+@media only screen and (max-width: 500px) {
+min-height: 55rem;
+}
+body {
+box-sizing: border-box;
+font-size: 1.6rem;
+}
+
+::-webkit-scrollbar {
+background-color: $color-blue-black;
+border-left: 1px solid $color-white-overlay-lightest;
+}
+::-webkit-scrollbar-thumb {
+background-color: $color-blue-stripe-2;
+box-shadow: 2px 1px 5px 1px $color-white-overlay-lightest inset;
+
+&:hover {
+background-color: $color-blue-stripe-1;
+}
+}
+*, *::after, *::before {
+margin: 0;
+padding: 0;
+box-sizing: inherit;
+}
+
+html {
+background-image: linear-gradient(to bottom, rgba($color-blue-black, .98), $color-blue-black );
+
+font-family: $font_raleway;
+font-size:  62.5%;
+
+@media only screen and (min-width: 1921px) {
+font-size: 70%;
+}
+@media only screen and (min-width: 2250px) {
+font-size: 75%;
+}
+/////
+// Colors
+$text-color-white: #ffff;
+
+// Shades
+$color-white: white;
+$color-white-overlay-lightest: rgba($color-white, .02);
+$color-grey-light: #F1F1F1;
+$color-grey: #E8E8E8;
+$color-grey-CCC: #CCC;
+$color-grey-dark: #ACAFAF;
+$color-grey-darker: #3A3F3F;
+$color-grey-darkest: #1F1F1F;
+$color-black: black;
+
+// Blue
+$color-blue-light: #00BFCB;
+$color-blue: #36AEB7;
+$color-blue-dark: #056369;
+$color-blue-header-grad: #021D1E;
+$color-blue-stripe-1: #043033;
+$color-blue-stripe-2: #051C1E;
+$color-blue-black: #040E0F;
+
+/////
+// Font
+
+// Weights
+$font_light: 300;
+$font_regular: 400;
+$font_medium: 500;
+$font_semiBold: 600;
+$font_bold: 700;
+$font_extraBold: 800;
+$font_black: 900;
+
+// Sizes
+$font_15: 1.5rem;
+$font_18: 1.5rem;
+$font_20: 1.7rem;
+$font_bebasNeue: 'Bebas Neue', cursive;
+
+/////
+// Breakpoints
+$bp-mobile: 950px;
+
+@keyframes showBenefitsStripe {
+from {
+background-position: -100vw;
+}
+to {
+background-position: 0rem;
+}
+}
+
+@keyframes turnUpOpacity {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+
+@keyframes turnOffOpacity {
+from {
+opacity: 1;
+}
+to {
+opacity: 0;
+}
+}
+
+@keyframes headerBackgroundGradient {
+0% {
+background-size: 1% 100%;
+background-position-x: 0%;
+animation-timing-function: linear;
+}
+50% {
+background-size: 1.1% 20%;
+background-position-x: 50%;
+}
+80% {        
+animation-timing-function: ease-out;
+}
+100% {
+background-size: 1% 100%;
+background-position-x: 100%;
+animation-timing-function: linear;
+}
+}

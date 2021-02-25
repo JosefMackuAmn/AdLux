@@ -1,4 +1,0 @@
-Setup:
-    scss files
-    scss compilation
-    webpack compilation
