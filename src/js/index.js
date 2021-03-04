@@ -43,7 +43,7 @@ const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && n
 //Adjusting styles
 if (isSafari) {
   const headerGradient = document.getElementById('gradient');
-  gradient.style.display = 'none';
+  headerGradient.style.display = 'none';
 
   document.documentElement.style.backgroundImage = 'none';
   document.documentElement.style.backgroundColor = '#040e0f';
@@ -52,15 +52,24 @@ if (isSafari) {
 //Adlux animation video source config
 
 const sources = [  
+
   {extension: 'webm', type: 'video/webm', filePath: '/img/animation-safari/',
     sizes: [
       {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
       {maxWidth: 1200, name: '300'},
       {maxWidth: 800, name: '200'},
       {maxWidth: 500, name: '150'}
-    ]  
+    ],
+  },
+
+  {extension: 'mov', type: 'video/quicktime', filePath: '/img/',
+    sizes: [
+      {maxWidth: Number.POSITIVE_INFINITY, name: 'out'},
+    ],
+      
   }
 ]
+
 if (!isSafari) {
 
   sources.unshift({extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
@@ -70,6 +79,7 @@ if (!isSafari) {
     {maxWidth: 800, name: '200'},
     {maxWidth: 500, name: '150'}
   ]
+  
 },)
 
 }
