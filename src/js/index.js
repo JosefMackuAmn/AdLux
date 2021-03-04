@@ -36,17 +36,13 @@ window.ondragstart = function() { return false; }
 ////////HEADER
 ////////////////
 
-//Adlux animation video source config
-const sources = [
-  {extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
-    sizes: [
-      {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
-      {maxWidth: 1200, name: '300'},
-      {maxWidth: 800, name: '200'},
-      {maxWidth: 500, name: '150'}
-    ]
-  },
-  {extension: 'mov', type: '', filePath: '/img/animation/',
+const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && navigator.userAgent &&
+               navigator.userAgent.indexOf('CriOS') == -1 &&
+               navigator.userAgent.indexOf('FxiOS') == -1;
+
+
+const sources = [  
+  {extension: 'webm', type: 'video/webm', filePath: '/img/animation-safari/',
     sizes: [
       {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
       {maxWidth: 1200, name: '300'},
@@ -55,6 +51,23 @@ const sources = [
     ]  
   }
 ]
+if (isSafari) {
+
+  sources.unshift({extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
+  sizes: [
+    {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
+    {maxWidth: 1200, name: '300'},
+    {maxWidth: 800, name: '200'},
+    {maxWidth: 500, name: '150'}
+  ]
+},)
+
+}
+
+//Adlux animation video source config
+
+
+console.log(sources);
 
 //Making adlux animation video responsive
 new ResponsiveVideo('adluxvideo', sources);

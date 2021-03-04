@@ -60,6 +60,9 @@
                 background-image: url('/img/adlux-logo-text.svg');
                 background-size: cover;
 
+                position: relative;
+                z-index: 10;
+
                 display: inline-block;
                 margin-left: 8.5rem;
                 @-moz-document url-prefix() {
@@ -194,6 +197,7 @@
         position: absolute;
         bottom: 5rem;
         left: 50%;
+        z-index: 10;
 
         & .paragraph-big {
             margin-bottom: .8rem;
