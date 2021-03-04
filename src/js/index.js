@@ -51,7 +51,7 @@ const sources = [
     ]  
   }
 ]
-if (isSafari) {
+if (!isSafari) {
 
   sources.unshift({extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
   sizes: [
