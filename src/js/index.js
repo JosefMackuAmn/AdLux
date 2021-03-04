@@ -41,6 +41,8 @@ const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && n
                navigator.userAgent.indexOf('FxiOS') == -1;
 
 
+//Adlux animation video source config
+
 const sources = [  
   {extension: 'webm', type: 'video/webm', filePath: '/img/animation-safari/',
     sizes: [
@@ -64,10 +66,8 @@ if (!isSafari) {
 
 }
 
-//Adlux animation video source config
 
 
-console.log(sources);
 
 //Making adlux animation video responsive
 new ResponsiveVideo('adluxvideo', sources);
