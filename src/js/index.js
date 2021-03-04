@@ -40,6 +40,14 @@ const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && n
                navigator.userAgent.indexOf('CriOS') == -1 &&
                navigator.userAgent.indexOf('FxiOS') == -1;
 
+//Adjusting styles
+if (isSafari) {
+  const headerGradient = document.getElementById('gradient');
+  gradient.style.display = 'none';
+
+  document.documentElement.style.backgroundImage = 'none';
+  document.documentElement.style.backgroundColor = '#040e0f';
+}
 
 //Adlux animation video source config
 
