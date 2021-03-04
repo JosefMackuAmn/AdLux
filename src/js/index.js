@@ -413,29 +413,24 @@ const cancelButton = document.getElementById('cancelButton');
 const link = document.querySelectorAll('#menu a');
 const backDrop = document.getElementById('back-drop');
 const body = document.body;
-let isMenuOpen = false;
+let timeOut;
+
+function removeTimOut(timeOutId){
+  clearTimeout(timeOutId);
+  body.classList.remove('unblur-body');
+  body.classList.remove('blur-body');
+}
 
 function openMenuHandler(){
-  isMenuOpen = true;
+  removeTimOut(timeOut);
   body.classList.add('blur-body');
   menu.classList.remove('unvisible');
   openButton.classList.add('unvisibleOpenButton');
 }
 
 function closeMenuHandler(){
-  isMenuOpen = false;
   body.classList.add('unblur-body');
-  setInterval(()=>{
-    if(isMenuOpen){
-      body.classList.remove('unblur-body');
-    }
-  }, 480);
-  setTimeout(()=>{
-    body.classList.remove('unblur-body');
-    if(!isMenuOpen){
-      body.classList.remove('blur-body');
-    }
-  }, 480);
+  timeOut = setTimeout(removeTimOut, 480);
   menu.classList.add('unvisible');
   openButton.classList.remove('unvisibleOpenButton');
 }
