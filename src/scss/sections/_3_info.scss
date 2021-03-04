@@ -126,6 +126,8 @@
             width: 32rem;
             transform: calc(var(--vh, 1vh) * (-12)); //-12vh
 
+            position: relative;
+
             @media only screen and (max-width: 1250px) {
                 width: 26rem;
             }

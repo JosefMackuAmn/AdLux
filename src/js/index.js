@@ -43,7 +43,7 @@ const isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && n
 //Adjusting styles
 if (isSafari) {
   const headerGradient = document.getElementById('gradient');
-  gradient.style.display = 'none';
+  headerGradient.style.display = 'none';
 
   document.documentElement.style.backgroundImage = 'none';
   document.documentElement.style.backgroundColor = '#040e0f';
