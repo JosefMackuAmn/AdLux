@@ -52,25 +52,43 @@ if (isSafari) {
 //Adlux animation video source config
 
 const sources = [  
-  {extension: 'webm', type: 'video/webm', filePath: '/img/animation-safari/',
+
+  // {extension: 'webm', type: 'video/webm', filePath: '/img/newanimation/',
+  //   sizes: [
+  //     {maxWidth: Number.POSITIVE_INFINITY, name: '480p_transp'},
+  //     {maxWidth: 1200, name: '480p_transp'},
+  //     {maxWidth: 800, name: '480p_transp'},
+  //     {maxWidth: 500, name: '480p_transp'}
+  //   ],
+  // },
+
+  {extension: 'mp4', type: 'video/mp4', filePath: '/img/animation-safari/',
     sizes: [
       {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
       {maxWidth: 1200, name: '300'},
       {maxWidth: 800, name: '200'},
       {maxWidth: 500, name: '150'}
-    ]  
-  }
+    ],
+  },
+
+  // {extension: 'mov', type: 'video/quicktime', filePath: '/img/',
+  //   sizes: [
+  //     {maxWidth: Number.POSITIVE_INFINITY, name: 'out'},
+  //   ],
+      
+  // }
 ]
+
 if (!isSafari) {
 
-  sources.unshift({extension: 'webm', type: 'video/webm', filePath: '/img/animation/',
-  sizes: [
-    {maxWidth: Number.POSITIVE_INFINITY, name: '400'},
-    {maxWidth: 1200, name: '300'},
-    {maxWidth: 800, name: '200'},
-    {maxWidth: 500, name: '150'}
-  ]
-},)
+  sources.unshift({extension: 'webm', type: 'video/webm', filePath: '/img/newanimation/',
+    sizes: [
+      {maxWidth: Number.POSITIVE_INFINITY, name: '480p_transp'},
+      {maxWidth: 1200, name: '480p_transp'},
+      {maxWidth: 800, name: '480p_transp'},
+      {maxWidth: 500, name: '480p_transp'}
+    ],
+  })
 
 }
 
